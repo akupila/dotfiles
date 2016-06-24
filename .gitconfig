@@ -1,0 +1,16 @@
+[user]
+	name = akupila
+	email = akupila@gmail.com
+[mergetool]
+	keepBackup = false
+[color]
+	ui = auto
+[branch]
+	autosetupmerge = true
+[merge]
+	stat = true
+	tool = opendiff
+[core]
+	ignorecase = false
+[diff]
+	compactionHeuristic = true
