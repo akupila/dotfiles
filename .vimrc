@@ -12,7 +12,7 @@ set number
 " Enable syntax highlighting
 syntax on
 " Make tabs as wide as two spaces
-set tabstop=2
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 " Show the current mode
 set showmode
 " Show the filename in the window titlebar
