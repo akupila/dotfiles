@@ -20,6 +20,10 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+" Set desert colorscheme
+:colorscheme desert
+" Set line numbers gray
+:highlight LineNr ctermfg=darkgrey 
 
 " Move current line up/down. n: down, m: up
 nmap n :m +1<CR>
