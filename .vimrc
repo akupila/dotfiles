@@ -29,6 +29,11 @@ set showcmd
 " Move current line up/down. n: down, m: up
 nmap n :m +1<CR>
 nmap m :m -2<CR>
+" Map semicolon to colon
+map ; :
+" Double press semicolon to get a regular semicolon
+noremap ;; ;
+imap jk <Esc>
 
 " Set up Vundle
 set nocompatible              " be iMproved, required
