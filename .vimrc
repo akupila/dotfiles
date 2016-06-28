@@ -7,7 +7,8 @@ set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 
-" Enable line numbers
+" Enable relative line numbers, absolute on current line (req vim 7.4)
+set relativenumber 
 set number
 " Enable syntax highlighting
 syntax on
