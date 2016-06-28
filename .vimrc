@@ -24,6 +24,7 @@ set showcmd
 :colorscheme desert
 " Set line numbers gray
 :highlight LineNr ctermfg=darkgrey 
+:highlight CursorLineNR ctermfg=white
 
 " Move current line up/down. n: down, m: up
 nmap n :m +1<CR>
