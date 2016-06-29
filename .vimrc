@@ -40,6 +40,8 @@ set scrolloff=3
 set nobackup
 " Disable swap files
 set noswapfile
+" Disable startup screen
+set shortmess+=I
 " Disable netrw
 let g:netrw_dirhistmax = 0
 " Set desert colorscheme
