@@ -34,8 +34,10 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+" Scroll offset 3 lines
+set scrolloff=3
 " Set desert colorscheme
-:colorscheme molokai
+colorscheme molokai
 
 " Move current line up/down. n: down, m: up
 nmap n :m +1<CR>
