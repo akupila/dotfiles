@@ -1,3 +1,15 @@
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'fatih/vim-go'
+Plugin 'Shougo/neocomplete.vim'
+call vundle#end()
+
 syntax on
 
 " General
@@ -21,10 +33,7 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Set desert colorscheme
-:colorscheme desert
-" Set line numbers gray
-:highlight LineNr ctermfg=darkgrey 
-:highlight CursorLineNR ctermfg=white
+:colorscheme molokai
 
 " Move current line up/down. n: down, m: up
 nmap n :m +1<CR>
@@ -35,19 +44,15 @@ map ; :
 noremap ;; ;
 imap jk <Esc>
 
-" Set up Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'fatih/vim-go'
-
-" All of your Plugins must be added before the following line
-call vundle#end()
 filetype plugin indent on
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_select = 1
+
+" Highlight
+let g:go_highlight_functions = 1  
+let g:go_highlight_methods = 1  
+let g:go_highlight_structs = 1  
+let g:go_highlight_operators = 1  
+let g:go_highlight_build_constraints = 1  
