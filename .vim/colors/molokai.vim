@@ -277,5 +277,5 @@ set background=dark
 
 " Antti
 " Line numbers gray, active white
-hi LineNr ctermfg=darkgrey
+hi LineNr ctermfg=darkgrey ctermbg=black
 hi CursorLineNR ctermfg=white
