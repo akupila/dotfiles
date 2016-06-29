@@ -1,0 +1,5 @@
+# Set faster initial key repeat (default fastest 15, 225ms)
+defaults write -g InitialKeyRepeat 10
+
+# Set faster key repeat (default fastest 2, 30ms)
+defaults write -g KeyRepeat 2
