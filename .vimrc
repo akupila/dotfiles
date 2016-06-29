@@ -22,6 +22,8 @@ set backspace=indent,eol,start
 " Enable relative line numbers, absolute on current line (req vim 7.4)
 set relativenumber 
 set number
+" Enable lazy redraw (otherwise relativenumber is super slow)
+set lazyredraw
 " Enable syntax highlighting
 syntax on
 " Make tabs as wide as two spaces
