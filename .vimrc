@@ -36,6 +36,10 @@ set title
 set showcmd
 " Scroll offset 3 lines
 set scrolloff=3
+" Disable vim backups
+set nobackup
+" Disable swap files
+set noswapfile
 " Disable netrw
 let g:netrw_dirhistmax = 0
 " Set desert colorscheme
