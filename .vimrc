@@ -42,6 +42,8 @@ set nobackup
 set noswapfile
 " Disable startup screen
 set shortmess+=I
+" Disable bell
+set visualbell t_vb=
 " Disable netrw
 let g:netrw_dirhistmax = 0
 " Set desert colorscheme
