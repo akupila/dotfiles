@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 syntax on
@@ -76,3 +77,12 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 " Ignore vendor dir for ctrl-p
 let g:ctrlp_custom_ignore = 'vendor'
+
+" NERDTree
+" Open NERDTree if vim opened without file
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Toggle NERDTree with ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+" Close vim if only view open is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
