@@ -12,5 +12,6 @@
 	tool = opendiff
 [core]
 	ignorecase = false
+	editor = /usr/local/bin/vim
 [diff]
 	compactionHeuristic = true
