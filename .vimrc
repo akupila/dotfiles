@@ -64,9 +64,15 @@ filetype plugin indent on
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_select = 1
 
+" GO
 " Highlight
 let g:go_highlight_functions = 1  
 let g:go_highlight_methods = 1  
 let g:go_highlight_structs = 1  
 let g:go_highlight_operators = 1  
 let g:go_highlight_build_constraints = 1  
+
+" Run goimports in save
+let g:go_fmt_command = "goimports"
+" Ignore vendor dir for ctrl-p
+let g:ctrlp_custom_ignore = 'vendor'
