@@ -26,7 +26,6 @@ else
     let s:molokai_original = 0
 endif
 
-
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF
@@ -279,3 +278,5 @@ set background=dark
 " Line numbers gray, active white
 hi LineNr ctermfg=darkgrey ctermbg=black
 hi CursorLineNR ctermfg=white
+" Cyan selection text
+hi Visual ctermfg=0 ctermbg=197
