@@ -50,9 +50,9 @@ let g:netrw_dirhistmax = 0
 " Set desert colorscheme
 colorscheme molokai
 
-" Move current line up/down. n: down, m: up
-nmap n :m +1<CR>
-nmap m :m -2<CR>
+" Move current line up/down. m: down, M: up
+nmap m :m +1<CR>
+nmap M :m -2<CR>
 " Map semicolon to colon
 map ; :
 " Double press semicolon to get a regular semicolon
