@@ -79,9 +79,6 @@ let g:go_fmt_command = "goimports"
 let g:ctrlp_custom_ignore = 'vendor'
 
 " NERDTree
-" Open NERDTree if vim opened without file
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Toggle NERDTree with ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 " Close vim if only view open is NERDTree
