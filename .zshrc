@@ -88,7 +88,6 @@ eval "$(docker-machine env dev)"
 export GOPATH=/Users/akupila/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOPATH/src/github.com/wercker/wercker
 
 source ~/.aliases
 source ~/.osx
