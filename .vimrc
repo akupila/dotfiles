@@ -55,6 +55,11 @@ colorscheme molokai
 " Move current line up/down. m: down, M: up
 nmap m :m +1<CR>
 nmap M :m -2<CR>
+" Center screen after jump
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap } }zz
+nnoremap { {zz
 " Map semicolon to colon
 map ; :
 " Double press semicolon to get a regular semicolon
