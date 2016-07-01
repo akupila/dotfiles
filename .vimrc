@@ -45,6 +45,8 @@ set noswapfile
 set shortmess+=I
 " Disable bell
 set visualbell t_vb=
+" Allow visual selection past end of lines
+set virtualedit=block
 " Disable netrw
 let g:netrw_dirhistmax = 0
 " Set desert colorscheme
