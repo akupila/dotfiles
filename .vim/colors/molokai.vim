@@ -278,5 +278,6 @@ set background=dark
 " Line numbers gray, active white
 hi LineNr ctermfg=darkgrey ctermbg=black
 hi CursorLineNR ctermfg=white
-" Cyan selection text
-hi Visual ctermfg=0 ctermbg=197
+" Dark grey selection text bg, white text
+hi Visual ctermfg=254 ctermbg=236
+
