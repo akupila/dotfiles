@@ -12,6 +12,7 @@ Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 syntax on
+filetype plugin indent on
 
 " General
 
@@ -47,6 +48,10 @@ set shortmess+=I
 set visualbell t_vb=
 " Allow visual selection past end of lines
 set virtualedit=block
+" Disable automatic comment continuation
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Show current file in title
+autocmd BufEnter * let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
 " Disable netrw
 let g:netrw_dirhistmax = 0
 " Set desert colorscheme
@@ -66,7 +71,6 @@ map ; :
 noremap ;; ;
 imap jk <Esc>
 
-filetype plugin indent on
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
