@@ -10,6 +10,7 @@ Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'kshenoy/vim-signature'
 call vundle#end()
 
 syntax on
