@@ -9,6 +9,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 
 syntax on
