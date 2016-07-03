@@ -60,8 +60,9 @@ let g:netrw_dirhistmax = 0
 colorscheme molokai
 
 " Move current line up/down. m: down, M: up
-nmap m :m +1<CR>
-nmap M :m -2<CR>
+" (disabled so we can use m for mark)
+"nmap m :m +1<CR>
+"nmap M :m -2<CR>
 " Center screen after jump
 nnoremap n nzz
 nnoremap N Nzz
