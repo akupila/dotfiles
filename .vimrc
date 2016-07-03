@@ -48,6 +48,8 @@ set shortmess+=I
 set visualbell t_vb=
 " Allow visual selection past end of lines
 set virtualedit=block
+" Highlight all search matches
+set hlsearch
 " Disable automatic comment continuation
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Show current file in title
