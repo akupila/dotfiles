@@ -52,6 +52,8 @@ set visualbell t_vb=
 set virtualedit=block
 " Highlight all search matches
 set hlsearch
+" Find as you type
+set incsearch
 " Disable automatic comment continuation
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Show current file in title
