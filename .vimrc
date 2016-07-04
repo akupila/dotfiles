@@ -11,6 +11,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kshenoy/vim-signature'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 
 syntax on
@@ -54,6 +55,8 @@ set virtualedit=block
 set hlsearch
 " Find as you type
 set incsearch
+" Set smart case for search, use case-sensitive if any caps are used
+set smartcase
 " Disable automatic comment continuation
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Show current file in title
