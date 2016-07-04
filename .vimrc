@@ -90,6 +90,16 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_select = 1
 " disable preview window
 set completeopt-=preview
+" set smartcase for autocomplete
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  " fix adding linebreak on enter
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
 
 " GO
 " Highlight
