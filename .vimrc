@@ -88,6 +88,8 @@ imap jk <Esc>
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_select = 1
+" disable preview window
+set completeopt-=preview
 
 " GO
 " Highlight
