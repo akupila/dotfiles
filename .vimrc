@@ -58,6 +58,9 @@ set incsearch
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Show current file in title
 autocmd BufEnter * let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+" in osx make clipboard work with system clipboard
+set clipboard=unnamed
+set autoread
 " Disable netrw
 let g:netrw_dirhistmax = 0
 " Set desert colorscheme
