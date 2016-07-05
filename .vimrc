@@ -74,14 +74,14 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
-" Insert linebreak in normal mode. Ctrl-j: add above, ctrl-k: add under
+" Insert linebreak in normal mode. alt-j: add above, alt-k: add under
 " Sets a temp mark to keep the cursor position
-nnoremap <C-k> mqo<Esc>'qdmq
-nnoremap <C-j> mqO<Esc>'qdmq
-" Move current line up/down. alt-j: down, alt-k: up
+nnoremap ∆ mqo<Esc>'qdmq
+nnoremap ˚ mqO<Esc>'qdmq
+" Move current line up/down. ctrl-j: down, ctrl-k: up
 " To get the key-code: `sed -n l` and enter the desired key (to fix alt on mac)
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
 " Map semicolon to colon
 map ; :
 " Double press semicolon to get a regular semicolon
