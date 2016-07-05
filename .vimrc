@@ -29,8 +29,6 @@ set relativenumber
 set number
 " Enable lazy redraw (otherwise relativenumber is super slow)
 set lazyredraw
-" Enable syntax highlighting
-syntax on
 " Make tabs as wide as two spaces
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 " Show the current mode
