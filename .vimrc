@@ -69,18 +69,19 @@ let g:netrw_dirhistmax = 0
 " Set desert colorscheme
 colorscheme molokai
 
-" Move current line up/down. m: down, M: up
-" (disabled so we can use m for mark)
-"nmap m :m +1<CR>
-"nmap M :m -2<CR>
 " Center screen after jump
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
-" Insert linebreak in normal mode. Enter: below, shift-enter: above
-nnoremap <C-j> o<Esc>
-nnoremap <C-k> O<Esc>
+" Insert linebreak in normal mode. Ctrl-j: add above, ctrl-k: add under
+" Sets a temp mark to keep the cursor position
+nnoremap <C-k> mqo<Esc>'qdmq
+nnoremap <C-j> mqO<Esc>'qdmq
+" Move current line up/down. alt-j: down, alt-k: up
+" To get the key-code: `sed -n l` and enter the desired key (to fix alt on mac)
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
 " Map semicolon to colon
 map ; :
 " Double press semicolon to get a regular semicolon
