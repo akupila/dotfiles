@@ -78,6 +78,9 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
+" Insert linebreak in normal mode. Enter: below, shift-enter: above
+nnoremap <C-j> o<Esc>
+nnoremap <C-k> O<Esc>
 " Map semicolon to colon
 map ; :
 " Double press semicolon to get a regular semicolon
