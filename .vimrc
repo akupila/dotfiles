@@ -76,6 +76,9 @@ nnoremap { {zz
 " Sets a temp mark to keep the cursor position
 nnoremap ∆ mqo<Esc>'qdmq
 nnoremap ˚ mqO<Esc>'qdmq
+" Add a newline below with enter without entering insert mode, 
+" useful for adding new lines at end of file
+nnoremap <CR> o<Esc>
 " Move current line up/down. ctrl-j: down, ctrl-k: up
 " To get the key-code: `sed -n l` and enter the desired key (to fix alt on mac)
 nnoremap <C-j> :m .+1<CR>==
