@@ -33,12 +33,6 @@ set number
 set lazyredraw
 " Make tabs as wide as two spaces
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
 " Scroll offset 3 lines
 set scrolloff=3
 " Disable vim backups
