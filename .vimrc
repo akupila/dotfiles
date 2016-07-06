@@ -88,6 +88,10 @@ map ; :
 " Double press semicolon to get a regular semicolon
 noremap ;; ;
 imap jk <Esc>
+" Clear search with ESC
+nnoremap <Esc> :noh<Return><Esc>
+" Fix esc for :noh | http://stackoverflow.com/questions/11940801/mapping-esc-in-vimrc-causes-bizzare-arrow-behaviour/20458579#20458579
+nnoremap <Esc>^[ <Esc>^[
 
 
 " neocomplete
