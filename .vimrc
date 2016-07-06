@@ -14,6 +14,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
 syntax on
@@ -112,6 +113,10 @@ endfunction
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "simple"
+" only show branch (no hunks)
+let g:airline_extensions = ['branch']
+let g:airline_section_y = ''
+let g:airline_section_z = '%3p%%  %l/%L  %c'
 
 " GO
 " Highlight
