@@ -12,6 +12,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kshenoy/vim-signature'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 syntax on
@@ -64,6 +66,9 @@ set clipboard=unnamed
 set autoread
 " Disable netrw
 let g:netrw_dirhistmax = 0
+" Always show statusline (airline)
+set laststatus=2
+
 " Set desert colorscheme
 colorscheme molokai
 
@@ -109,6 +114,10 @@ function! s:my_cr_function()
   " fix adding linebreak on enter
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "simple"
 
 " GO
 " Highlight
