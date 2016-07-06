@@ -112,7 +112,7 @@ endfunction
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = "simple"
+let g:airline_theme = "powerlineish" " simple is quite nice too
 " only show branch (no hunks)
 let g:airline_extensions = ['branch', 'ctrlp']
 let g:airline_section_y = ''
