@@ -93,6 +93,8 @@ imap jk <Esc>
 nnoremap <Esc> :noh<Return><Esc>
 " Fix esc for :noh | http://stackoverflow.com/questions/11940801/mapping-esc-in-vimrc-causes-bizzare-arrow-behaviour/20458579#20458579
 nnoremap <Esc>^[ <Esc>^[
+" Map space to leader
+let mapleader = "\<Space>"
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
