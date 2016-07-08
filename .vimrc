@@ -95,6 +95,8 @@ nnoremap <Esc> :noh<Return><Esc>
 nnoremap <Esc>^[ <Esc>^[
 " Map space to leader
 let mapleader = "\<Space>"
+" Word under cursor to search with leader-s
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
