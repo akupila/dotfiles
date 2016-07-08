@@ -1,6 +1,5 @@
 " Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible              " be iMproved, required filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -95,7 +94,6 @@ nnoremap <Esc> :noh<Return><Esc>
 " Fix esc for :noh | http://stackoverflow.com/questions/11940801/mapping-esc-in-vimrc-causes-bizzare-arrow-behaviour/20458579#20458579
 nnoremap <Esc>^[ <Esc>^[
 
-
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_select = 1
@@ -116,9 +114,25 @@ endfunction
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "powerlineish" " simple is quite nice too
 " only show branch (no hunks)
-let g:airline_extensions = ['branch', 'ctrlp']
+let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
 let g:airline_section_y = ''
 let g:airline_section_z = '%3p%%  %l/%L  %c'
+" show tab number
+let g:airline#extensions#tabline#tab_nr_type = 1
+" hide tab type
+let g:airline#extensions#tabline#show_tab_type = 0
+" show number and jump to tab
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
 
 " GO
 " Highlight
