@@ -107,7 +107,6 @@ let g:airline_extensions = ['branch', 'ctrlp', 'tabline']  "  Set extensions
 let g:airline_section_y = ''                               "  Disable showing encoding
 let g:airline_section_z = '%3p%%  %l/%L  %c'               "  Simplified percent lines/total column
 let g:airline#extensions#tabline#tab_nr_type = 1           "  Show tab number
-let g:airline#extensions#tabline#show_tab_type = 0         "  Hide tab type
 nmap <leader>1 <Plug>AirlineSelectTab1                     "  Jump to tab n
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
