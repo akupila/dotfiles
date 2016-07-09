@@ -55,6 +55,7 @@ set shortmess+=I                                           "  Disable vim intro 
 set ttyfast                                                "  Send more characters at a time
 set undofile                                               "  Persistent undo
 set visualbell                                             "  Visual bell instead of audio
+set fillchars=""                                           "  Disable - | chars on horizontal/vertical splits
 
 " Indentation
 set shiftwidth=2                                           "  Shift indentation 2 spaces
