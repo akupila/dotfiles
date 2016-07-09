@@ -73,10 +73,10 @@ set ignorecase                                             "  Ignore case (for o
 set incsearch                                              "  Search as you type
 
 " Key remaps
-"  Scroll up 3 lines at a time
-nnoremap <C-e> 3<C-e>
-"  Scroll down 3 lines at a time
-nnoremap <C-y> 3<C-y>
+"  Scroll down 5 lines at a time
+nnoremap <C-e> 5<C-e>
+"  Scroll up 5 lines at a time
+nnoremap <C-y> 5<C-y>
 "  Yank to end of line
 nnoremap Y y$
 "  Add a line below with enter
