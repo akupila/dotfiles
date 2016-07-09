@@ -66,6 +66,7 @@ set tabstop=2                                              "  Set tab 2 spaces w
 " Navigation
 set number                                                 "  Absolute line number on active line (required vim 7.4+)
 set relativenumber                                         "  Relative line numbers
+set cursorline                                             "  Enable cursorline
 
 " Search
 set hlsearch                                               "  Highlight all search results
