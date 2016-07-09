@@ -93,6 +93,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
+" Vertical resize windows with + -
+nnoremap <silent> + :exe "vertical resize " . (winwidth(0) * 4/3)<CR>
+nnoremap <silent> _ :exe "vertical resize " . (winwidth(0) * 3/4)<CR>
 
 " -------------------------------------
 " Plugin config
