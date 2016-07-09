@@ -87,7 +87,7 @@ nnoremap <C-j> :m .+1<CR>==
 "  Move current line up with Ctrl-k, maintaining indentation
 nnoremap <C-k> :m .-2<CR>==                                
 "  Search current word with leader-s
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 "  Move splits with Ctrl-hjkl
 map <C-j> <C-W>j
 map <C-k> <C-W>k
