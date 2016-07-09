@@ -1,6 +1,6 @@
-" Vundle
-set nocompatible              " be iMproved, required filetype off                  " required
-" set the runtime path to include Vundle and initialize
+set nocompatible
+
+" Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -16,116 +16,89 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'godlygeek/tabular'
 call vundle#end()
 
+
+" Colors
+set t_co=256
+set background=dark
 syntax on
 filetype plugin indent on
-
-" General
-
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-
-" Enable relative line numbers, absolute on current line (req vim 7.4)
-set relativenumber 
-set number
-" Enable lazy redraw (otherwise relativenumber is super slow)
-set lazyredraw
-" Make tabs as wide as two spaces
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
-" Scroll offset 3 lines
-set scrolloff=3
-" Disable vim backups
-set nobackup
-" Disable swap files
-set noswapfile
-" Disable startup screen
-set shortmess+=I
-" Disable bell
-set visualbell t_vb=
-" Allow visual selection past end of lines
-set virtualedit=block
-" Highlight all search matches
-set hlsearch
-" Find as you type
-set incsearch
-set ignorecase
-" Disable automatic comment continuation
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" Show current file in title
-autocmd BufEnter * let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
-" in osx make clipboard work with system clipboard
-set clipboard=unnamed
-set autoread
-" Disable netrw
-let g:netrw_dirhistmax = 0
-" Always show statusline (airline)
-set laststatus=2
-
-" Set desert colorscheme
 colorscheme molokai
 
-" Center screen after jump
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap } }zz
-nnoremap { {zz
-" Insert linebreak in normal mode. alt-j: add above, alt-k: add under
-" Sets a temp mark to keep the cursor position
-nnoremap ∆ mqo<Esc>'qdmq
-nnoremap ˚ mqO<Esc>'qdmq
-" Add a newline below with enter without entering insert mode, 
-" useful for adding new lines at end of file
-nnoremap <CR> o<Esc>
-" Move current line up/down. ctrl-j: down, ctrl-k: up
-" To get the key-code: `sed -n l` and enter the desired key (to fix alt on mac)
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-" Map semicolon to colon
-map ; :
-" Double press semicolon to get a regular semicolon
-noremap ;; ;
+" Core keymaps
+let mapleader=","
 imap jk <Esc>
-" Clear search with ESC
-nnoremap <Esc> :noh<Return><Esc>
-" Fix esc for :noh | http://stackoverflow.com/questions/11940801/mapping-esc-in-vimrc-causes-bizzare-arrow-behaviour/20458579#20458579
-nnoremap <Esc>^[ <Esc>^[
-" Map space to leader
-let mapleader = "\<Space>"
-" Word under cursor to search with leader-s
+map ; :
+noremap ;; ;
+
+" Backups
+" set backupdir=~/.vim/backups
+" set directory=~/.vim/swaps
+" set undodir=~/.vim/undo
+
+" General
+set autoindent                                             "  Copy indent from last line when starting new line
+set autoread                                               "  Automatically load files changed outside of vim
+set backspace=indent,eol,start                             "  Allow backspace in insert mode
+set clipboard=unnamed                                      "  Share clipboard with OS X
+set esckeys                                                "  Allow cursor keys in insert mode
+set expandtab                                              "  Expand tabs to spaces
+set formatoptions=ql                                       "  Don't continue comments
+set laststatus=2                                           "  Always show status bar
+set lazyredraw                                             "  Only render when needed
+set noerrorbells                                           "  Disable error bells
+set noshowmode                                             "  Do not show current mode (airline shows it)
+set scrolloff=3                                            "  Scroll offset on top/bottom
+set shortmess+=I                                           "  Disable vim intro screen
+set ttyfast                                                "  Send more characters at a time
+set undofile                                               "  Persistent undo
+set visualbell                                             "  Visual bell instead of audio
+
+" Indentation
+set shiftwidth=2                                           "  Shift indentation 2 spaces
+set smarttab                                               "  At beginning of line Tab inserts shiftwidth spaces
+set softtabstop=2                                          "  Convert a tab to 2 spaces
+set tabstop=2                                              "  Set tab 2 spaces wide
+
+" Navigation
+set number                                                 "  Absolute line number on active line (required vim 7.4+)
+set relativenumber                                         "  Relative line numbers
+
+" Search
+set hlsearch                                               "  Highlight all search results
+set ignorecase                                             "  Ignore case (for opening files etc)
+set incsearch                                              "  Search as you type
+
+" Key remaps
+"  Scroll up 3 lines at a time
+nnoremap <C-e> 3<C-e>
+"  Scroll down 3 lines at a time
+nnoremap <C-y> 3<C-y>
+"  Yank to end of line
+nnoremap Y y$
+"  Add a line below with enter
+nnoremap <CR> o<Esc>
+"  Move current line up with Ctrl-j, maintaining indentation
+nnoremap <C-j> :m .+1<CR>==
+"  Move current line up with Ctrl-k, maintaining indentation
+nnoremap <C-k> :m .-2<CR>==                                
+"  Search current word with leader-s
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
-" disable preview window
-set completeopt-=preview
-" set smartcase for autocomplete
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  " fix adding linebreak on enter
-  return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
+" -------------------------------------
+" Plugin config
 
-" airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "powerlineish" " simple is quite nice too
-" only show branch (no hunks)
-let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
-let g:airline_section_y = ''
-let g:airline_section_z = '%3p%%  %l/%L  %c'
-" show tab number
-let g:airline#extensions#tabline#tab_nr_type = 1
-" hide tab type
-let g:airline#extensions#tabline#show_tab_type = 0
-" show number and jump to tab
-nmap <leader>1 <Plug>AirlineSelectTab1
+" Airline
+let g:airline_powerline_fonts = 1                          "  Enable powerline fonts
+let g:airline_theme = "powerlineish"                       "  Set theme
+let g:airline_extensions = ['branch', 'ctrlp', 'tabline']  "  Set extensions
+let g:airline_section_y = ''                               "  Disable showing encoding
+let g:airline_section_z = '%3p%%  %l/%L  %c'               "  Simplified percent lines/total column
+let g:airline#extensions#tabline#tab_nr_type = 1           "  Show tab number
+let g:airline#extensions#tabline#show_tab_type = 0         "  Hide tab type
+nmap <leader>1 <Plug>AirlineSelectTab1                     "  Jump to tab n
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
 nmap <leader>4 <Plug>AirlineSelectTab4
@@ -134,24 +107,17 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
 
-" GO
-" Highlight
-let g:go_highlight_functions = 1  
-let g:go_highlight_methods = 1  
-let g:go_highlight_structs = 1  
-let g:go_highlight_operators = 1  
-let g:go_highlight_build_constraints = 1  
+" vim-go
+let g:go_highlight_functions = 1                           "  Highlight things
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"                         "  Run goimports on save
 
-" Run goimports in save
-let g:go_fmt_command = "goimports"
-" Ignore vendor dir for ctrl-p
-let g:ctrlp_custom_ignore = 'vendor'
+" ctrlp
+let g:ctrlp_custom_ignore = 'vendor'                       "  Ignore vendor dir in search
 
 " NERDTree
-" Toggle NERDTree with ctrl-n
-map <C-n> :NERDTreeToggle<CR>
-" Close vim if only view open is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>                              "  Toggle tree view with ctrl-n
