@@ -87,6 +87,11 @@ nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==                                
 "  Search current word with leader-s
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+"  Move splits with Ctrl-hjkl
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
 
 " -------------------------------------
 " Plugin config
