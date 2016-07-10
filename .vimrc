@@ -100,6 +100,10 @@ map <C-L> <C-W>l
 " Vertical resize windows with + -
 nnoremap <silent> + :exe "vertical resize                     "  . (winwidth(0) * 4/3)<CR>
 nnoremap <silent> _ :exe "vertical resize                     "  . (winwidth(0) * 3/4)<CR>
+" Fast save with leader-w
+nnoremap <leader>w :w!<Enter>
+" Remove search Highlight
+nnoremap <leader><space> :noh<Enter>
 
 " -------------------------------------
 " Plugin config
