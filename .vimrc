@@ -29,7 +29,7 @@ colorscheme molokai
 
 " Core keymaps
 let mapleader=","
-imap jk <Esc>
+imap jk <Esc>l
 map ; :
 noremap ;; ;
 
