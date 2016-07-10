@@ -150,3 +150,7 @@ let g:ctrlp_custom_ignore = 'vendor'                          "  Ignore vendor d
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>                                 "  Toggle tree view with ctrl-n
+
+" Fugitive
+vnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Gblame<CR>
