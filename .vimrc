@@ -45,6 +45,7 @@ set backspace=indent,eol,start                             "  Allow backspace in
 set clipboard=unnamed                                      "  Share clipboard with OS X
 set esckeys                                                "  Allow cursor keys in insert mode
 set expandtab                                              "  Expand tabs to spaces
+set fillchars=""                                           "  Disable - | chars on horizontal/vertical splits
 set formatoptions=ql                                       "  Don't continue comments
 set laststatus=2                                           "  Always show status bar
 set lazyredraw                                             "  Only render when needed
@@ -55,18 +56,19 @@ set shortmess+=I                                           "  Disable vim intro 
 set ttyfast                                                "  Send more characters at a time
 set undofile                                               "  Persistent undo
 set visualbell                                             "  Visual bell instead of audio
-set fillchars=""                                           "  Disable - | chars on horizontal/vertical splits
 
 " Indentation
+set list                                                   "  Enable listing chars
+set listchars=tab:\ \ ,trail:·,nbsp:_
 set shiftwidth=2                                           "  Shift indentation 2 spaces
 set smarttab                                               "  At beginning of line Tab inserts shiftwidth spaces
 set softtabstop=2                                          "  Convert a tab to 2 spaces
 set tabstop=2                                              "  Set tab 2 spaces wide
 
 " Navigation
+set cursorline                                             "  Enable cursorline
 set number                                                 "  Absolute line number on active line (required vim 7.4+)
 set relativenumber                                         "  Relative line numbers
-set cursorline                                             "  Enable cursorline
 
 " Search
 set hlsearch                                               "  Highlight all search results
@@ -124,6 +126,18 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"                         "  Run goimports on save
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1 " Enable on startup
+let g:neocomplete#enable_auto_select = 1 " Automatically select first suggestion
+set completeopt-=preview " Disable preview window
+let g:neocomplete#sources#syntax#min_keyword_length = 2 " Set minimum syntax keyword length.
+" <Enter>: close popup and save indent.
+inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
+function! s:close_popup()
+  " fix adding linebreak on enter
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
 
 " ctrlp
 let g:ctrlp_custom_ignore = 'vendor'                       "  Ignore vendor dir in search
