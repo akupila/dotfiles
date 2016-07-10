@@ -140,8 +140,8 @@ set completeopt-=preview                                      "  Disable preview
 let g:neocomplete#sources#syntax#min_keyword_length = 2       "  Set minimum syntax keyword length.
 " <Enter>: close popup and save indent.
 inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
+" fix adding linebreak on enter
 function! s:close_popup()
-                                                              "  fix adding linebreak on enter
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 
