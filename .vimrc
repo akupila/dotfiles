@@ -34,9 +34,9 @@ map ; :
 noremap ;; ;
 
 " Backups
-" set backupdir=~/.vim/backups
-" set directory=~/.vim/swaps
-" set undodir=~/.vim/undo
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " General
 set autoindent                                             "  Copy indent from last line when starting new line
