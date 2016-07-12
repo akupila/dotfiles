@@ -104,6 +104,11 @@ nnoremap <silent> _ :exe "vertical resize                     "  . (winwidth(0) 
 nnoremap <leader>w :w!<Enter>
 " Remove search Highlight
 nnoremap <leader><space> :noh<Enter>
+" Add comma to end of line (useful for go)
+nnoremap <leader>nc A,<Esc>
+" Move directly to col above/below, even if line is wrapping, we'll see if this breaks macros..
+nnoremap j gj
+nnoremap k gk
 
 " -------------------------------------
 " Plugin config
