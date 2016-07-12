@@ -1,5 +1,9 @@
 set nocompatible
 
+" Fix encoding (on ssh)
+scriptencoding utf-8
+set encoding=utf-8
+
 " Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
