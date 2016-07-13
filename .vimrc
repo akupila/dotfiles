@@ -33,11 +33,6 @@ imap jk <Esc>l
 map ; :
 noremap ;; ;
 
-" Backups
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
-
 " General
 set autoindent                                                "  Copy indent from last line when starting new line
 set autoread                                                  "  Automatically load files changed outside of vim
@@ -51,10 +46,10 @@ set laststatus=2                                              "  Always show sta
 set lazyredraw                                                "  Only render when needed
 set noerrorbells                                              "  Disable error bells
 set noshowmode                                                "  Do not show current mode (airline shows it)
+set noswapfile                                                "  Disable swap files
 set scrolloff=3                                               "  Scroll offset on top/bottom
 set shortmess+=I                                              "  Disable vim intro screen
 set ttyfast                                                   "  Send more characters at a time
-set undofile                                                  "  Persistent undo
 set visualbell                                                "  Visual bell instead of audio
 
 " Indentation
