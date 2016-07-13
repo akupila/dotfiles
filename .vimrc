@@ -1,5 +1,9 @@
 set nocompatible
 
+" Fix encoding (on ssh)
+scriptencoding utf-8
+set encoding=utf-8
+
 " Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -140,8 +144,8 @@ set completeopt-=preview                                      "  Disable preview
 let g:neocomplete#sources#syntax#min_keyword_length = 2       "  Set minimum syntax keyword length.
 " <Enter>: close popup and save indent.
 inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
+" fix adding linebreak on enter
 function! s:close_popup()
-                                                              "  fix adding linebreak on enter
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 
@@ -156,6 +160,10 @@ nnoremap <leader><C-n> :NERDTreeFind<CR>
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1                                     " Add soaces after comment delimeters
+
+" Fugitive
+vnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Gblame<CR>
 
 function! ToggleBG()
   let Syn=&syntax
@@ -175,3 +183,4 @@ function! ToggleBG()
 endfunction
 command! InvBg call ToggleBG()
 noremap  <F6> :InvBg<CR>
+
