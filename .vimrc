@@ -156,3 +156,22 @@ nnoremap <leader><C-n> :NERDTreeFind<CR>
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1                                     " Add soaces after comment delimeters
+
+function! ToggleBG()
+  let Syn=&syntax
+  if &bg=="light"
+    set bg=dark
+    set background=dark
+    colorscheme molokai
+    set cursorline
+  else
+    set bg=light
+    set background=light
+    colorscheme one
+    set nocursorline
+  endif
+  syn on
+  exe "set syntax=" . Syn
+endfunction
+command! InvBg call ToggleBG()
+noremap  <F6> :InvBg<CR>
