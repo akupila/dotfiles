@@ -149,8 +149,10 @@ endfunction
 let g:ctrlp_custom_ignore = 'vendor'                          "  Ignore vendor dir in search
 
 " NERDTree
-""  Toggle tree view with ctrl-n
-map <C-n> :NERDTreeToggle<CR>
+"  Toggle tree view with ctrl-n
+nnoremap <C-n> :NERDTreeToggle<CR>
+"  Show current file in tree view with leader ctrl-n
+nnoremap <leader><C-n> :NERDTreeFind<CR>
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1                                     " Add soaces after comment delimeters
