@@ -280,7 +280,6 @@ hi LineNr ctermfg=darkgrey ctermbg=black
 hi CursorLineNR ctermfg=white
 " Dark grey selection text bg, white text
 hi Visual ctermfg=254 ctermbg=236
-hi LineNr ctermfg=237
 " Gray trailing spaces
 hi TrailingWhitespace ctermfg=236 ctermbg=233
 match TrailingWhitespace /\s\+$/
