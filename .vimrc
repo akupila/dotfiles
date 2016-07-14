@@ -137,6 +137,21 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"                            "  Run goimports on save
 
+" vim-go keyboard shortcuts
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+"  Run tests and show coverage
+autocmd FileType go nmap <Leader>t :GoCoverageToggle<CR>
+
 " neocomplete
 let g:neocomplete#enable_at_startup = 1                       "  Enable on startup
 let g:neocomplete#enable_auto_select = 1                      "  Automatically select first suggestion
