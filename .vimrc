@@ -136,6 +136,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"                            "  Run goimports on save
+set updatetime=100                                            "  Update the info a bit quicker
+let g:go_auto_type_info = 1                                   "  Automatically show what a function accepts
 
 " vim-go keyboard shortcuts
 " run :GoBuild or :GoTestCompile based on the go file
@@ -148,9 +150,18 @@ function! s:build_go_files()
   endif
 endfunction
 
+"  Build / compile test
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 "  Run tests and show coverage
 autocmd FileType go nmap <Leader>t :GoCoverageToggle<CR>
+"  Run GoVet, GoLint and errcheck
+autocmd FileType go nmap <Leader>l :GoMetaLint<CR>
+"  Next error
+autocmd FileType go nmap <Leader>n :cNext<CR>
+"  Hide quick fix dialog with leader-a
+autocmd FileType go noremap <leader>a :cclose<CR>
+"  Jump to declaration
+autocmd FileType go nmap <leader>p :GoDecls<CR>
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1                       "  Enable on startup
