@@ -172,11 +172,13 @@ function! ToggleBG()
     set background=dark
     colorscheme molokai
     set cursorline
+    let g:airline_theme = "powerlineish"                          "  Set theme
   else
     set bg=light
     set background=light
     colorscheme one
     set nocursorline
+    let g:airline_theme = "light"                          "  Set theme
   endif
   syn on
   exe "set syntax=" . Syn
