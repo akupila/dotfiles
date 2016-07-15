@@ -1,8 +1,10 @@
-set nocompatible
+if !has('nvim')
+  set nocompatible
 
-" Fix encoding (on ssh)
-scriptencoding utf-8
-set encoding=utf-8
+  " Fix encoding (on ssh)
+  scriptencoding utf-8
+  set encoding=utf-8
+endif
 
 " Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,7 +12,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
-Plugin 'Shougo/neocomplete.vim'
+if !has('nvim')
+  Plugin 'Shougo/neocomplete.vim'
+else 
+  Plugin 'Shougo/deoplete.nvim'
+endif
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kshenoy/vim-signature'
@@ -53,7 +59,9 @@ set noshowmode                                                "  Do not show cur
 set noswapfile                                                "  Disable swap files
 set scrolloff=3                                               "  Scroll offset on top/bottom
 set shortmess+=I                                              "  Disable vim intro screen
-set ttyfast                                                   "  Send more characters at a time
+if !has('nvim')
+  set ttyfast                                                 "  Send more characters at a time
+endif
 set visualbell                                                "  Visual bell instead of audio
 
 " Indentation
@@ -174,6 +182,9 @@ inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
 function! s:close_popup()
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
+
+"  deoplete
+let g:deoplete#enable_at_startup = 1
 
 " ctrlp
 let g:ctrlp_custom_ignore = 'vendor'                          "  Ignore vendor dir in search
