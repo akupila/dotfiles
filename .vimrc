@@ -248,6 +248,7 @@ call plug#end()
 	let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
 	let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
 	let g:deoplete#sources#go#align_class = 1
+	set completeopt-=preview
 	" }}}
 	" Keyboard shortcuts {{{
 	inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
