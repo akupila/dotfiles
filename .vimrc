@@ -49,7 +49,7 @@
 
 " Folding {{{
 set foldlevelstart=20 " No folding when opening files
-set foldmethod=syntax " Syntax are used to specify folds
+" set foldmethod=syntax " Syntax are used to specify folds
 " }}}
 
 " Indentation {{{
@@ -242,11 +242,21 @@ call plug#end()
 	" }}}
 	
 	" Deoplete (Neovim) {{{
+	" Config {{{
 	let g:deoplete#enable_at_startup = 1
 	let g:deoplete#ignore_sources = {}
 	let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
 	let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
 	let g:deoplete#sources#go#align_class = 1
+	" }}}
+	" Keyboard shortcuts {{{
+	inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
+	function! s:close_popup()
+		return pumvisible() ? "\<C-y>" : "\<CR>"
+	endfunction
+	" }}}
+
+
 	" }}}
 
 	" vim-fugitive {{{
