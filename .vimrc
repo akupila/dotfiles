@@ -4,59 +4,59 @@
 
 	if !has('nvim')
 		" Fix stuff in vim, no need to do this for neovim
-		set nocompatible " Disable vi compatibility
-		filetype off " turn filetype detection off..
-		filetype plugin indent on " .. and on again, enabling filetype and indent plugins
-		scriptencoding utf-8 " Fix interpreting .vimrc on remote sessions
-		set autoindent " Copy indent from last line when starting new line
-		set autoread " Automatically read files changed on disk
+		set nocompatible               " Disable vi compatibility
+		filetype off                   " turn filetype detection off..
+		filetype plugin indent on      " .. and on again, enabling filetype and indent plugins
+		scriptencoding utf-8           " Fix interpreting .vimrc on remote sessions
+		set autoindent                 " Copy indent from last line when starting new line
+		set autoread                   " Automatically read files changed on disk
 		set backspace=indent,eol,start " Allow backspace in insert mode
-		set encoding=utf-8 " Set character encoding for buffers etc
-		set hlsearch " Highlight search matches
-		set incsearch " Highlight search matches as typed
-		set laststatus=2 " Always show statusbar
-		set t_Co=256 " 256 colors
-		set ttyfast " Send more characters at a time
-		set mouse=a " Enable mouse in all modes
-		syntax enable " Enable syntax highlighting
+		set encoding=utf-8             " Set character encoding for buffers etc
+		set hlsearch                   " Highlight search matches
+		set incsearch                  " Highlight search matches as typed
+		set laststatus=2               " Always show statusbar
+		set t_Co=256                   " 256 colors
+		set ttyfast                    " Send more characters at a time
+		set mouse=a                    " Enable mouse in all modes
+		syntax enable                  " Enable syntax highlighting
 	endif
 
 " }}}
 
 " General {{{
-  set clipboard=unnamed " Share clipboard with OS X
-	set number " Show line numbers on active line
-	set relativenumber " Show relative line numbers
-	set splitright " Split vertical windows to the right
-	set splitbelow " Split horizontal windows down
-	set fillchars="" "  Disable - | chars on horizontal/vertical splits
-	set noerrorbells " No beeping
-	set hidden " When a buffer is brought to foreground, remember undo history and marks
-	set history=250 " 250 items in history
-	set noswapfile " No swaps
-	set nobackup " No annoying backups
-	" set noshowmode " Don't show mode, airline shows it
-	set ignorecase " Ignore case for searching
-	set visualbell " Use visual bell instead of audible bell
-	set pumheight=10 " Max 10 items in popup/autocomplete menu
-	set lazyredraw " Don't redraw when we don't have to
-	set list " Enable listing extra chars
+	set fillchars=""                      " Disable - | chars on horizontal/vertical splits
+	set hidden                            " When a buffer is brought to foreground, remember undo history and marks
+	set history=250                       " 250 items in history
+	set ignorecase                        " Ignore case for searching
+	set lazyredraw                        " Don't redraw when we don't have to
+	set list                              " Enable listing extra chars
 	set listchars=tab:\ \ ,trail:·,nbsp:_
-	set shortmess+=I " Hide intro message
-	set scrolloff=3 " Offset top/bottom when scrolling
-	set updatetime=50 " Trigger cursorhold faster for vim-go showing what a func accepts
+	set nobackup                          " No annoying backups
+	set noerrorbells                      " No beeping
+	set noshowmode                        " Don't show mode, airline shows it
+	set noswapfile                        " No swaps
+	set number                            " Show line numbers on active line
+	set pumheight=10                      " Max 10 items in popup/autocomplete menu
+	set relativenumber                    " Show relative line numbers
+	set scrolloff=3                       " Offset top/bottom when scrolling
+	set shortmess+=I                      " Hide intro message
+	set splitbelow                        " Split horizontal windows down
+	set splitright                        " Split vertical windows to the right
+	set updatetime=50                     " Trigger cursorhold faster for vim-go showing what a func accepts
+	set visualbell                        " Use visual bell instead of audible bell
+  set clipboard=unnamed                 " Share clipboard with OS X
 " }}}
 
 " Folding {{{
-set foldmethod=syntax " Syntax are used to specify folds
 set foldlevelstart=20 " No folding when opening files
+set foldmethod=syntax " Syntax are used to specify folds
 " }}}
 
 " Indentation {{{
-set shiftwidth=2 " Shift indentation 2 spaces
-set smarttab " At beginning of line Tab inserts shiftwidth spaces
+set shiftwidth=2  " Shift indentation 2 spaces
+set smarttab      " At beginning of line Tab inserts shiftwidth spaces
 set softtabstop=2 " Convert a tab to 2 spaces
-set tabstop=2 " Set tab 2 spaces wide
+set tabstop=2     " Set tab 2 spaces wide
 " }}}
 
 " Key remaps {{{
@@ -102,7 +102,7 @@ set tabstop=2 " Set tab 2 spaces wide
 	" }}}
 
 	" Remove search Highlight {{{
-	nnoremap <leader><space> :noh<Enter>
+	nnoremap <leader><space> :set invhlsearch<Enter>
 	" }}}
 
 	" Move directly to col above/below, even if line is wrapping {{{
@@ -111,6 +111,16 @@ set tabstop=2 " Set tab 2 spaces wide
 	nnoremap <Down> gj
 	nnoremap <Up> gk
 	" }}}
+
+	" Map <Leader>ff to display all lines with keyword under cursor
+	" and ask which one to jump to
+	nmap <Leader>ff [I:let nr = input("Jump to: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+	" Visual shift {{{
+	" Move blocks without leaving visual mode
+	vnoremap < <gv
+	vnoremap > >gv
+  " }}}
 
 	" Print full path {{{
 	map <C-f> :echo expand("%:p")<cr>
@@ -121,9 +131,21 @@ set tabstop=2 " Set tab 2 spaces wide
 	nnoremap <C-y> 10<C-y>
 	" }}}
 	
-	" Toggle folds with space {{{
+	" Folding {{{
+	" Toggle fold with space
 	nnoremap <Space> za
 	vnoremap <Space> za
+	" Set fold level
+	nmap <leader>f0 :set foldlevel=0<CR>
+	nmap <leader>f1 :set foldlevel=1<CR>
+	nmap <leader>f2 :set foldlevel=2<CR>
+	nmap <leader>f3 :set foldlevel=3<CR>
+	nmap <leader>f4 :set foldlevel=4<CR>
+	nmap <leader>f5 :set foldlevel=5<CR>
+	nmap <leader>f6 :set foldlevel=6<CR>
+	nmap <leader>f7 :set foldlevel=7<CR>
+	nmap <leader>f8 :set foldlevel=8<CR>
+	nmap <leader>f9 :set foldlevel=9<CR>
   " }}}
 
 	" Stay on current match with * {{{
@@ -161,7 +183,7 @@ call plug#end()
 
 " Plugin config {{{
 	" vim-airline {{{
-	let g:airline_powerline_fonts = 1 " Enable powerline fonts
+	let g:airline_powerline_fonts = 1
   let g:airline_theme = "powerlineish"
 	let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
 	let g:airline_section_y = ''
@@ -179,38 +201,28 @@ call plug#end()
 	" }}}
 	
 	" vim-go {{{
-		" config {{{
+		" Config {{{
 		let g:go_highlight_functions = 1
 		let g:go_highlight_methods = 1
 		let g:go_highlight_structs = 1
 		let g:go_highlight_operators = 1
 		let g:go_highlight_build_constraints = 1
 		let g:go_fmt_command = "goimports"
-		let g:go_auto_type_info = 1 " Automatically show what a function accepts (see updatetime)
+		let g:go_auto_type_info = 1
 		" }}}
-		" keyboard shortcuts {{{
-		" run :GoBuild or :GoTestCompile based on the go file
-		function! s:build_go_files()
-			let l:file = expand('%')
-			if l:file =~# '^\f\+_test\.go$'
-				call go#cmd#Test(0, 1)
-			elseif l:file =~# '^\f\+\.go$'
-				call go#cmd#Build(0)
-			endif
-		endfunction
+		" Keyboard shortcuts {{{
+		au FileType go nmap <Leader>x <Plug>(go-def-split)
+		au FileType go nmap <Leader>v <Plug>(go-def-vertical)
 
-		"  Build / compile test
-		autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-		"  Run tests and show coverage
-		autocmd FileType go nmap <Leader>t :GoCoverageToggle<CR>
-		"  Run GoVet, GoLint and errcheck
-		autocmd FileType go nmap <Leader>l :GoMetaLint<CR>
-		"  Next error
-		autocmd FileType go nmap <Leader>n :cNext<CR>
-		"  Hide quick fix dialog with leader-a
-		autocmd FileType go noremap <leader>a :cclose<CR>
-		"  Jump to declaration
-		autocmd FileType go nmap <leader>p :GoDecls<CR>
+		au FileType go nmap <Leader>i <Plug>(go-info)
+		au FileType go nmap <Leader>l <Plug>(go-metalinter)
+
+		au FileType go nmap <leader>r  <Plug>(go-run)
+
+		au FileType go nmap <leader>b  <Plug>(go-build)
+		au FileType go nmap <leader>t  <Plug>(go-test)
+		au FileType go nmap <Leader>d <Plug>(go-doc)
+		au FileType go nmap <Leader>c <Plug>(go-coverage)
 		" }}}
 	" }}}
 	
@@ -235,12 +247,6 @@ call plug#end()
 	let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
 	let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
 	let g:deoplete#sources#go#align_class = 1
-
-
-	" Use partial fuzzy matches like YouCompleteMe
-	call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
-	call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
-	call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
 	" }}}
 
 	" vim-fugitive {{{
