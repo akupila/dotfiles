@@ -44,6 +44,7 @@
 	set listchars=tab:\ \ ,trail:·,nbsp:_
 	set shortmess+=I " Hide intro message
 	set scrolloff=3 " Offset top/bottom when scrolling
+	set updatetime=50 " Trigger cursorhold faster for vim-go showing what a func accepts
 " }}}
 
 " Folding {{{
@@ -120,7 +121,7 @@ set tabstop=2 " Set tab 2 spaces wide
 	nnoremap <C-y> 10<C-y>
 	" }}}
 	
-	" Toggle folds (<Space>) {{{
+	" Toggle folds with space {{{
 	nnoremap <Space> za
 	vnoremap <Space> za
   " }}}
@@ -137,7 +138,119 @@ colorscheme molokai
 
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
+Plug 'fatih/vim-go'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tomasr/molokai'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'kshenoy/vim-signature'
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'easymotion/vim-easymotion'
+Plug 'godlygeek/tabular'
+if !has('nvim')
+  Plug 'Shougo/neocomplete.vim'
+else 
+  Plug 'Shougo/deoplete.nvim'
+	Plug 'zchee/deoplete-go', { 'do': 'make'}
+endif
 call plug#end()
+" }}}
+
+" Plugin config {{{
+	" vim-airline {{{
+	let g:airline_powerline_fonts = 1 " Enable powerline fonts
+  let g:airline_theme = "powerlineish"
+	let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
+	let g:airline_section_y = ''
+	let g:airline_section_z = '%3p%%  %l/%L  %c'
+	let g:airline#extensions#tabline#tab_nr_type = 1
+	nmap <leader>1 <Plug>AirlineSelectTab1                        "  Jump to tab n
+	nmap <leader>2 <Plug>AirlineSelectTab2
+	nmap <leader>3 <Plug>AirlineSelectTab3
+	nmap <leader>4 <Plug>AirlineSelectTab4
+	nmap <leader>5 <Plug>AirlineSelectTab5
+	nmap <leader>6 <Plug>AirlineSelectTab6
+	nmap <leader>7 <Plug>AirlineSelectTab7
+	nmap <leader>8 <Plug>AirlineSelectTab8
+	nmap <leader>9 <Plug>AirlineSelectTab9
+	" }}}
+	
+	" vim-go {{{
+		" config {{{
+		let g:go_highlight_functions = 1
+		let g:go_highlight_methods = 1
+		let g:go_highlight_structs = 1
+		let g:go_highlight_operators = 1
+		let g:go_highlight_build_constraints = 1
+		let g:go_fmt_command = "goimports"
+		let g:go_auto_type_info = 1 " Automatically show what a function accepts (see updatetime)
+		" }}}
+		" keyboard shortcuts {{{
+		" run :GoBuild or :GoTestCompile based on the go file
+		function! s:build_go_files()
+			let l:file = expand('%')
+			if l:file =~# '^\f\+_test\.go$'
+				call go#cmd#Test(0, 1)
+			elseif l:file =~# '^\f\+\.go$'
+				call go#cmd#Build(0)
+			endif
+		endfunction
+
+		"  Build / compile test
+		autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+		"  Run tests and show coverage
+		autocmd FileType go nmap <Leader>t :GoCoverageToggle<CR>
+		"  Run GoVet, GoLint and errcheck
+		autocmd FileType go nmap <Leader>l :GoMetaLint<CR>
+		"  Next error
+		autocmd FileType go nmap <Leader>n :cNext<CR>
+		"  Hide quick fix dialog with leader-a
+		autocmd FileType go noremap <leader>a :cclose<CR>
+		"  Jump to declaration
+		autocmd FileType go nmap <leader>p :GoDecls<CR>
+		" }}}
+	" }}}
+	
+  " Neocomplete (VIM) {{{
+	if !has('nvim')
+	let g:neocomplete#enable_at_startup = 1                       "  Enable on startup
+	let g:neocomplete#enable_auto_select = 1                      "  Automatically select first suggestion
+	set completeopt-=preview                                      "  Disable preview window
+	let g:neocomplete#sources#syntax#min_keyword_length = 2       "  Set minimum syntax keyword length.
+	" <Enter>: close popup and save indent.
+	inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
+	" fix adding linebreak on enter
+	function! s:close_popup()
+		return pumvisible() ? "\<C-y>" : "\<CR>"
+	endfunction
+	endif
+	" }}}
+	
+	" Deoplete (Neovim) {{{
+	let g:deoplete#enable_at_startup = 1
+	let g:deoplete#ignore_sources = {}
+	let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
+	let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
+	let g:deoplete#sources#go#align_class = 1
+
+
+	" Use partial fuzzy matches like YouCompleteMe
+	call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
+	call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
+	call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
+	" }}}
+
+	" vim-fugitive {{{
+	vnoremap <leader>gb :Gblame<CR>
+	nnoremap <leader>gb :Gblame<CR>
+	" }}}
+	
+	" nerdcommenter {{{
+	let g:NERDSpaceDelims = 1 " Add spaces after comments
+	" }}}
 " }}}
 
 " Cursorline in insert mode {{{
