@@ -1,15 +1,25 @@
 # dotfiles
 
-## Install yadm
+My dotfiles.
+
+## yadm
 
 ```bash
 brew install yadm
 ```
 
-## Install Vundle
+## neovim
 
 ```bash
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+brew install neovim
+```
+
+## vim-plug
+
+Plugin manager for vim
+
+```bash
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ## Install dotfiles
@@ -18,6 +28,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 yadm clone git@github.com:akupila/dotfiles.git
 ```
 
-## Install powerline fonts (for airline)
+## Install powerline fonts (for vim airline)
 
 https://github.com/powerline/fonts
