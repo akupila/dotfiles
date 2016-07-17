@@ -90,7 +90,5 @@ export PATH=$PATH:$GOPATH/bin
 source ~/.aliases
 source ~/.osx
 
-set GO15VENDOREXPERIMENT=1
-
 # Disable "last login"
 touch ~/.hushlogin
