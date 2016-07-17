@@ -211,18 +211,23 @@ call plug#end()
 		let g:go_auto_type_info = 1
 		" }}}
 		" Keyboard shortcuts {{{
-		au FileType go nmap <Leader>x <Plug>(go-def-split)
-		au FileType go nmap <Leader>v <Plug>(go-def-vertical)
+		augroup VimGoKeyboard
+			autocmd!
+			autocmd FileType go nmap <Leader>x <Plug>(go-def-split)
+			autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
 
-		au FileType go nmap <Leader>i <Plug>(go-info)
-		au FileType go nmap <Leader>l <Plug>(go-metalinter)
+			autocmd FileType go nmap <Leader>i <Plug>(go-info)
+			autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
 
-		au FileType go nmap <leader>r  <Plug>(go-run)
+			autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
-		au FileType go nmap <leader>b  <Plug>(go-build)
-		au FileType go nmap <leader>t  <Plug>(go-test)
-		au FileType go nmap <Leader>d <Plug>(go-doc)
-		au FileType go nmap <Leader>c <Plug>(go-coverage)
+			autocmd FileType go nmap <leader>b  <Plug>(go-build)
+			autocmd FileType go nmap <leader>t  <Plug>(go-test)
+			autocmd FileType go nmap <Leader>d <Plug>(go-doc)
+			autocmd FileType go nmap <Leader>c <Plug>(go-coverage)
+
+			autocmd FileType go nmap <Leader>p :GoDecls<CR>
+		augroup END
 		" }}}
 	" }}}
 	
