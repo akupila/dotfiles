@@ -12,3 +12,7 @@ alias gll="git log --graph --pretty=format:'%C(yellow)%h%Creset  %Cgreen%an%Cres
 # Replace vim with nvim
 
 alias vim="nvim"
+
+# Go
+
+alias gt="go test -cover \`go list ./... | grep -v -E vendor\`"
