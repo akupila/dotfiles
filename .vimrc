@@ -102,7 +102,7 @@ set tabstop=2     " Set tab 2 spaces wide
 	" }}}
 
 	" Remove search Highlight {{{
-	nnoremap <leader><space> :set invhlsearch<Enter>
+	nnoremap <silent> <leader><space> :set invhlsearch<Enter>
 	" }}}
 
 	" Move directly to col above/below, even if line is wrapping {{{
@@ -219,12 +219,13 @@ call plug#end()
 			autocmd FileType go nmap <Leader>i <Plug>(go-info)
 			autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
 
-			autocmd FileType go nmap <leader>r  <Plug>(go-run)
-
-			autocmd FileType go nmap <leader>b  <Plug>(go-build)
-			autocmd FileType go nmap <leader>t  <Plug>(go-test)
+			autocmd FileType go nmap <leader>b <Plug>(go-build)
+			autocmd FileType go nmap <leader>t <Plug>(go-test)
 			autocmd FileType go nmap <Leader>d <Plug>(go-doc)
-			autocmd FileType go nmap <Leader>c <Plug>(go-coverage)
+			autocmd FileType go nmap <Leader>ct :GoCoverageToggle<CR>
+
+			autocmd FileType go nmap <Leader>a :cclose<CR> 
+			autocmd FileType go nmap Q :GoAlternate!<CR>
 
 			autocmd FileType go nmap <Leader>p :GoDecls<CR>
 		augroup END
