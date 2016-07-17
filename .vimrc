@@ -274,6 +274,8 @@
 		" vim-fugitive {{{
 		vnoremap <leader>gb :Gblame<CR>
 		nnoremap <leader>gb :Gblame<CR>
+		vnoremap <leader>gs :Gstatus<CR>
+		nnoremap <leader>gs :Gstatus<CR>
 		" }}}
 		
 		" nerdcommenter {{{
