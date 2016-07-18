@@ -149,11 +149,6 @@ set tabstop=2     " Set tab 2 spaces wide
 	" }}}
 " }}}
 
-" Colors {{{
-set background=dark
-colorscheme molokai
-" }}}
-
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 Plug 'fatih/vim-go'
@@ -175,6 +170,21 @@ else
 	Plug 'zchee/deoplete-go', { 'do': 'make'}
 endif
 call plug#end()
+" }}}
+
+" Colors {{{
+set background=dark
+colorscheme molokai
+
+" Customize theme
+" Line numbers gray, active white
+highlight LineNr ctermfg=darkgrey ctermbg=black
+highlight CursorLineNR ctermfg=white
+" Blueish selection bg, white text
+highlight Visual ctermfg=254 ctermbg=26
+" Gray trailing spaces
+highlight TrailingWhitespace ctermfg=200 ctermbg=233
+match TrailingWhitespace /\s\+$/
 " }}}
 
 " Plugin config {{{
