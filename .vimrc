@@ -266,6 +266,13 @@ call plug#end()
 	nnoremap <leader>gs :Gstatus<CR>
 	" }}}
 	
+	" nerdtree {{{
+	" Toggle tree view with ctrl-n
+	nnoremap <C-n> :NERDTreeToggle<CR>
+	" Show current file in tree view with leader ctrl-n
+	nnoremap <leader><C-n> :NERDTreeFind<CR>	
+	" }}}
+	
 	" nerdcommenter {{{
 	let g:NERDSpaceDelims = 1 " Add spaces after comments
 	" }}}
