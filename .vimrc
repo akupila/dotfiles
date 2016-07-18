@@ -205,6 +205,7 @@ call plug#end()
 		let g:go_highlight_build_constraints = 1
 		let g:go_fmt_command = "goimports"
 		let g:go_auto_type_info = 1
+		let g:go_fmt_fail_silently = 1
 		" }}}
 		" Keyboard shortcuts {{{
 		augroup VimGoKeyboard
@@ -220,7 +221,13 @@ call plug#end()
 			autocmd FileType go nmap <Leader>d <Plug>(go-doc)
 			autocmd FileType go nmap <Leader>ct :GoCoverageToggle<CR>
 
-			autocmd FileType go nmap <Leader>a :cclose<CR> 
+			" quickfix/error nav
+			if has('nvim')
+				map <C-n> :lnext<CR>
+				map <C-m> :lprevious<CR>
+				nnoremap <leader>a :lclose<CR>
+			endif
+
 			autocmd FileType go nmap Q :GoAlternate!<CR>
 
 			autocmd FileType go nmap <Leader>p :GoDecls<CR>
