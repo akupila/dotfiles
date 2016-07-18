@@ -182,6 +182,7 @@ highlight LineNr ctermfg=darkgrey ctermbg=black
 highlight CursorLineNR ctermfg=white
 " Blueish selection bg, white text
 highlight Visual ctermfg=254 ctermbg=26
+highlight CursorLine ctermbg=232
 " Gray trailing spaces
 highlight TrailingWhitespace ctermfg=200 ctermbg=233
 match TrailingWhitespace /\s\+$/
