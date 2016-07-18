@@ -58,11 +58,18 @@ set tabstop=2     " Set tab 2 spaces wide
 	" , as leader
 	let mapleader=","
 	" jk instead of esc, maintain cursor poisition
-	imap jk <Esc>l
+	imap jk <Esc>
 	" ; instead of :
 	map ; :
 	" Type a ; with ;;
 	noremap ;; ;
+	" }}}
+	
+	" Don't move backwards with ESC {{{
+	augroup FixEsc
+		autocmd!
+		autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
+	augroup END
 	" }}}
 
 	" Insert new lines {{{
