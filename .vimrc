@@ -302,8 +302,8 @@ match TrailingWhitespace /\s\+$/
 " Cursorline in insert mode {{{
 augroup CursorlineInsert
   autocmd!
-  au InsertEnter * set cursorline
-  au InsertLeave * set nocursorline
+  au InsertEnter * set nocursorline
+  au InsertLeave * set cursorline
 augroup END
 " }}}
 
