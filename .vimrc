@@ -274,10 +274,10 @@ call plug#end()
 	" }}}
 	
 	" nerdtree {{{
-	" Toggle tree view with ctrl-n
-	nnoremap <C-n> :NERDTreeToggle<CR>
-	" Show current file in tree view with leader ctrl-n
-	nnoremap <leader><C-n> :NERDTreeFind<CR>	
+	" Toggle tree view with § 
+	nnoremap <silent> § :NERDTreeToggle<CR>
+	" Show current file in tree view with leader §
+	nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
 	" }}}
 	
 	" nerdcommenter {{{
