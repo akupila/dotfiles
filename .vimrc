@@ -177,13 +177,17 @@ set background=dark
 colorscheme molokai
 
 " Customize theme
+" https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 " Line numbers gray, active white
-highlight LineNr ctermfg=darkgrey ctermbg=black
-highlight CursorLineNR ctermfg=white
+highlight LineNr ctermfg=238 ctermbg=0
+highlight CursorLineNR ctermfg=015
 " Blueish selection bg, white text
 highlight Visual ctermfg=254 ctermbg=26
+" Black(ish) cursorline
 highlight CursorLine ctermbg=232
-" Gray trailing spaces
+" Less intrusive matching parens
+highlight MatchParen ctermbg=NONE ctermfg=14 cterm=NONE
+" Pink trailing spaces
 highlight TrailingWhitespace ctermfg=200 ctermbg=233
 match TrailingWhitespace /\s\+$/
 " }}}
@@ -303,6 +307,7 @@ match TrailingWhitespace /\s\+$/
 " Cursorline in insert mode {{{
 augroup CursorlineInsert
   autocmd!
+	set cursorline " default on
   au InsertEnter * set nocursorline
   au InsertLeave * set cursorline
 augroup END
