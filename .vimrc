@@ -43,6 +43,7 @@
 	set updatetime=50                     " Trigger cursorhold faster for vim-go showing what a func accepts
 	set visualbell                        " Use visual bell instead of audible bell
 	set clipboard=unnamed                 " Share clipboard with OS X
+	set completeopt+=noinsert             " Automatically select first autocomplete option
 " }}}
 
 " Indentation {{{
