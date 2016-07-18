@@ -140,6 +140,13 @@ set tabstop=2     " Set tab 2 spaces wide
 	" Stay on current match with * {{{
 	nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 	" }}}
+	
+	" Map H and L (instead of High/Low) to beginning/end of line {{{ 
+	nnoremap H ^
+	nnoremap L $
+	vnoremap H ^
+	vnoremap L $
+	" }}}
 " }}}
 
 " Colors {{{
