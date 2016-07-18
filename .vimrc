@@ -259,9 +259,6 @@ call plug#end()
 	endfunction
 	" }}}
 
-
-	" }}}
-
 	" vim-fugitive {{{
 	vnoremap <leader>gb :Gblame<CR>
 	nnoremap <leader>gb :Gblame<CR>
