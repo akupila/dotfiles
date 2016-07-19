@@ -166,6 +166,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'SirVer/ultisnips'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
@@ -304,6 +305,10 @@ match TrailingWhitespace /\s\+$/
 	
 	" ctrlp {{{
 	let g:ctrlp_custom_ignore = 'vendor' " ignore vendor
+	" }}}
+	
+	" vim-ultisnips {{{
+	let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
 	" }}}
 " }}}
 
