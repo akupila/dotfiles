@@ -44,6 +44,7 @@
 	set visualbell                        " Use visual bell instead of audible bell
 	set clipboard=unnamed                 " Share clipboard with OS X
 	set completeopt+=noinsert             " Automatically select first autocomplete option
+	set complete=.,w,b,u                  " Complete from current file, split window, buffers, unloaded buffers
 " }}}
 
 " Indentation {{{
