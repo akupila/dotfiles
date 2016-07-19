@@ -164,6 +164,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
