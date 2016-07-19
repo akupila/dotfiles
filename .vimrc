@@ -304,6 +304,10 @@ match TrailingWhitespace /\s\+$/
 	" }}}
 " }}}
 
+" Key abbrevations {{{
+iabbrev todo TODO(akupila):
+" }}}
+
 " Cursorline in insert mode {{{
 augroup CursorlineInsert
   autocmd!
