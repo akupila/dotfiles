@@ -181,8 +181,8 @@ colorscheme molokai
 " Line numbers gray, active white
 highlight LineNr ctermfg=238 ctermbg=0
 highlight CursorLineNR ctermfg=015
-" Blueish selection bg, white text
-highlight Visual ctermfg=254 ctermbg=26
+" Light blue selection bg, black text
+highlight Visual ctermfg=0 ctermbg=51
 " Black(ish) cursorline
 highlight CursorLine ctermbg=232
 " Less intrusive matching parens
