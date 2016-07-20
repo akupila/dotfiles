@@ -86,6 +86,7 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=/Users/akupila/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
+export KUBE_EDITOR=nvim
 
 source ~/.aliases
 source ~/.osx
