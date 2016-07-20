@@ -168,6 +168,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 Plug 'tommcdo/vim-exchange'
+Plug 'mileszs/ack.vim'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
@@ -245,7 +246,6 @@ match TrailingWhitespace /\s\+$/
 			if has('nvim')
 				map <C-n> :lnext<CR>
 				map <C-m> :lprevious<CR>
-				nnoremap <leader>a :lclose<CR>
 			endif
 
 			autocmd FileType go nmap Q :GoAlternate!<CR>
@@ -310,6 +310,13 @@ match TrailingWhitespace /\s\+$/
 	
 	" vim-ultisnips {{{
 	let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
+	" }}}
+	
+	" ack.vim {{{
+	if executable('ag')
+		let g:ackprg = 'ag --ignore vendor/ --vimgrep'
+	endif
+	nnoremap <leader>a :Ack!<Space>
 	" }}}
 " }}}
 
