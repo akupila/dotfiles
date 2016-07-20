@@ -9,6 +9,8 @@ alias gds="git diff --staged"
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset  %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
 alias gll="git log --graph --pretty=format:'%C(yellow)%h%Creset  %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset  %C(dim)(%cD)%Creset' --abbrev-commit --all"
 alias ys="yadm status"
+alias yl="yadm log --graph --pretty=format:'%C(yellow)%h%Creset  %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
+alias yll="yadm log --graph --pretty=format:'%C(yellow)%h%Creset  %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset  %C(dim)(%cD)%Creset' --abbrev-commit --all"
 
 # Replace vim with nvim
 
@@ -17,3 +19,5 @@ alias vim="nvim"
 # Go
 
 alias gt="go test -cover \`go list ./... | grep -v -E vendor\`"
+
+alias k="kubectl"
