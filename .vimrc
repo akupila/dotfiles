@@ -291,6 +291,8 @@ match TrailingWhitespace /\s\+$/
 	nnoremap <leader>gb :Gblame<CR>
 	vnoremap <leader>gs :Gstatus<CR>
 	nnoremap <leader>gs :Gstatus<CR>
+	nnoremap <leader>gd :Gdiff<CR>
+	nnoremap <leader>gs :Gstatus<CR>
 	" }}}
 	
 	" nerdtree {{{
