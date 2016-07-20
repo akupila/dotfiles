@@ -167,6 +167,7 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
+Plug 'tommcdo/vim-exchange'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
