@@ -1,4 +1,5 @@
-# Shortcuts
+#!/bin/bash
+
 alias g='git'
 
 # Git stuff
@@ -11,6 +12,33 @@ alias gll="git log --graph --pretty=format:'%C(yellow)%h%Creset  %Cgreen%an%Cres
 alias ys="yadm status"
 alias yl="yadm log --graph --pretty=format:'%C(yellow)%h%Creset  %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
 alias yll="yadm log --graph --pretty=format:'%C(yellow)%h%Creset  %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset  %C(dim)(%cD)%Creset' --abbrev-commit --all"
+
+rebaseStatus() {
+	if [ ! -d ".git" ]; then
+		echo "Must be in a git repo"
+		return 1
+	fi
+
+	local next=`cat .git/rebase-apply/next`
+	local last=`cat .git/rebase-apply/last`
+	local onto=`cat .git/rebase-apply/onto`
+	local orig=`cat .git/rebase-apply/original-commit`
+	local o_head=`cat .git/rebase-apply/orig-head`
+	echo "Rebase status $next/$last"
+	printf "\033[0;90m"
+	git rev-list --abbrev-commit --pretty=oneline $orig..$o_head | tail -n 3
+	printf "\033[0;33m"
+	git rev-list --abbrev-commit --format=oneline --max-count=1 $orig
+	printf "\033[0;92m"
+	git rev-list --abbrev-commit --format=oneline --max-count=1 $orig^
+	printf "\033[0;37m"
+	git rev-list --abbrev-commit --pretty=oneline --max-count=2 $orig^^
+	printf "\033[0;0m"
+
+}
+alias gr=rebaseStatus || { echo "No rebase in progress?" }
+# alias gr="echo 'Rebase status \\`cat .git/rebase-apply/next\\`/$last' && printf \"\033[0;90m\" && git rev-list --pretty=oneline $orig..$o_head | tail -n 3 && printf \"\033[0;92m\" && git rev-list --format=oneline --max-count=1 $orig && printf \"\033[0m\" && git rev-list --pretty=oneline --max-count=3 $orig^"
+
 
 # Replace vim with nvim
 
