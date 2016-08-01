@@ -93,3 +93,5 @@ source ~/.osx
 
 # Disable "last login"
 touch ~/.hushlogin
+
+eval "$(direnv hook zsh)"
