@@ -12,6 +12,7 @@ alias gll="git log --graph --pretty=format:'%C(yellow)%h%Creset  %Cgreen%an%Cres
 alias ys="yadm status"
 alias yl="yadm log --graph --pretty=format:'%C(yellow)%h%Creset  %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
 alias yll="yadm log --graph --pretty=format:'%C(yellow)%h%Creset  %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset  %C(dim)(%cD)%Creset' --abbrev-commit --all"
+alias grim="git rebase -i master"
 
 rebaseStatus() {
 	if [ ! -d ".git" ]; then
@@ -48,6 +49,7 @@ alias vim="nvim"
 
 alias gt="go test -cover \`go list ./... | grep -v -E vendor\`"
 alias gw="find . -name '*.go' -not -path './vendor/*' | entr -c go build"
+alias gwt="find . -name '*.go' -not -path './vendor/*' | entr -c go test \`go list ./... | grep -v -E vendor\`"
 
 # Kubernetes 
 
