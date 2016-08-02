@@ -169,6 +169,8 @@ Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 Plug 'tommcdo/vim-exchange'
 Plug 'mileszs/ack.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
