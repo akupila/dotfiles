@@ -171,6 +171,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'vim-scripts/YankRing.vim'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
@@ -324,6 +325,14 @@ hi def goSameId ctermbg=237 ctermfg=015
 		let g:ackprg = 'ag --ignore vendor/ --vimgrep'
 	endif
 	nnoremap <leader>a :Ack!<Space>
+	" }}}
+	
+	" YankRing.vim {{{
+	" Remap to not conflict with ctrl-p
+	let g:yankring_replace_n_pkey = '[p'
+	let g:yankring_replace_n_nkey = ']p'
+	" Show history with rolling to p
+	noremap ][p :YRShow<CR>
 	" }}}
 " }}}
 
