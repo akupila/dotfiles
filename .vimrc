@@ -72,10 +72,9 @@ set tabstop=2     " Set tab 2 spaces wide
 		autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 	augroup END
 	" }}}
-
+	
 	" Insert new lines {{{
-	" ctrl-m: new below
-	nnoremap <C-m> o<Esc>
+	nmap <CR> o<Esc>
 	" }}}
 
 	" Yank to end of line {{{
@@ -247,12 +246,6 @@ hi def goSameId ctermbg=237 ctermfg=015
 			autocmd FileType go nmap <leader>t :GoTest!<CR>
 			autocmd FileType go nmap <Leader>d <Plug>(go-doc)
 			autocmd FileType go nmap <Leader>ct :GoCoverageToggle<CR>
-
-			" quickfix/error nav
-			if has('nvim')
-				map <C-n> :lnext<CR>
-				map <C-m> :lprevious<CR>
-			endif
 
 			autocmd FileType go nmap Q :GoAlternate!<CR>
 
