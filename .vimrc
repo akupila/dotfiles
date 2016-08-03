@@ -198,6 +198,9 @@ highlight MatchParen ctermbg=NONE ctermfg=14 cterm=NONE
 " Pink trailing spaces
 highlight TrailingWhitespace ctermfg=200 ctermbg=233
 match TrailingWhitespace /\s\+$/
+
+" :GoSameIds
+hi def goSameId ctermbg=237 ctermfg=015
 " }}}
 
 " Plugin config {{{
@@ -227,8 +230,8 @@ match TrailingWhitespace /\s\+$/
 		let g:go_highlight_operators = 1
 		let g:go_highlight_build_constraints = 1
 		let g:go_fmt_command = "goimports"
-		let g:go_auto_type_info = 1
 		let g:go_fmt_fail_silently = 1
+		let g:go_auto_sameids = 1
 		" }}}
 		" Keyboard shortcuts {{{
 		augroup VimGoKeyboard
