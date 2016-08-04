@@ -73,10 +73,6 @@ set tabstop=2     " Set tab 2 spaces wide
 	augroup END
 	" }}}
 	
-	" Insert new lines {{{
-	nmap <CR> o<Esc>
-	" }}}
-
 	" Yank to end of line {{{
 	nnoremap Y y$
 	" }}}
