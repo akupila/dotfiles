@@ -91,6 +91,9 @@ export KUBE_EDITOR=nvim
 source ~/.aliases
 source ~/.osx
 
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # Disable "last login"
 touch ~/.hushlogin
 
