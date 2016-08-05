@@ -167,6 +167,7 @@ Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/YankRing.vim'
+Plug 'plasticboy/vim-markdown'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
@@ -322,6 +323,10 @@ hi def goSameId ctermbg=237 ctermfg=015
 	let g:yankring_replace_n_nkey = ']p'
 	" Show history with rolling to p
 	noremap ][p :YRShow<CR>
+	" }}}
+	
+	" vim-markdown {{{
+	let g:vim_markdown_folding_disabled = 1
 	" }}}
 " }}}
 
