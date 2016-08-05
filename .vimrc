@@ -34,7 +34,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
@@ -233,9 +233,6 @@ nnoremap <leader>gs :Gstatus<CR>
 " nerdtree
 nnoremap <silent> § :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
-
-" nercommenter
-let g:NERDSpaceDelims = 1 " Add spaces after comments
 
 " ctrlp
 let g:ctrlp_custom_ignore = 'vendor'
