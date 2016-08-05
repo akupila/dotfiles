@@ -269,15 +269,15 @@ let g:vim_markdown_folding_disabled = 1
 
 " vim-startify
 " don't need to look at a cow
-let g:startify_custom_header = ['    vim']
+let g:startify_custom_header = ['    ϟ']
 let g:startify_list_order = [
-    \ ['   MRU (dir)'],
+    \ ['   dir:'],
     \ 'dir',
-    \ ['   MRU:'],
+    \ ['   recent:'],
     \ 'files',
-    \ ['   Sessions:'],
+    \ ['   sessions:'],
     \ 'sessions',
-    \ ['   Bookmarks:'],
+    \ ['   bookmarks:'],
     \ 'bookmarks',
     \ ]
 
