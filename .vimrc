@@ -28,7 +28,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'kshenoy/vim-signature'
@@ -46,6 +45,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'mhinz/vim-startify'
+Plug 'justinmk/vim-sneak'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
@@ -258,6 +259,29 @@ noremap ][p :YRShow<CR>
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
+
+" vim-startify
+" don't need to look at a cow
+let g:startify_custom_header = ['    vim']
+let g:startify_list_order = [
+    \ ['   MRU (dir)'],
+    \ 'dir',
+    \ ['   MRU:'],
+    \ 'files',
+    \ ['   Sessions:'],
+    \ 'sessions',
+    \ ['   Bookmarks:'],
+    \ 'bookmarks',
+    \ ]
+
+" vim-sneak
+" use sneak instead of f
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
 
 " -------------------------------------
 " Filetypes
