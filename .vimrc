@@ -22,6 +22,9 @@
 " }}}
 
 " General {{{
+	set clipboard=unnamed                 " Share clipboard with OS X
+	set complete=.,w,b,u                  " Complete from current file, split window, buffers, unloaded buffers
+	set completeopt+=noinsert             " Automatically select first autocomplete option
 	set fillchars=""                      " Disable - | chars on horizontal/vertical splits
 	set hidden                            " When a buffer is brought to foreground, remember undo history and marks
 	set history=250                       " 250 items in history
@@ -34,6 +37,7 @@
 	set noshowmode                        " Don't show mode, airline shows it
 	set noswapfile                        " No swaps
 	set number                            " Show line numbers on active line
+	set numberwidth=6                     " Wider line number column
 	set pumheight=10                      " Max 10 items in popup/autocomplete menu
 	set relativenumber                    " Show relative line numbers
 	set scrolloff=3                       " Offset top/bottom when scrolling
@@ -42,9 +46,6 @@
 	set splitright                        " Split vertical windows to the right
 	set updatetime=50                     " Trigger cursorhold faster for vim-go showing what a func accepts
 	set visualbell                        " Use visual bell instead of audible bell
-	set clipboard=unnamed                 " Share clipboard with OS X
-	set completeopt+=noinsert             " Automatically select first autocomplete option
-	set complete=.,w,b,u                  " Complete from current file, split window, buffers, unloaded buffers
 " }}}
 
 " Indentation {{{
@@ -168,6 +169,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/syntastic'
+Plug 'carlitux/deoplete-ternjs'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
@@ -203,6 +206,7 @@ hi def goSameId ctermbg=237 ctermfg=015
 " Plugin config {{{
 	" vim-airline {{{
 	let g:airline_powerline_fonts = 1
+	let g:airline_enable_syntastic = 1
 	let g:airline_theme = "powerlineish"
 	let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
 	let g:airline_section_y = ''
@@ -327,6 +331,10 @@ hi def goSameId ctermbg=237 ctermfg=015
 	
 	" vim-markdown {{{
 	let g:vim_markdown_folding_disabled = 1
+	" }}}
+	
+	" Syntastic.vim {{{
+	let g:syntastic_javascript_checkers = ['eslint']
 	" }}}
 " }}}
 
