@@ -86,6 +86,7 @@ set splitright                        " Split vertical windows to the right
 set tabstop=2 " Set tab 2 spaces wide
 set updatetime=50                     " Trigger cursorhold faster
 set visualbell                        " Use visual bell instead of audible bell
+set colorcolumn=81                   " Colorize characters over 80 chars wide
 
 " -------------------------------------
 " Key remaps
@@ -152,16 +153,25 @@ colorscheme molokai
 
 " Line numbers gray, active white
 highlight LineNr ctermfg=238 ctermbg=0
-highlight CursorLineNR ctermfg=015
+highlight CursorLineNR ctermfg=015 ctermbg=0
 " Light blue selection bg, black text
 highlight Visual ctermfg=0 ctermbg=51
-" Black(ish) cursorline
+" Black cursorline
 highlight CursorLine ctermbg=232
 " Less intrusive matching parens
-highlight MatchParen ctermbg=NONE ctermfg=14 cterm=NONE
+highlight MatchParen ctermbg=0 ctermfg=14
 " Pink trailing spaces
 highlight TrailingWhitespace ctermfg=200 ctermbg=233
 match TrailingWhitespace /\s\+$/
+
+" Color column bg in insert mode
+" Highlight character only (not bg) for long lines
+highlight ColorColumn ctermbg=NONE ctermfg=196
+augroup colorcolumn_bg
+	autocmd!
+  au InsertEnter * highlight ColorColumn ctermbg=234 ctermfg=NONE
+  au InsertLeave * highlight ColorColumn ctermbg=NONE ctermfg=196
+augroup END
 
 " -------------------------------------
 " Plugin config
