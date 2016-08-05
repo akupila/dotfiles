@@ -78,15 +78,15 @@ set numberwidth=6                     " Wider line numbers
 set pumheight=10                      " Max 10 items in popup/autocomplete menu
 set relativenumber                    " Show relative line numbers
 set scrolloff=5                       " Offset top/bottom when scrolling
-set shiftwidth=2 " Shift indentation 2 spaces
+set shiftwidth=2                      " Shift indentation 2 spaces
 set shortmess+=I                      " Hide intro message
-set softtabstop=2 " Convert a tab to 2 spaces
+set softtabstop=2                     " Convert a tab to 2 spaces
 set splitbelow                        " Split horizontal windows down
 set splitright                        " Split vertical windows to the right
-set tabstop=2 " Set tab 2 spaces wide
+set tabstop=2                         " Set tab 2 spaces wide
 set updatetime=50                     " Trigger cursorhold faster
 set visualbell                        " Use visual bell instead of audible bell
-set colorcolumn=81                   " Colorize characters over 80 chars wide
+set colorcolumn=81                    " Colorize characters over 80 chars wide
 
 " -------------------------------------
 " Key remaps
