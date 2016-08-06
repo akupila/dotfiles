@@ -136,8 +136,6 @@ nnoremap <leader>cr :so $MYVIMRC<CR>
 " Buffer navigation
 " ,,b show buffers
 map <leader><leader>b :buffers<CR>:buffer<Space>
-" bb previous active buffer
-map bb <C-^>
 " next buffer
 map bn :bnext<CR>
 " prev buffer
