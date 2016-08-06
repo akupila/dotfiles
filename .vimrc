@@ -283,6 +283,7 @@ let g:startify_list_order = [
 
 " vim-sneak
 " use sneak instead of fF / tT
+let g:sneak#s_next = 1
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
 xmap f <Plug>Sneak_f
