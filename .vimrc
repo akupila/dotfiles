@@ -151,26 +151,41 @@ colorscheme molokai
 " Customize molokai
 " https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 
-" Line numbers gray, active white
-highlight LineNr ctermfg=238 ctermbg=0
-highlight CursorLineNR ctermfg=015 ctermbg=0
-" Light blue selection bg, black text
-highlight Visual ctermfg=0 ctermbg=51
-" Black cursorline
-highlight CursorLine ctermbg=232
-" Less intrusive matching parens
-highlight MatchParen ctermbg=0 ctermfg=14
-" Pink trailing spaces
-highlight TrailingWhitespace ctermfg=200 ctermbg=233
-match TrailingWhitespace /\s\+$/
+function! s:TweakColors()
+	" Line numbers gray, active white
+	highlight LineNr ctermfg=238 ctermbg=0
+	highlight CursorLineNR ctermfg=015 ctermbg=0
+	" Light blue selection bg, black text
+	highlight Visual ctermfg=0 ctermbg=51
+	" Black cursorline
+	highlight CursorLine ctermbg=232
+	" Less intrusive matching parens
+	highlight MatchParen ctermbg=0 ctermfg=14
+	" Pink trailing spaces
+	highlight TrailingWhitespace ctermfg=200 ctermbg=233
+	match TrailingWhitespace /\s\+$/
+	" Greenish bg on sneak hits
+	highlight SneakPluginTarget ctermfg=black ctermbg=51
+	" Lighter column marker
+	highlight ColorColumn ctermbg=NONE ctermfg=196
+endfunction
+
+augroup UpdateColors
+	autocmd!
+	" Update colors after colorscheme change to fix broken colors
+	" after vim-go coverage
+	autocmd ColorScheme * call s:TweakColors()
+	
+	" Set colors first time too
+	call s:TweakColors()
+augroup END
 
 " Color column bg in insert mode
 " Highlight character only (not bg) for long lines
-highlight ColorColumn ctermbg=NONE ctermfg=196
 augroup colorcolumn_bg
 	autocmd!
-  au InsertEnter * highlight ColorColumn ctermbg=234 ctermfg=NONE
-  au InsertLeave * highlight ColorColumn ctermbg=NONE ctermfg=196
+  autocmd InsertEnter * highlight ColorColumn ctermbg=234 ctermfg=NONE
+  autocmd InsertLeave * highlight ColorColumn ctermbg=NONE ctermfg=196
 augroup END
 
 " -------------------------------------
