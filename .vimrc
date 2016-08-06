@@ -134,11 +134,16 @@ vnoremap L $
 " Reload .vimrc config
 nnoremap <leader>cr :so $MYVIMRC<CR>
 " Buffer navigation
-" bb: previous used buffer ,b: next buffer ,B: prev buffer ,,b: list buffers
+" ,,b show buffers
 map <leader><leader>b :buffers<CR>:buffer<Space>
+" bb previous active buffer
 map bb <C-^>
-map <leader>b :bnext<CR>
-map <leader>B :bprev<CR>
+" next buffer
+map bn :bnext<CR>
+" prev buffer
+map bp :bprev<CR>
+" close buffer
+map bq :bdelete<CR>
 
 " -------------------------------------
 " Colors
@@ -160,7 +165,7 @@ function! s:TweakColors()
 	" Black cursorline
 	highlight CursorLine ctermbg=232
 	" Less intrusive matching parens
-	highlight MatchParen ctermbg=0 ctermfg=14
+	highlight MatchParen ctermbg=0 ctermfg=196
 	" Pink trailing spaces
 	highlight TrailingWhitespace ctermfg=200 ctermbg=233
 	match TrailingWhitespace /\s\+$/
