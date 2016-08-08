@@ -169,8 +169,6 @@ function! s:TweakColors()
 	match TrailingWhitespace /\s\+$/
 	" Greenish bg on sneak hits
 	highlight SneakPluginTarget ctermfg=black ctermbg=51
-	" Lighter column marker
-	highlight ColorColumn ctermbg=NONE ctermfg=196
 endfunction
 
 augroup UpdateColors
@@ -188,20 +186,20 @@ augroup END
 augroup ColorColumnBG
 	autocmd!
   autocmd InsertEnter * highlight ColorColumn ctermbg=234 ctermfg=NONE
-  autocmd InsertLeave * highlight ColorColumn ctermbg=NONE ctermfg=196
+  autocmd InsertLeave,BufRead * highlight ColorColumn ctermbg=NONE ctermfg=196
 augroup END
 
 " -------------------------------------
 " Color column
 " -------------------------------------
-"
-" Default
-set colorcolumn=81
 
 augroup ColorColumnFiletype
 	autocmd!
-	" No color column
-	autocmd BufRead .vimrc set colorcolumn=
+	" Default
+	set colorcolumn=81
+	" 100 col
+	autocmd BufRead *.js set colorcolumn=101
+	autocmd BufRead *.jsx set colorcolumn=101
 augroup END
 
 " -------------------------------------
