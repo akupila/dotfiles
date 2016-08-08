@@ -266,6 +266,8 @@ nnoremap <silent> <leader>§ :NERDTreeFind<CR>
 
 " ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|vendor\|public/out|\.git'
+" option-p
+nnoremap π :CtrlPBuffer<CR>
 
 " vim-ultisnips
 let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
