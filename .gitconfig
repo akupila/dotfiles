@@ -13,5 +13,7 @@
 [core]
 	ignorecase = false
 	editor = /usr/local/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [diff]
 	compactionHeuristic = true
+[diff-so-fancy]

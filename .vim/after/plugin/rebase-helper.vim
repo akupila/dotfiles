@@ -1,4 +1,3 @@
-" vim:fdm=marker:
 " Git rebase helper {{{
 "   git rebase --interactive
 "
