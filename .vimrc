@@ -265,7 +265,8 @@ nnoremap <silent> § :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
 
 " ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|vendor\|public/out|\.git'
+" wercker: public/out, local_modules
+let g:ctrlp_custom_ignore = 'node_modules\|vendor\|local_modules\|public\/out\|\.git'
 " option-p
 nnoremap π :CtrlPBuffer<CR>
 
