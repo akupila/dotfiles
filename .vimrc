@@ -133,15 +133,6 @@ vnoremap H ^
 vnoremap L $
 " Reload .vimrc config
 nnoremap <leader>cr :so $MYVIMRC<CR>
-" Buffer navigation
-" ,,b show buffers
-map <leader><leader>b :buffers<CR>:buffer<Space>
-" next buffer
-map <leader>bn :bnext<CR>
-" prev buffer
-map <leader>bp :bprev<CR>
-" close buffer
-map <leader>bq :bdelete<CR>
 
 " -------------------------------------
 " Colors
