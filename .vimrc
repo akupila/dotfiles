@@ -133,6 +133,11 @@ vnoremap H ^
 vnoremap L $
 " Reload .vimrc config
 nnoremap <leader>cr :so $MYVIMRC<CR>
+" Buffer nav
+nnoremap “ :bprev<CR>
+nnoremap ‘ :bnext<CR>
+" prev active buffer: alt-\
+nnoremap « <C-^><CR>
 
 " -------------------------------------
 " Colors
@@ -267,6 +272,7 @@ nnoremap <silent> <leader>§ :NERDTreeFind<CR>
 " ctrlp
 " wercker: public/out, local_modules
 let g:ctrlp_custom_ignore = 'node_modules\|vendor\|local_modules\|public\/out\|\.git'
+let g:ctrlp_show_hidden = 1
 " option-p
 nnoremap π :CtrlPBuffer<CR>
 
