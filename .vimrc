@@ -87,7 +87,6 @@ set splitright                        " Split vertical windows to the right
 set tabstop=2                         " Set tab 2 spaces wide
 set updatetime=50                     " Trigger cursorhold faster
 set visualbell                        " Use visual bell instead of audible bell
-set colorcolumn=81                    " Colorize characters over 80 chars wide
 
 " -------------------------------------
 " Key remaps
@@ -186,10 +185,23 @@ augroup END
 
 " Color column bg in insert mode
 " Highlight character only (not bg) for long lines
-augroup colorcolumn_bg
+augroup ColorColumnBG
 	autocmd!
   autocmd InsertEnter * highlight ColorColumn ctermbg=234 ctermfg=NONE
   autocmd InsertLeave * highlight ColorColumn ctermbg=NONE ctermfg=196
+augroup END
+
+" -------------------------------------
+" Color column
+" -------------------------------------
+"
+" Default
+set colorcolumn=81
+
+augroup ColorColumnFiletype
+	autocmd!
+	" No color column
+	autocmd BufRead .vimrc set colorcolumn=
 augroup END
 
 " -------------------------------------
