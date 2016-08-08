@@ -274,7 +274,7 @@ nnoremap <silent> § :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
 
 " ctrlp
-let g:ctrlp_custom_ignore = 'vendor'
+let g:ctrlp_custom_ignore = 'node_modules\|vendor\|public/out|\.git'
 
 " vim-ultisnips
 let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
