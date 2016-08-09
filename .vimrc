@@ -304,6 +304,8 @@ noremap ][p :YRShow<CR>
 let g:vim_markdown_folding_disabled = 1
 
 " vim-startify
+" stay in dir where vim was openened
+let g:startify_change_to_dir = 0
 " don't need to look at a cow
 let g:startify_custom_header = ['    ϟ']
 let g:startify_list_order = [
@@ -315,6 +317,10 @@ let g:startify_list_order = [
     \ 'sessions',
     \ ['   bookmarks:'],
     \ 'bookmarks',
+    \ ]
+let g:startify_bookmarks = [
+    \ { 'c': '~/.vimrc' },
+    \ { 'z': '~/.zshrc' }
     \ ]
 
 " vim-sneak
