@@ -91,6 +91,8 @@ set splitright                        " Split vertical windows to the right
 set tabstop=2                         " Set tab 2 spaces wide
 set updatetime=50                     " Trigger cursorhold faster
 set visualbell                        " Use visual bell instead of audible bell
+set undodir=~/.vim/undo               " For persistent undo
+set undofile                          " Enable persistent undo
 
 " -------------------------------------
 " Key remaps
