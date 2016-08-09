@@ -49,6 +49,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'wellle/targets.vim'
+Plug 'mbbill/undotree'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
@@ -347,6 +348,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 " deoplete-ternjs
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 0
+
+" undotree
+nmap <leader>u :UndotreeToggle<CR>
 
 " -------------------------------------
 " Filetypes
