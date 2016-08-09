@@ -140,6 +140,8 @@ nnoremap “ :bprev<CR>
 nnoremap ‘ :bnext<CR>
 " prev active buffer: alt-\
 nnoremap « <C-^><CR>
+" closee buffer with ctrl-w
+nnoremap <C-w> :bdel<CR>
 
 " -------------------------------------
 " Colors
