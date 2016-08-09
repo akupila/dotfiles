@@ -239,9 +239,6 @@ hi def goSameId ctermbg=237 ctermfg=015
 
 " Autocomplete
 " Neocomplete & Deoplete
-function! s:close_popup()
-	return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
 
 " Neocomplete (vim)
 if !has('nvim')
@@ -249,9 +246,10 @@ if !has('nvim')
 	let g:neocomplete#enable_auto_select = 1                      "  Automatically select first suggestion
 	set completeopt-=preview                                      "  Disable preview window
 	let g:neocomplete#sources#syntax#min_keyword_length = 2       "  Set minimum syntax keyword length.
-	" <Enter>: close popup and save indent.
-	inoremap <silent> <Enter> <C-r>=<SID>close_popup()<Enter>
-	" fix adding linebreak on enter
+	noremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
+  function! s:close_popup()
+    return pumvisible() ? "\<C-y>" : "\<CR>"
+  endfunction
 endif
 
 " Deoplete (Neovim)
@@ -261,6 +259,10 @@ if has('nvim')
 	let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
 	let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
 	let g:deoplete#sources#go#align_class = 1
+  inoremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
+  function! s:close_popup()
+    return pumvisible() ? deoplete#mappings#close_popup() : "\n"
+  endfunction
 	set completeopt-=preview
 endif
 
