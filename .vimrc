@@ -38,6 +38,7 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
@@ -63,6 +64,7 @@ call plug#end()
 set clipboard=unnamed                 " Share clipboard with OS X
 set complete=.,w,b,u                  " Complete from current file, split window, buffers, unloaded buffers
 set completeopt+=noinsert             " Automatically select first autocomplete option
+set expandtab                         " Expand an inserted tab to spaces
 set fillchars=""                      " Disable - | chars on horizontal/vertical splits
 set hidden                            " Allow hidden buffers with unsaved content
 set history=250                       " 250 items in history
@@ -326,6 +328,11 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+
+" syntastic
+let g:syntastic_error_symbol = 'x'
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_javascript_checkers = ['eslint']
 
 " -------------------------------------
 " Filetypes
