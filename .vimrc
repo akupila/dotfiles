@@ -27,11 +27,13 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
+Plug 'carlitux/deoplete-ternjs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
+Plug 'ternjs/tern_for_vim'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
 Plug 'mxw/vim-jsx'
@@ -335,6 +337,10 @@ omap T <Plug>Sneak_T
 let g:syntastic_error_symbol = 'x'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_javascript_checkers = ['eslint']
+
+" deoplete-ternjs
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = 0
 
 " -------------------------------------
 " Filetypes
