@@ -30,6 +30,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot' " add language support for everything
+Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
