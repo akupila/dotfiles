@@ -48,6 +48,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-scripts/summerfruit256.vim' " Light color theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/YankRing.vim'
@@ -154,12 +155,11 @@ nnoremap <C-q> :bdel<CR>
 
 set t_Co=256
 set background=dark
-colorscheme molokai
 
 " Customize molokai
 " https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 
-function! s:TweakColors()
+function! s:UpdateDark()
 	" Line numbers gray, active white
 	highlight LineNr ctermfg=238 ctermbg=0
 	highlight CursorLineNR ctermfg=015 ctermbg=0
@@ -174,17 +174,23 @@ function! s:TweakColors()
 	match TrailingWhitespace /\s\+$/
 	" Greenish bg on sneak hits
 	highlight SneakPluginTarget ctermfg=black ctermbg=51
+
+  let g:airline_theme = "powerlineish"
+endfunction
+
+function! s:UpdateLight()
+  " Update Summerfruit256 colors
+  let g:airline_theme = "papercolor"
 endfunction
 
 augroup UpdateColors
 	autocmd!
-	" Update colors after colorscheme change to fix broken colors
-	" after vim-go coverage
-	autocmd ColorScheme * call s:TweakColors()
-	
-	" Set colors first time too
-	call s:TweakColors()
+	autocmd ColorScheme molokai call s:UpdateDark()
+	autocmd ColorScheme summerfruit256 call s:UpdateLight()
 augroup END
+
+" Default
+colorscheme molokai
 
 " Color column bg in insert mode
 " Highlight character only (not bg) for long lines
@@ -213,8 +219,8 @@ augroup END
 " -------------------------------------
 
 " vim-airline
-let g:airline_powerline_fonts = 1
 let g:airline_theme = "powerlineish"
+let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
 let g:airline_section_y = ''
 let g:airline_section_z = '%3p%%  %l/%L  %c'
