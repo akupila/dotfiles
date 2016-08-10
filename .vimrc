@@ -25,21 +25,23 @@ endif
 " -------------------------------------
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
-Plug 'ternjs/tern_for_vim'
+Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'sheerun/vim-polyglot' " add language support for everything
+Plug 'SirVer/ultisnips'
+Plug 'ternjs/tern_for_vim'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
@@ -50,7 +52,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'wellle/targets.vim'
-Plug 'mbbill/undotree'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
 else 
