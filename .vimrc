@@ -161,7 +161,7 @@ set background=dark
 
 function! s:UpdateDark()
 	" Line numbers gray, active white
-	highlight LineNr ctermfg=238 ctermbg=0
+	highlight LineNr ctermfg=240 ctermbg=0
 	highlight CursorLineNR ctermfg=015 ctermbg=0
 	" Light blue selection bg, black text
 	highlight Visual ctermfg=0 ctermbg=51
