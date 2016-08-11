@@ -87,14 +87,15 @@ set relativenumber                    " Show relative line numbers
 set scrolloff=5                       " Offset top/bottom when scrolling
 set shiftwidth=2                      " Shift indentation 2 spaces
 set shortmess+=I                      " Hide intro message
+set smartcase                         " Enable case sensitive if input has capital letter
 set softtabstop=2                     " Convert a tab to 2 spaces
 set splitbelow                        " Split horizontal windows down
 set splitright                        " Split vertical windows to the right
 set tabstop=2                         " Set tab 2 spaces wide
-set updatetime=50                     " Trigger cursorhold faster
-set visualbell                        " Use visual bell instead of audible bell
 set undodir=~/.vim/undo               " For persistent undo
 set undofile                          " Enable persistent undo
+set updatetime=50                     " Trigger cursorhold faster
+set visualbell                        " Use visual bell instead of audible bell
 
 " -------------------------------------
 " Key remaps
