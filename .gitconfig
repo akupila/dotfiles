@@ -17,3 +17,5 @@
 [diff]
 	compactionHeuristic = true
 [diff-so-fancy]
+[pull]
+	rebase = true
