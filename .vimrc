@@ -157,7 +157,12 @@ nnoremap N Nzzzv
 " Colors
 " -------------------------------------
 
-set t_Co=256
+" nvim 0.1.5+ for true color
+if has("termguicolors")
+  set termguicolors
+else
+  set t_Co=256
+endif
 set background=dark
 
 " Customize molokai
