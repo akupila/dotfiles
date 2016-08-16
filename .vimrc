@@ -32,6 +32,7 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
+Plug 'rakr/vim-one'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
@@ -48,7 +49,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/summerfruit256.vim' " Light color theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/YankRing.vim'
@@ -165,49 +165,8 @@ else
 endif
 set background=dark
 
-" Customize molokai
-" https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
-
-function! s:UpdateDark()
-	" Line numbers gray, active white
-	highlight LineNr ctermfg=240 ctermbg=0
-	highlight CursorLineNR ctermfg=015 ctermbg=0
-	" Light blue selection bg, black text
-	highlight Visual ctermfg=0 ctermbg=51
-	" Black cursorline
-	highlight CursorLine ctermbg=232
-	" Less intrusive matching parens
-	highlight MatchParen ctermbg=0 ctermfg=196
-	" Pink trailing spaces
-	highlight TrailingWhitespace ctermfg=200 ctermbg=233
-	match TrailingWhitespace /\s\+$/
-	" Greenish bg on sneak hits
-	highlight SneakPluginTarget ctermfg=black ctermbg=51
-
-  let g:airline_theme = "powerlineish"
-endfunction
-
-function! s:UpdateLight()
-  " Update Summerfruit256 colors
-  let g:airline_theme = "papercolor"
-endfunction
-
-augroup UpdateColors
-	autocmd!
-	autocmd ColorScheme molokai call s:UpdateDark()
-	autocmd ColorScheme summerfruit256 call s:UpdateLight()
-augroup END
-
-" Default
-colorscheme molokai
-
-" Color column bg in insert mode
-" Highlight character only (not bg) for long lines
-augroup ColorColumnBG
-	autocmd!
-  autocmd InsertEnter * highlight ColorColumn ctermbg=234 ctermfg=NONE
-  autocmd InsertLeave,BufRead * highlight ColorColumn ctermbg=NONE ctermfg=196
-augroup END
+let g:one_allow_italics = 1 
+colorscheme one
 
 " -------------------------------------
 " Color column
@@ -228,7 +187,7 @@ augroup END
 " -------------------------------------
 
 " vim-airline
-let g:airline_theme = "powerlineish"
+let g:airline_theme = "one"
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
 let g:airline_section_y = ''
