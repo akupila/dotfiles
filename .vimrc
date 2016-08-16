@@ -149,6 +149,9 @@ nnoremap ‘ :bnext<CR>
 nnoremap « <C-^><CR>
 " closee buffer with ctrl-w
 nnoremap <C-q> :bdel<CR>
+" center on screen when jumping to next result
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " -------------------------------------
 " Colors
