@@ -254,6 +254,7 @@ nnoremap <leader>gs :Gstatus<CR>
 " nerdtree
 nnoremap <silent> § :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
+let g:NERDTreeQuitOnOpen = 1
 
 " ctrlp
 " wercker: public/out, local_modules
