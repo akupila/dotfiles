@@ -215,7 +215,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:go_auto_sameids = 1
-hi def goSameId ctermbg=237 ctermfg=015
+hi def goSameId ctermbg=237 ctermfg=015 guifg=#BFFF00
 
 " Autocomplete
 " Neocomplete & Deoplete
