@@ -353,6 +353,13 @@ augroup Go
 	autocmd FileType go nmap <Leader>p :GoDecls<CR>
 augroup END
 
+" Git commit
+augroup GitCommit
+  autocmd!
+  " enable spellcheck, allow to start with lowercase
+  autocmd FileType gitcommit setlocal spell spellcapcheck=
+augroup END
+
 " -------------------------------------
 " Misc
 " -------------------------------------
