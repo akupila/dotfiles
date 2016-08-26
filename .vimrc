@@ -360,6 +360,13 @@ augroup GitCommit
   autocmd FileType gitcommit setlocal spell spellcapcheck=
 augroup END
 
+" Markdown
+augroup Markdown
+  autocmd!
+  " enable spellcheck
+  autocmd FileType markdown setlocal spell
+augroup END
+
 " -------------------------------------
 " Misc
 " -------------------------------------
