@@ -75,7 +75,7 @@ set history=250                       " 250 items in history
 set ignorecase                        " Ignore case for searching
 set lazyredraw                        " Don't redraw when we don't have to
 set list                              " Enable listing extra chars
-set listchars=tab:\ \ ,trail:·,nbsp:_
+set listchars=tab:\⋮\ ,trail:·,nbsp:_
 set nobackup                          " No annoying backups
 set noerrorbells                      " No beeping
 set noshowmode                        " Don't show mode, airline shows it
