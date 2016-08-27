@@ -261,7 +261,7 @@ let g:NERDTreeQuitOnOpen = 1
 
 " ctrlp
 " wercker: public/out
-let g:ctrlp_custom_ignore = 'node_modules\|vendor\|public\/out\|\.git'
+let g:ctrlp_custom_ignore = 'node_modules\|vendor\|\.wercker\|public\/out\|\.git'
 let g:ctrlp_show_hidden = 1
 " option-p
 nnoremap π :CtrlPBuffer<CR>
