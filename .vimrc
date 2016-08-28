@@ -155,6 +155,9 @@ nnoremap N Nzzzv
 " faster movement with alt pressed
 nnoremap ∆ 10j
 nnoremap ˚ 10k
+" faster scrolling
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 " -------------------------------------
 " Colors
