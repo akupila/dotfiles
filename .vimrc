@@ -305,6 +305,7 @@ let g:startify_bookmarks = [
     \ { 'c': '~/.vimrc' },
     \ { 'z': '~/.zshrc' }
     \ ]
+noremap <leader><leader>s :Startify<cr>
 
 " vim-sneak
 " use sneak instead of fF / tT
