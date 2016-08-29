@@ -112,9 +112,9 @@ nnoremap Y y$
 " Move to line above/below even if line is wrapping
 nnoremap j gj
 nnoremap k gk
-" Move current line, alt-j down, alt-k up. Maintain indentation
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
+" Move current line, shift-alt-j down, shift-alt-k up. Maintain indentation
+nnoremap Ô :m .+1<CR>==
+nnoremap  :m .-2<CR>==
 " Search word under cursor for replace with confirm
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " Move between windows
@@ -152,9 +152,9 @@ nnoremap <C-q> :bdel<CR>
 " center on screen when jumping to next result
 nnoremap n nzzzv
 nnoremap N Nzzzv
-" faster movement
-nnoremap <C-j> 10j
-nnoremap <C-k> 10k
+" faster movement with alt pressed
+nnoremap ∆ 10j
+nnoremap ˚ 10k
 
 " -------------------------------------
 " Colors
