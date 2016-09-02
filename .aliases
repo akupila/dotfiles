@@ -14,6 +14,7 @@ alias yl="yadm log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Crese
 alias yll="yadm log --graph --pretty=format:'%C(yellow)%h%Creset %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit --all"
 alias grim="git rebase -i master"
 alias gp="git log --max-count=1 --abbrev-commit --pretty=format:'%C(yellow)%h%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset'"
+alias gh="git log -p -M --follow --abbrev-commit -- "
 
 rebaseStatus() {
 	if [ ! -d ".git" ]; then
