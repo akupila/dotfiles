@@ -26,13 +26,13 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'akupila/vim-one'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
-Plug 'rakr/vim-one'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
