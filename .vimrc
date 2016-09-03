@@ -159,6 +159,8 @@ nnoremap ˚ 10k
 " faster scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
+" replace word without overwriting register
+nnoremap <leader>r viw"_dP
 
 " -------------------------------------
 " Colors
