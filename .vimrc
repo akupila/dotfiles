@@ -161,6 +161,8 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 " replace word without overwriting register
 nnoremap <leader>r viw"_dP
+" sort lines
+vnoremap <f5> :sort i<cr>
 
 " -------------------------------------
 " Colors
