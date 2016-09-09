@@ -29,6 +29,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'akupila/vim-one'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'milkypostman/vim-togglelist'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
@@ -164,6 +165,9 @@ nnoremap <C-y> 3<C-y>
 nnoremap <leader>r viw"_dP
 " sort lines
 vnoremap <f5> :sort i<cr>
+" prev/next in quickfix
+map <C-n> :cnext<cr>zz
+map <C-m> :cprev<cr>zz
 
 " -------------------------------------
 " Colors
@@ -222,8 +226,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
 let g:go_auto_sameids = 1
+let g:go_list_type = "quickfix"
 hi def goSameId ctermbg=237 ctermfg=015 guifg=#BFFF00
 
 " Autocomplete
@@ -343,6 +347,9 @@ let g:tern_show_signature_in_pum = 0
 
 " undotree
 nmap <leader>u :UndotreeToggle<CR>
+
+" vim-togglelist
+nnoremap <C-b> :call ToggleQuickfixList()<cr>
 
 " -------------------------------------
 " Filetypes
