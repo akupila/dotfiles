@@ -168,6 +168,9 @@ vnoremap <f5> :sort i<cr>
 " prev/next in quickfix
 map <C-n> :cnext<cr>zz
 map <C-m> :cprev<cr>zz
+" jump to ( and ) on line
+nnoremap ( f(
+nnoremap ) f(])
 
 " -------------------------------------
 " Colors
