@@ -29,14 +29,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'akupila/vim-one'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'carlitux/deoplete-ternjs'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
-Plug 'mileszs/ack.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'plasticboy/vim-markdown'
@@ -205,7 +205,7 @@ augroup END
 " vim-airline
 let g:airline_theme = "one"
 let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['branch', 'ctrlp', 'tabline']
+let g:airline_extensions = ['branch', 'tabline']
 let g:airline_section_y = ''
 let g:airline_section_z = '%3p%%  %l/%L  %c'
 let g:airline#extensions#tabline#tab_nr_type = 1
@@ -272,22 +272,15 @@ nnoremap <silent> § :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
 let g:NERDTreeQuitOnOpen = 1
 
-" ctrlp
-" wercker: public/out
-let g:ctrlp_custom_ignore = 'node_modules\|vendor\|\.wercker\|public\/out\|\.git'
-let g:ctrlp_show_hidden = 1
-" option-p
-nnoremap π :CtrlPBuffer<CR>
+" FZF
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_buffers_jump = 1
+nnoremap <C-p> :Files<CR>
+nnoremap π :Buffers<CR>
+nnoremap <C-a> :Ag 
 
 " vim-ultisnips
 let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
-
-" ack.vim
-" use silversearcher if available
-if executable('ag')
-	let g:ackprg = 'ag --ignore vendor/ --vimgrep'
-endif
-nnoremap <leader>a :Ack!<Space>
 
 " YankRing.vim
 " Remap to not conflict with ctrl-p

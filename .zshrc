@@ -96,3 +96,5 @@ export EDITOR="$VISUAL"
 touch ~/.hushlogin
 
 eval "$(direnv hook zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
