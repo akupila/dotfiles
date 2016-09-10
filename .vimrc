@@ -278,6 +278,7 @@ let g:NERDTreeQuitOnOpen = 1
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_buffers_jump = 1
+let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <C-p> :Files<CR>
 nnoremap π :Buffers<CR>
 nnoremap <C-a> :Ag 
