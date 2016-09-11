@@ -213,6 +213,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['branch', 'tabline']
 let g:airline_section_y = ''
 let g:airline_section_z = '%3p%%  %l/%L  %c'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 nmap <leader>1 <Plug>AirlineSelectTab1                        "  Jump to tab n
 nmap <leader>2 <Plug>AirlineSelectTab2
