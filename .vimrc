@@ -44,7 +44,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'SirVer/ultisnips'
-Plug 'skammer/vim-css-color'
 Plug 'ternjs/tern_for_vim'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
