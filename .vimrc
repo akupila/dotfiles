@@ -288,7 +288,7 @@ let g:fzf_action = {
   \ 'ctrl-o': 'edit' }
 nnoremap <C-p> :Files<CR>
 nnoremap π :Buffers<CR>
-nnoremap <C-a> :Ag 
+nnoremap <leader>a :Ag 
 
 " vim-ultisnips
 let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
