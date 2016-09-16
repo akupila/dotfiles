@@ -388,6 +388,13 @@ augroup Markdown
   autocmd FileType markdown setlocal spell
 augroup END
 
+" JavaScript
+augroup Javascript
+  autocmd!
+  " remove trailing spaces on save
+  autocmd FileType javascript autocmd BufWritePre <buffer> %s/\s\+$//e
+augroup END
+
 " -------------------------------------
 " Misc
 " -------------------------------------
