@@ -257,6 +257,8 @@ if has('nvim')
 	let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
 	let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
 	let g:deoplete#sources#go#align_class = 1
+	let g:deoplete#max_abbr_width = 160
+	let g:deoplete#max_menu_width = 80
   inoremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
   function! s:close_popup()
     return pumvisible() ? deoplete#mappings#close_popup() : "\n"
