@@ -14,8 +14,11 @@
 	ignorecase = false
 	editor = /usr/local/bin/vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = ~/.gitignore
 [diff]
 	compactionHeuristic = true
 [diff-so-fancy]
 [pull]
 	rebase = true
+[grep]
+	lineNumber = true
