@@ -51,6 +51,7 @@ alias vim="nvim"
 
 alias gt="go test -cover \`go list ./... | grep -v -E vendor\`"
 alias gw="find . -name '*.go' -not -path './vendor/*' | entr -c go build -v"
+alias gwi="find . -name '*.go' -not -path './vendor/*' | entr -c go install -v"
 alias gwt="find . -name '*.go' -not -path './vendor/*' | entr -c go test -cover \`go list ./... | grep -v -E vendor\`"
 
 # Kubernetes 
