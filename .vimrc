@@ -345,7 +345,7 @@ omap T <Plug>Sneak_T
 " syntastic
 let g:syntastic_error_symbol = 'x'
 let g:syntastic_warning_symbol = '!'
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
 
 " deoplete-ternjs
 let g:tern_request_timeout = 1
