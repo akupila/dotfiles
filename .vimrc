@@ -41,6 +41,7 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
+Plug 'steelsojka/deoplete-flow'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'SirVer/ultisnips'
@@ -259,6 +260,7 @@ if has('nvim')
 	let g:deoplete#sources#go#align_class = 1
 	let g:deoplete#max_abbr_width = 160
 	let g:deoplete#max_menu_width = 80
+  let g:deoplete#sources#flow#flow_bin = 'flow' 
   inoremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
   function! s:close_popup()
     return pumvisible() ? deoplete#mappings#close_popup() : "\n"
