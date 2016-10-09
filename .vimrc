@@ -26,7 +26,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'akupila/vim-one'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'fatih/vim-go'
@@ -188,7 +187,7 @@ endif
 set background=dark
 
 let g:one_allow_italics = 1 
-colorscheme one
+colorscheme molokai
 
 " -------------------------------------
 " Color column
@@ -209,7 +208,7 @@ augroup END
 " -------------------------------------
 
 " vim-airline
-let g:airline_theme = "one"
+let g:airline_theme = "dark"
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['branch', 'tabline']
 let g:airline_section_y = ''
