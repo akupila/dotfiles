@@ -367,7 +367,7 @@ let g:neomake_warning_sign = {
   \ 'texthl': 'GitGutterChangeDefault',
   \ }
 let g:neomake_error_sign = {
-  \ 'text': '✖',
+  \ 'text': '⨯',
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
 
