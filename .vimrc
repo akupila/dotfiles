@@ -42,7 +42,7 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic', { 'do': 'npm install -g eslint_d' }
 Plug 'steelsojka/deoplete-flow'
 Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'SirVer/ultisnips'
@@ -348,6 +348,7 @@ omap T <Plug>Sneak_T
 let g:syntastic_error_symbol = 'x'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " deoplete-ternjs
 let g:tern_request_timeout = 1
