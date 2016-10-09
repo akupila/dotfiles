@@ -38,10 +38,9 @@ Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'milkypostman/vim-togglelist'
-Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic', { 'do': 'npm install -g eslint_d' }
+Plug 'neomake/neomake'
 Plug 'steelsojka/deoplete-flow'
 Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'SirVer/ultisnips'
@@ -343,14 +342,6 @@ xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 
-" syntastic
-let g:syntastic_error_symbol = 'x'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-
 " deoplete-ternjs
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 0
@@ -364,6 +355,27 @@ nmap <leader>u :UndotreeToggle<CR>
 
 " vim-togglelist
 nnoremap <C-b> :call ToggleQuickfixList()<cr>
+
+" neomake
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_warning_sign = {
+  \ 'text': '›',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+let g:neomake_error_sign = {
+  \ 'text': '✖',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+
+autocmd! BufWritePost,BufEnter * Neomake
+
+" Fix colors for Neomake
+hi NeomakeWarningSign ctermfg=yellow guifg=yellow
+hi NeomakeErrorSign ctermfg=red guifg=red
+autocmd ColorScheme * hi NeomakeWarningSign ctermfg=yellow guifg=yellow guibg=none ctermbg=none
+autocmd ColorScheme * hi NeomakeErrorSign ctermfg=red guifg=red guibg=none ctermbg=none
 
 " -------------------------------------
 " Filetypes
