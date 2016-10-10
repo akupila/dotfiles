@@ -361,7 +361,7 @@ nnoremap <C-b> :call ToggleQuickfixList()<cr>
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_verbose = 0
+let g:neomake_verbose = 3
 let g:neomake_warning_sign = {
   \ 'text': '!',
   \ 'texthl': 'GitGutterChangeDefault',
@@ -371,7 +371,7 @@ let g:neomake_error_sign = {
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
 
-autocmd! BufWritePost,BufEnter * Neomake
+autocmd! VimEnter * if exists(":Neomake") | autocmd! BufWritePost,BufEnter * Neomake
 
 " Fix colors for Neomake
 hi NeomakeWarningSign ctermfg=yellow guifg=yellow
