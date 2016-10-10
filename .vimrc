@@ -300,7 +300,11 @@ nnoremap π :Buffers<CR>
 nnoremap <leader>a :Ag 
 
 " vim-ultisnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " YankRing.vim
 " Remap to not conflict with ctrl-p
