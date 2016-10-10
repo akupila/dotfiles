@@ -43,12 +43,7 @@ Plug 'neomake/neomake', { 'on': 'Neomake' }
 " Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx'
-Plug 'SirVer/ultisnips', { 'on': [] }
-augroup load_ultisnips
-  autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips')
-        \| autocmd! load_ultisnips
-augroup END
+Plug 'SirVer/ultisnips'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
