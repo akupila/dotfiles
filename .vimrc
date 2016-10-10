@@ -27,7 +27,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'carlitux/deoplete-ternjs'
 Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
@@ -41,17 +40,15 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'neomake/neomake'
-Plug 'steelsojka/deoplete-flow'
 Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'SirVer/ultisnips', { 'on': [] }
 augroup load_ultisnips
   " Load on demand
   " https://github.com/junegunn/vim-plug/issues/215
   autocmd!
-  autocmd FileType javascript call plug#load('ultisnips')
+  autocmd FileType go,javascript call plug#load('ultisnips')
         \| execute 'autocmd! load_ultisnips' | doautocmd FileType
 augroup END
-Plug 'ternjs/tern_for_vim'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
@@ -68,10 +65,12 @@ Plug 'vim-scripts/YankRing.vim', {
             \          'YRCheckClipboard', 'YRRunAfterMaps' ] }
 Plug 'wellle/targets.vim'
 if !has('nvim')
-	Plug 'Shougo/neocomplete.vim'
+  Plug 'Shougo/neocomplete.vim'
 else 
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'zchee/deoplete-go', { 'do': 'make'}
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'carlitux/deoplete-ternjs'
+  Plug 'steelsojka/deoplete-flow'
+  Plug 'zchee/deoplete-go', { 'do': 'make'}
 endif
 call plug#end()
 
