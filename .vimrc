@@ -39,7 +39,7 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'milkypostman/vim-togglelist'
 Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'neomake/neomake'
 Plug 'steelsojka/deoplete-flow'
 Plug 'sheerun/vim-polyglot' " add language support for everything
