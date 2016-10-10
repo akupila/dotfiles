@@ -31,23 +31,23 @@ Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all && brew install highlight' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'on': 'Files' }
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-startify'
 Plug 'milkypostman/vim-togglelist'
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'neomake/neomake'
-Plug 'sheerun/vim-polyglot' " add language support for everything
+Plug 'neomake/neomake', { 'on': 'Neomake' }
+" Plug 'sheerun/vim-polyglot' " add language support for everything
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx'
 Plug 'SirVer/ultisnips', { 'on': [] }
 augroup load_ultisnips
-  " Load on demand
-  " https://github.com/junegunn/vim-plug/issues/215
   autocmd!
-  autocmd FileType go,javascript call plug#load('ultisnips')
-        \| execute 'autocmd! load_ultisnips' | doautocmd FileType
+  autocmd InsertEnter * call plug#load('ultisnips')
+        \| autocmd! load_ultisnips
 augroup END
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
