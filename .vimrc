@@ -283,7 +283,7 @@ let g:NERDTreeQuitOnOpen = 1
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_buffers_jump = 1
-let g:fzf_files_options = '--preview "(highlight -O ansi {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+let g:fzf_files_options = '--preview "(highlight --style=molokai -O xterm256 {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
