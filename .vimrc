@@ -43,7 +43,14 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'neomake/neomake'
 Plug 'steelsojka/deoplete-flow'
 Plug 'sheerun/vim-polyglot' " add language support for everything
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'on': [] }
+augroup load_ultisnips
+  " Load on demand
+  " https://github.com/junegunn/vim-plug/issues/215
+  autocmd!
+  autocmd FileType javascript call plug#load('ultisnips')
+        \| execute 'autocmd! load_ultisnips' | doautocmd FileType
+augroup END
 Plug 'ternjs/tern_for_vim'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
