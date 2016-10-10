@@ -31,7 +31,7 @@ Plug 'carlitux/deoplete-ternjs'
 Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all && brew install highlight' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
@@ -283,7 +283,7 @@ let g:NERDTreeQuitOnOpen = 1
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_buffers_jump = 1
-let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+let g:fzf_files_options = '--preview "(highlight -O ansi {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
@@ -359,9 +359,9 @@ nnoremap <C-b> :call ToggleQuickfixList()<cr>
 
 " neomake
 
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_verbose = 3
+let g:neomake_javascript_enabled_makers = ['eslint_d']
+let g:neomake_jsx_enabled_makers = ['eslint_d']
+let g:neomake_verbose = 0
 let g:neomake_warning_sign = {
   \ 'text': '!',
   \ 'texthl': 'GitGutterChangeDefault',
