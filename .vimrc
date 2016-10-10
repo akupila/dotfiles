@@ -60,7 +60,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/YankRing.vim'
+Plug 'vim-scripts/YankRing.vim', { 
+            \ 'on' : [ 'YRToggle', 'YRClear', 'YRShow', 'YRGetElem', 
+            \          'YRGetMultiple', 'YRPush', 'YRPop', 'YRYankCount',
+            \          'YRYankRange', 'YRDeleteRange', 'YRPaste', 'YRReplace',
+            \          'YRMapsCreate', 'YRMapsDelete', 'YRSearch', 
+            \          'YRCheckClipboard', 'YRRunAfterMaps' ] }
 Plug 'wellle/targets.vim'
 if !has('nvim')
 	Plug 'Shougo/neocomplete.vim'
