@@ -31,7 +31,7 @@ Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all && brew install highlight' }
-Plug 'junegunn/fzf.vim', { 'on': 'Files' }
+Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Ag'] }
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
