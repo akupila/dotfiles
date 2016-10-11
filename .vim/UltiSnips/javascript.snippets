@@ -3,3 +3,51 @@ snippet flow "Add @flow annotation"
 
 
 endsnippet
+
+snippet cwm "componentWillMount"
+componentWillMount() {
+  $0
+}
+endsnippet
+
+snippet cdm "componentDidMount"
+componentDidMount() {
+  $0
+}
+endsnippet
+
+snippet cwrp "componentWillReceiveProps"
+componentWillReceiveProps(nextProps) {
+  $0
+}
+endsnippet
+
+snippet scu "shouldComponentUpdate"
+shouldComponentUpdate() {
+  return ${1:true};
+}
+endsnippet
+
+snippet cwu "componentWillUpdate"
+componentWillUpdate(nextProps, nextState) {
+  $0
+}
+endsnippet
+
+snippet cdu "componentDidUpdate"
+componentDidUpdate(prevProps, prevState) {
+  $0
+}
+endsnippet
+
+snippet cwu "componentWillUnmount"
+componentWillUnmount() {
+  $0
+}
+endsnippet
+
+snippet render "render"
+render() {
+	return ${1:<h1>render</h1>}
+}
+endsnippet
