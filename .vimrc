@@ -38,7 +38,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-startify'
 Plug 'milkypostman/vim-togglelist'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'neomake/neomake', { 'on': 'Neomake' }
 " Plug 'sheerun/vim-polyglot' " add language support for everything
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
