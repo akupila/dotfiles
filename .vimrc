@@ -37,13 +37,13 @@ Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-startify'
 Plug 'milkypostman/vim-togglelist'
+Plug 'mxw/vim-jsx'
+Plug 'neomake/neomake', { 'on': 'Neomake' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'neomake/neomake', { 'on': 'Neomake' }
-" Plug 'sheerun/vim-polyglot' " add language support for everything
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx'
 Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'vim-scripts/ReplaceWithRegister'
 augroup load_ultisnips
   autocmd!
   autocmd InsertEnter * call plug#load('ultisnips')
