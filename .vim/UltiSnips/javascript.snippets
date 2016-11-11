@@ -50,3 +50,38 @@ render() {
 	return ${1:<h1>render</h1>}
 }
 endsnippet
+
+snippet compf "functional component"
+import React from 'react';
+import style from './style';
+
+export default () => (
+	<div className={style.container}>
+		$0
+	</div>
+);
+endsnippet
+
+snippet compc "class component"
+import React, { Component } from 'react';
+import style from './style';
+
+class ${1:Name} extends Component {
+	
+	render() {
+		return (
+			<div className={style.container}>
+				$0
+			</div>
+		)
+	}
+
+}
+
+export default $1
+endsnippet
+
+snippet hr "horizontal rule"
+// ----------------------------------
+endsnippet
+
