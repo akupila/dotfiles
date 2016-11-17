@@ -169,6 +169,8 @@ nnoremap N Nzzzv
 " faster movement with alt pressed
 nnoremap ∆ 10j
 nnoremap ˚ 10k
+nnoremap ˙ 15h
+nnoremap ¬ 15l
 " faster scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
