@@ -53,10 +53,9 @@ endsnippet
 
 snippet compf "functional component"
 import React from 'react';
-import style from './style.css';
 
 export default () => (
-	<div className={style.container}>
+	<div>
 		$0
 	</div>
 );
@@ -64,13 +63,12 @@ endsnippet
 
 snippet compc "class component"
 import React, { Component } from 'react';
-import style from './style.css';
 
 class ${1:Name} extends Component {
 	
 	render() {
 		return (
-			<div className={style.container}>
+			<div>
 				$0
 			</div>
 		)
