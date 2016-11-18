@@ -295,7 +295,9 @@ nnoremap <leader>gs :Gstatus<CR>
 
 " nerdtree
 nnoremap <silent> § :NERDTreeToggle<CR>
+nnoremap <silent> ` :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
+nnoremap <silent> <leader>` :NERDTreeFind<CR>	
 let g:NERDTreeQuitOnOpen = 1
 
 " FZF
