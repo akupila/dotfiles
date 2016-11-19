@@ -350,6 +350,7 @@ let g:startify_bookmarks = [
     \ { 'z': '~/.zshrc' }
     \ ]
 noremap <leader><leader>s :Startify<cr>
+autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
 " vim-sneak
 " use sneak instead of fF / tT
