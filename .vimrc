@@ -178,6 +178,7 @@ nnoremap <C-y> 3<C-y>
 nnoremap <leader>r viw"_dP
 " sort lines
 vnoremap <f5> :sort i<cr>
+nnoremap <f5> vi{ :sort i<cr>
 " prev/next in quickfix
 map <C-n> :cnext<cr>zz
 map <C-m> :cprev<cr>zz
