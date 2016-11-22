@@ -300,6 +300,10 @@ nnoremap <silent> ` :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
 nnoremap <silent> <leader>` :NERDTreeFind<CR>	
 let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeSortHiddenFirst = 1
+let g:NERDTreeShowHidden = 1
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
