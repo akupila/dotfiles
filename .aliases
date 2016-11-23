@@ -11,6 +11,7 @@ alias gds="git diff --staged"
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
 # log to master
 alias glm="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit master head"
+alias gls="git log --stat"
 # log all
 alias gla="git log --graph --pretty=format:'%C(yellow)%h%Creset %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit --all"
 alias ys="yadm status"
