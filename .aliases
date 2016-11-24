@@ -14,6 +14,7 @@ alias glm="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Crese
 alias gls="git log --stat"
 # log all
 alias gla="git log --graph --pretty=format:'%C(yellow)%h%Creset %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit --all"
+alias gb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:green)%(refname:short)%(color:reset) - %(color:yellow)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) %(color:dim)(%(committerdate:relative))%(color:reset)'"
 alias ys="yadm status"
 alias yl="yadm log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
 alias gp="git log --max-count=1 --abbrev-commit --pretty=format:'%C(yellow)%h%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset'"
