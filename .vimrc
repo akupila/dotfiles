@@ -32,6 +32,7 @@ Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' }
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Ag'] }
+Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -388,7 +389,6 @@ nmap <leader>u :UndotreeToggle<CR>
 nnoremap <C-b> :call ToggleQuickfixList()<cr>
 
 " neomake
-
 let g:neomake_javascript_enabled_makers = ['eslint_d']
 let g:neomake_jsx_enabled_makers = ['eslint_d']
 let g:neomake_verbose = 0
@@ -408,6 +408,10 @@ hi NeomakeWarningSign ctermfg=yellow guifg=yellow
 hi NeomakeErrorSign ctermfg=red guifg=red
 autocmd ColorScheme * hi NeomakeWarningSign ctermfg=yellow guifg=yellow guibg=none ctermbg=none
 autocmd ColorScheme * hi NeomakeErrorSign ctermfg=red guifg=red guibg=none ctermbg=none
+
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " -------------------------------------
 " Filetypes
