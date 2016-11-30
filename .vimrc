@@ -112,6 +112,10 @@ set undofile                          " Enable persistent undo
 set updatetime=50                     " Trigger cursorhold faster
 set visualbell                        " Use visual bell instead of audible bell
 
+if has('nvim')
+  set inccommand=nosplit              " Enable neovim live replace
+endif
+
 " -------------------------------------
 " Key remaps
 " -------------------------------------
