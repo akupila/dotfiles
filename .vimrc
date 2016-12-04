@@ -33,6 +33,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Ag'] }
 Plug 'junegunn/vim-easy-align'
+Plug 'djoshea/vim-autoread'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -405,7 +406,7 @@ let g:neomake_error_sign = {
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
 
-autocmd! VimEnter * if exists(":Neomake") | autocmd! BufWritePost,BufEnter * Neomake
+autocmd! VimEnter * if exists(":Neomake") | autocmd! BufWritePost,BufEnter,BufRead * Neomake
 
 " Fix colors for Neomake
 hi NeomakeWarningSign ctermfg=yellow guifg=yellow
