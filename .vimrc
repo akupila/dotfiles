@@ -406,6 +406,7 @@ let g:neomake_error_sign = {
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
 
+  autocmd VimEnter * if exists(":Neomake") | autocmd FileType javascript autocmd BufWritePost,BufEnter * Neomake
 
 " Fix colors for Neomake
 hi NeomakeWarningSign ctermfg=yellow guifg=yellow
@@ -456,7 +457,6 @@ augroup Javascript
   " remove trailing spaces on save
   autocmd FileType javascript autocmd BufWritePre <buffer> %s/\s\+$//e
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
-  autocmd VimEnter * if exists(":Neomake") | autocmd FileType javascript autocmd BufWritePost,BufEnter,BufRead * Neomake
 augroup END
 
 " -------------------------------------
@@ -492,4 +492,16 @@ augroup VerticalHelp
 	autocmd!
 	command! -nargs=* -complete=help Help vertical belowright help <args>
 	autocmd FileType help wincmd L
+augroup END
+
+augroup AutoFix
+  autocmd!
+
+  function! ESLintFix()
+    silent execute "!eslint_d --fix %"
+    edit! %
+    Neomake
+  endfunction
+
+  autocmd FileType javascript nnoremap <silent> <leader>f :call ESLintFix()<CR>
 augroup END
