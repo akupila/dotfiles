@@ -406,7 +406,7 @@ let g:neomake_error_sign = {
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
 
-  autocmd VimEnter * if exists(":Neomake") | autocmd FileType javascript autocmd BufWritePost,BufEnter * Neomake
+  autocmd VimEnter * if exists(":Neomake") | autocmd FileType javascript,css autocmd BufWritePost,BufEnter * Neomake
 
 " Fix colors for Neomake
 hi NeomakeWarningSign ctermfg=yellow guifg=yellow
