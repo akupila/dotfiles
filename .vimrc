@@ -27,13 +27,13 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'djoshea/vim-autoread'
 Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Ag'] }
 Plug 'junegunn/vim-easy-align'
-Plug 'djoshea/vim-autoread'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -406,7 +406,7 @@ let g:neomake_error_sign = {
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
 
-  autocmd VimEnter * if exists(":Neomake") | autocmd FileType javascript,css autocmd BufWritePost,BufEnter * Neomake
+autocmd VimEnter * if exists(":Neomake") | autocmd FileType javascript,css autocmd BufWritePost,BufEnter * Neomake
 
 " Fix colors for Neomake
 hi NeomakeWarningSign ctermfg=yellow guifg=yellow
@@ -417,6 +417,8 @@ autocmd ColorScheme * hi NeomakeErrorSign ctermfg=red guifg=red guibg=none cterm
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" vim-stylefmt
 
 " -------------------------------------
 " Filetypes
@@ -494,7 +496,7 @@ augroup VerticalHelp
 	autocmd FileType help wincmd L
 augroup END
 
-augroup AutoFix
+augroup AutoFixJS
   autocmd!
 
   function! ESLintFix()
@@ -504,4 +506,15 @@ augroup AutoFix
   endfunction
 
   autocmd FileType javascript nnoremap <silent> <leader>f :call ESLintFix()<CR>
+augroup END
+
+augroup AutoFixCSS
+  autocmd!
+
+  function! Stylefmt()
+    silent execute "!stylefmt %"
+    edit! %
+  endfunction
+
+  autocmd FileType css nnoremap <silent> <leader>f :call Stylefmt()<CR>
 augroup END
