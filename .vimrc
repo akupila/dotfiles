@@ -32,7 +32,7 @@ Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Ag'] }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
@@ -313,6 +313,7 @@ let g:NERDTreeShowHidden = 1
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_layout = { 'down': '~25%' }
 let g:fzf_buffers_jump = 1
 let g:fzf_files_options = '--preview "(highlight --style=molokai -O xterm256 {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 let g:fzf_action = {
@@ -323,6 +324,10 @@ let g:fzf_action = {
 nnoremap <C-p> :Files<CR>
 nnoremap π :Buffers<CR>
 nnoremap <leader>a :Ag 
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+inoremap <expr> <c-x><c-l> fzf#vim#complete#line({'down': '10%'})
 
 " vim-ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
