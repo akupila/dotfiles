@@ -193,6 +193,7 @@ nnoremap ( f(
 nnoremap ) f(])
 " open new closure from within {}
 nnoremap <C-i> ^f}i<cr><esc>O
+nnoremap % ggVG
 
 " -------------------------------------
 " Colors
