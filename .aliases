@@ -61,3 +61,8 @@ alias gwt="find . -name '*.go' -not -path './vendor/*' | entr -c go test -cover 
 # Kubernetes 
 
 alias k="kubectl"
+
+# Flow
+
+# go watch flow
+alias gwf="find src -name '*.js' -o -name '.jsx' -not -path 'node_modules' | entr -c flow"
