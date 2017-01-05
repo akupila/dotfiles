@@ -66,3 +66,7 @@ alias k="kubectl"
 
 # go watch flow
 alias gwf="find src -name '*.js' -o -name '.jsx' -not -path 'node_modules' | entr -c flow"
+
+# general
+
+alias pwdc="pwd | pbcopy && echo path \($(pwd)\) copied to clipboard"
