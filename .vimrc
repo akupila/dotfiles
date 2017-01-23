@@ -489,6 +489,8 @@ augroup Javascript
   " remove trailing spaces on save
   autocmd FileType javascript autocmd BufWritePre <buffer> %s/\s\+$//e
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
+  " Process through prettier (https://github.com/jlongster/prettier) on save:
+  " autocmd FileType javascript autocmd BufWritePre * :silent % !prettier --flow-parser --stdin --single-quote --trailing-comma
 augroup END
 
 " -------------------------------------
