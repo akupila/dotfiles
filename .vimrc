@@ -194,6 +194,10 @@ nnoremap ) f(])
 " open new closure from within {}
 nnoremap <C-i> ^f}i<cr><esc>O
 nnoremap % ggVG
+" copy filepath to clipboard
+nnoremap <leader>cf :let @*=expand("%:t")<cr>:echo "filename copied to clipboard"<cr>
+nnoremap <leader>cp :let @*=expand("%")<cr>:echo "file path copied to clipboard"<cr>
+nnoremap <leader>cd :let @*=expand("%:p:h")<cr>:echo "dir copied to clipboard"<cr>
 
 " -------------------------------------
 " Colors
