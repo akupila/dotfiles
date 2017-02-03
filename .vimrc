@@ -307,9 +307,9 @@ nnoremap <leader>gs :Gstatus<CR>
 
 " nerdtree
 nnoremap <silent> § :NERDTreeToggle<CR>
-nnoremap <silent> ` :NERDTreeToggle<CR>
+" nnoremap <silent> ` :NERDTreeToggle<CR>
 nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
-nnoremap <silent> <leader>` :NERDTreeFind<CR>	
+" nnoremap <silent> <leader>` :NERDTreeFind<CR>	
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -487,14 +487,21 @@ augroup Markdown
   autocmd FileType markdown setlocal spell
 augroup END
 
+function! <SID>RunPrettier()
+  let l = line(".")
+  let c = col(".")
+  let w = winsaveview()
+  normal gggqG
+  call cursor(l, c)
+  call winrestview(w)
+endfunction
+
 " JavaScript
 augroup Javascript
   autocmd!
-  " remove trailing spaces on save
-  autocmd FileType javascript autocmd BufWritePre <buffer> %s/\s\+$//e
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
-  " Process through prettier (https://github.com/jlongster/prettier) on save:
-  " autocmd FileType javascript autocmd BufWritePre * :silent % !prettier --flow-parser --stdin --single-quote --trailing-comma
+  autocmd FileType javascript set formatprg=prettier\ --stdin
+  autocmd BufWritePre *.js,*jsx :call <SID>RunPrettier()
 augroup END
 
 " -------------------------------------
