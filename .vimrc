@@ -500,7 +500,7 @@ endfunction
 augroup Javascript
   autocmd!
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
-  autocmd FileType javascript set formatprg=prettier\ --stdin
+  autocmd FileType javascript set formatprg=prettier\ --single-quote\ --stdin 
   autocmd BufWritePre *.js,*jsx :call <SID>RunPrettier()
 augroup END
 
