@@ -52,12 +52,13 @@ augroup load_ultisnips
   autocmd InsertEnter * call plug#load('ultisnips')
         \| autocmd! load_ultisnips
 augroup END
+Plug 'ap/vim-css-color'
 Plug 'tomasr/molokai'
 Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
