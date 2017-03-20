@@ -34,6 +34,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'sbdchd/neoformat'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -459,6 +460,18 @@ let g:easy_align_delimiters = {
 let marvim_find_key = '<F6>'
 let marvim_store_key = '<leader><F6>'
 
+" neoformat
+
+let g:neoformat_javascript_prettier = {
+  \ 'exe': 'prettier',
+  \ 'args': ['--stdin', '--single-quote'],
+  \ 'stdin': 1,
+  \ }
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_jsx = ['prettier']
+let g:neoformat_basic_format_trim = 1
+let g:neoformat_only_msg_on_error = 1
+
 " -------------------------------------
 " Filetypes
 " -------------------------------------
@@ -492,21 +505,11 @@ augroup Markdown
   autocmd FileType markdown setlocal spell
 augroup END
 
-function! <SID>RunPrettier()
-  let l = line(".")
-  let c = col(".")
-  let w = winsaveview()
-  normal gggqG
-  call cursor(l, c)
-  call winrestview(w)
-endfunction
-
 " JavaScript
 augroup Javascript
   autocmd!
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
-  autocmd FileType javascript set formatprg=prettier\ --single-quote\ --stdin 
-  autocmd BufWritePre *.js,*jsx :call <SID>RunPrettier()
+  autocmd BufWritePre *.js,*.jsx :Neoformat
 augroup END
 
 " -------------------------------------
