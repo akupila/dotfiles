@@ -96,6 +96,7 @@ export EDITOR="$VISUAL"
 touch ~/.hushlogin
 
 eval "$(direnv hook zsh)"
+source <(kubectl completion zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
