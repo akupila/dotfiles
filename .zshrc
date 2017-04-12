@@ -97,6 +97,7 @@ touch ~/.hushlogin
 
 eval "$(direnv hook zsh)"
 source <(kubectl completion zsh)
+source <(stern --completion=zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
