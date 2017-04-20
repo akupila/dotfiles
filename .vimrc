@@ -31,10 +31,10 @@ Plug 'djoshea/vim-autoread'
 Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
+Plug 'godoctor/godoctor.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'sbdchd/neoformat'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -44,6 +44,7 @@ Plug 'mxw/vim-jsx'
 Plug 'neomake/neomake', { 'on': 'Neomake' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'vim-scripts/marvim'
