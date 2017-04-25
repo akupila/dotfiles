@@ -197,8 +197,6 @@ map <C-m> :cprev<cr>zz
 " jump to ( and ) on line
 nnoremap ( f(
 nnoremap ) f(])
-" open new closure from within {}
-nnoremap <C-i> ^f}i<cr><esc>O
 nnoremap <leader>% ggVG
 " copy filepath to clipboard
 nnoremap <leader>cf :let @*=expand("%:t")<cr>:echo "filename copied to clipboard"<cr>
