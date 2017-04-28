@@ -202,6 +202,9 @@ nnoremap <leader>% ggVG
 nnoremap <leader>cf :let @*=expand("%:t")<cr>:echo "filename copied to clipboard"<cr>
 nnoremap <leader>cp :let @*=expand("%")<cr>:echo "file path copied to clipboard"<cr>
 nnoremap <leader>cd :let @*=expand("%:p:h")<cr>:echo "dir copied to clipboard"<cr>
+" tab: next buf, shift-tab prev buf
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
 
 " -------------------------------------
 " Colors
