@@ -32,8 +32,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'djoshea/vim-autoread'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
@@ -45,6 +45,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
+Plug 'matze/vim-move'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-startify'
 Plug 'milkypostman/vim-togglelist'
@@ -147,10 +148,10 @@ nnoremap k gk
 nnoremap Ô :m .+1<CR>==
 nnoremap  :m .-2<CR>==
 " Move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
 " Resize vertical windows with + -
 nnoremap <silent> + :exe "vertical resize"  . (winwidth(0) * 4/3)<CR>
 nnoremap <silent> _ :exe "vertical resize"  . (winwidth(0) * 3/4)<CR>
@@ -406,6 +407,9 @@ nmap <SPACE> <Plug>(easymotion-s)
 nmap <leader>s <Plug>(easymotion-s2)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
+
+" vim-move
+let g:move_key_modifier = 'C'
 
 " deoplete-ternjs
 let g:tern_request_timeout = 1
