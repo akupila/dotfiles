@@ -35,6 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'djoshea/vim-autoread'
+Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
@@ -398,6 +399,13 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+
+" vim-easymotion
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+nmap <SPACE> <Plug>(easymotion-s)
+nmap <leader>s <Plug>(easymotion-s2)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
 
 " deoplete-ternjs
 let g:tern_request_timeout = 1
