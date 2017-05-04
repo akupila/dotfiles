@@ -211,6 +211,11 @@ nnoremap <leader>cd :let @*=expand("%:p:h")<cr>:echo "dir copied to clipboard"<c
 " tab: next buf, shift-tab prev buf
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
+" delete without replacing default register
+nmap X "_d
+nmap XX "_dd
+vmap X "_d
+vmap x "_d
 
 " -------------------------------------
 " Colors
