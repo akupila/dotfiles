@@ -145,8 +145,6 @@ nnoremap k gk
 " Move current line, shift-alt-j down, shift-alt-k up. Maintain indentation
 nnoremap Ô :m .+1<CR>==
 nnoremap  :m .-2<CR>==
-" Search word under cursor for replace with confirm
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " Move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -383,7 +381,6 @@ let g:startify_bookmarks = [
     \ { 'c': '~/.vimrc' },
     \ { 'z': '~/.zshrc' }
     \ ]
-noremap <leader><leader>s :Startify<cr>
 autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
 " vim-sneak
