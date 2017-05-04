@@ -47,7 +47,6 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'SirVer/ultisnips', { 'on': [] }
-Plug 'vim-scripts/marvim'
 Plug 'vim-scripts/ReplaceWithRegister'
 augroup load_ultisnips
   autocmd!
@@ -458,11 +457,6 @@ let g:easy_align_delimiters = {
 \     'right_margin': 0
 \   }
 \ }
-
-" marvim
-
-let marvim_find_key = '<F6>'
-let marvim_store_key = '<leader><F6>'
 
 " neoformat
 
