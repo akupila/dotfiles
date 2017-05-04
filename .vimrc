@@ -127,6 +127,7 @@ set visualbell                        " Use visual bell instead of audible bell
 
 if has('nvim')
   set inccommand=nosplit              " Enable neovim live replace
+  set guicursor=                      " Disable setting line cursor on insert
 endif
 
 " -------------------------------------
