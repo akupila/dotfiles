@@ -20,5 +20,7 @@
 [diff-so-fancy]
 [pull]
 	rebase = true
+[rebase]
+	autosquash = true
 [grep]
 	lineNumber = true
