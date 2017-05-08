@@ -409,8 +409,7 @@ omap T <Plug>Sneak_T
 
 " vim-easymotion
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-nmap <SPACE> <Plug>(easymotion-s)
-nmap <leader>s <Plug>(easymotion-s2)
+nmap <SPACE> <Plug>(easymotion-s2)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 
