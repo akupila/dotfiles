@@ -484,7 +484,7 @@ let g:easy_align_delimiters = {
 
 let g:neoformat_javascript_prettier = {
   \ 'exe': 'prettier',
-  \ 'args': ['--stdin', '--single-quote'],
+  \ 'args': ['--stdin', '--single-quote', '--parser flow'],
   \ 'stdin': 1,
   \ }
 let g:neoformat_enabled_javascript = ['prettier']
