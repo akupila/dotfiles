@@ -33,9 +33,11 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'airblade/vim-gitgutter'
 Plug 'djoshea/vim-autoread'
 Plug 'easymotion/vim-easymotion'
+Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
@@ -55,7 +57,6 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'vim-scripts/ReplaceWithRegister'
 augroup load_ultisnips
   autocmd!
@@ -353,6 +354,9 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 inoremap <expr> <c-x><c-l> fzf#vim#complete#line({'down': '10%'})
 
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
 " vim-ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
@@ -529,6 +533,12 @@ augroup Javascript
   autocmd!
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
   autocmd BufWritePre *.js,*.jsx :Neoformat
+augroup END
+
+" Json
+augroup Json
+  autocmd!
+  autocmd BufNewFile,BufRead *.babelrc set filetype=json
 augroup END
 
 " -------------------------------------
