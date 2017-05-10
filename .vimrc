@@ -542,6 +542,12 @@ augroup Json
   autocmd BufNewFile,BufRead *.stylelintrc set filetype=json
 augroup END
 
+" Shell
+augroup Json
+  autocmd!
+  autocmd BufNewFile,BufRead .envrc set filetype=sh
+augroup END
+
 " -------------------------------------
 " Misc
 " -------------------------------------
