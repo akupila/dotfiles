@@ -539,6 +539,7 @@ augroup END
 augroup Json
   autocmd!
   autocmd BufNewFile,BufRead *.babelrc set filetype=json
+  autocmd BufNewFile,BufRead *.stylelintrc set filetype=json
 augroup END
 
 " -------------------------------------
