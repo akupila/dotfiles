@@ -96,6 +96,7 @@ export EDITOR="$VISUAL"
 touch ~/.hushlogin
 
 eval "$(direnv hook zsh)"
+eval "$(jump shell)"
 source <(kubectl completion zsh)
 source <(stern --completion=zsh)
 
