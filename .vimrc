@@ -174,9 +174,6 @@ vnoremap H ^
 vnoremap L $
 " Reload .vimrc config
 nnoremap <leader>cr :so $MYVIMRC<CR>
-" Buffer nav
-nnoremap “ :bprev<CR>
-nnoremap ‘ :bnext<CR>
 " prev active buffer: alt-\
 nnoremap « <C-^><CR>
 " closee buffer with ctrl-w
@@ -211,8 +208,8 @@ nnoremap <leader>cf :let @*=expand("%:t")<cr>:echo "filename copied to clipboard
 nnoremap <leader>cp :let @*=expand("%")<cr>:echo "file path copied to clipboard"<cr>
 nnoremap <leader>cd :let @*=expand("%:p:h")<cr>:echo "dir copied to clipboard"<cr>
 " tab: next buf, shift-tab prev buf
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-h> :bprev<CR>
 " delete without replacing default register
 nmap X "_d
 nmap XX "_dd
@@ -413,9 +410,12 @@ omap T <Plug>Sneak_T
 
 " vim-easymotion
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-nmap <SPACE> <Plug>(easymotion-s2)
+let g:EasyMotion_enter_jump_first = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
+nmap <SPACE> <Plug>(easymotion-sn)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " vim-move
 let g:move_key_modifier = 'C'
