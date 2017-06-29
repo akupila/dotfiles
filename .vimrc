@@ -545,6 +545,7 @@ augroup Json
   autocmd!
   autocmd BufNewFile,BufRead *.babelrc set filetype=json
   autocmd BufNewFile,BufRead *.stylelintrc set filetype=json
+  autocmd FileType json setlocal formatprg=prettier\ --stdin\ --parser\ json
 augroup END
 
 " Shell
