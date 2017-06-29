@@ -208,8 +208,8 @@ nnoremap <leader>cf :let @*=expand("%:t")<cr>:echo "filename copied to clipboard
 nnoremap <leader>cp :let @*=expand("%")<cr>:echo "file path copied to clipboard"<cr>
 nnoremap <leader>cd :let @*=expand("%:p:h")<cr>:echo "dir copied to clipboard"<cr>
 " tab: next buf, shift-tab prev buf
-nnoremap <C-l> :bnext<CR>
-nnoremap <C-h> :bprev<CR>
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
 " delete without replacing default register
 nmap X "_d
 nmap XX "_dd
