@@ -123,7 +123,7 @@ set splitright                        " Split vertical windows to the right
 set tabstop=2                         " Set tab 2 spaces wide
 set undodir=~/.vim/undo               " For persistent undo
 set undofile                          " Enable persistent undo
-set updatetime=50                     " Trigger cursorhold faster
+set updatetime=100                     " Trigger cursorhold faster
 set visualbell                        " Use visual bell instead of audible bell
 
 if has('nvim')
@@ -281,6 +281,7 @@ let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
 let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
 hi def goSameId ctermbg=237 ctermfg=015 guifg=#BFFF00
 
 " Autocomplete
