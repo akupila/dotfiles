@@ -415,8 +415,6 @@ let g:EasyMotion_enter_jump_first = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 nmap <SPACE> <Plug>(easymotion-sn)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
 
 " vim-move
 let g:move_key_modifier = 'C'
