@@ -485,9 +485,9 @@ let g:easy_align_delimiters = {
 " neoformat
 
 let g:neoformat_try_formatprg = 1
-let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_enabled_css = ['prettier']
-let g:neoformat_enabled_jsx = ['prettier']
+let g:neoformat_enabled_javascript = ['prettier_d']
+let g:neoformat_enabled_css = ['prettier_d']
+let g:neoformat_enabled_jsx = ['prettier_d']
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
 
@@ -528,14 +528,14 @@ augroup END
 augroup Javascript
   autocmd!
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
-  autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+  autocmd FileType javascript setlocal formatprg=prettier_d\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
   autocmd BufWritePre *.js,*.jsx :Neoformat
 augroup END
 
 " CSS
 augroup CSS
   autocmd!
-  autocmd FileType css setlocal formatprg=prettier\ --stdin\ --parser\ postcss
+  autocmd FileType css setlocal formatprg=prettier_d\ --stdin\ --parser\ postcss
   autocmd BufWritePre *.css,*.scss,*.cssm :Neoformat
 augroup END
 
@@ -544,7 +544,7 @@ augroup Json
   autocmd!
   autocmd BufNewFile,BufRead *.babelrc set filetype=json
   autocmd BufNewFile,BufRead *.stylelintrc set filetype=json
-  autocmd FileType json setlocal formatprg=prettier\ --stdin\ --parser\ json
+  autocmd FileType json setlocal formatprg=prettier_d\ --stdin\ --parser\ json
 augroup END
 
 " Shell
