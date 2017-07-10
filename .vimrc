@@ -32,9 +32,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'airblade/vim-gitgutter'
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'djoshea/vim-autoread'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
@@ -47,7 +46,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'kshenoy/vim-signature'
-Plug 'matze/vim-move'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-startify'
 Plug 'milkypostman/vim-togglelist'
@@ -57,6 +55,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'vim-scripts/ReplaceWithRegister'
 augroup load_ultisnips
   autocmd!
@@ -415,9 +414,6 @@ let g:EasyMotion_enter_jump_first = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 nmap <SPACE> <Plug>(easymotion-sn)
-
-" vim-move
-let g:move_key_modifier = 'C'
 
 " deoplete-ternjs
 let g:tern_request_timeout = 1
