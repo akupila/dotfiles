@@ -549,6 +549,13 @@ augroup Json
   autocmd BufNewFile,BufRead .envrc set filetype=sh
 augroup END
 
+" Crontab
+
+augroup Crontab
+  autocmd!
+  autocmd filetype crontab setlocal nobackup nowritebackup
+augroup END
+
 " -------------------------------------
 " Misc
 " -------------------------------------
