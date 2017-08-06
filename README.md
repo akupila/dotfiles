@@ -28,10 +28,12 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 yadm clone git@github.com:akupila/dotfiles.git
 ```
 
-## Install extra term support (for italics)
-
-https://gist.github.com/sos4nt/3187620
-
 ## Install powerline fonts (for vim airline)
 
 https://github.com/powerline/fonts
+
+## Install reattach-to-user-namespace for fixing copy-paste in tmux
+
+```
+brew install reattach-to-user-namespace
+```
