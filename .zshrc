@@ -109,3 +109,20 @@ if [ -f '/Users/akupila/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source 
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/akupila/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/akupila/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# ssh using a new window when we are in TMUX
+SSHEXEC=$(which ssh)
+ssh() {
+    if [ -n "$TMUX" ]
+    then
+        title="ssh $*"
+        if [ "$1" = -t ]
+        then
+            title="$2"
+            shift 2
+        fi
+        tmux new-window -n "$title" "$SSHEXEC $@"
+    else
+        $SSHEXEC $@
+    fi
+}
