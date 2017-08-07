@@ -149,11 +149,6 @@ nnoremap k gk
 " Move current line, shift-alt-j down, shift-alt-k up. Maintain indentation
 nnoremap Ô :m .+1<CR>==
 nnoremap  :m .-2<CR>==
-" Move between windows
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
 " Resize vertical windows with + -
 nnoremap <silent> + :exe "vertical resize"  . (winwidth(0) * 4/3)<CR>
 nnoremap <silent> _ :exe "vertical resize"  . (winwidth(0) * 3/4)<CR>
