@@ -319,9 +319,9 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gs :Gstatus<CR>
 
 " nerdtree
-nnoremap <silent> § :NERDTreeToggle<CR>
+nnoremap <silent> <c-n> :NERDTreeToggle<CR>
 " nnoremap <silent> ` :NERDTreeToggle<CR>
-nnoremap <silent> <leader>§ :NERDTreeFind<CR>	
+nnoremap <silent> <leader><c-n> :NERDTreeFind<CR>	
 " nnoremap <silent> <leader>` :NERDTreeFind<CR>	
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
