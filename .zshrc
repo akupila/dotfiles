@@ -126,3 +126,6 @@ ssh() {
         $SSHEXEC $@
     fi
 }
+
+# Fix colors for git messages when in tmux
+[[ $TMUX != "" ]] && export TERM="xterm-256color"
