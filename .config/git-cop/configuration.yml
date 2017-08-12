@@ -1,0 +1,11 @@
+:commit_subject_prefix:
+  :enabled: true
+  :severity: :error
+  :whitelist:
+    - Add
+    - Fix
+    - Refactor
+    - Remove
+    - Update
+:commit_subject_suffix:
+  :enabled: false
