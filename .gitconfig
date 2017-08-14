@@ -24,3 +24,5 @@
 	autosquash = true
 [grep]
 	lineNumber = true
+[commit]
+	template = /Users/akupila/.gittemplates/commit
