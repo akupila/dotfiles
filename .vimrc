@@ -192,8 +192,8 @@ nnoremap <leader>r viw"_dP
 vnoremap <f5> :sort i<cr>
 nnoremap <f5> vi{ :sort i<cr>
 " prev/next in quickfix
-map <C-n> :cnext<cr>zz
-map <C-m> :cprev<cr>zz
+nnoremap = :cnext<cr>zz
+nnoremap - :cprev<cr>zz
 " jump to ( and ) on line
 nnoremap ( f(
 nnoremap ) f(])
@@ -426,6 +426,17 @@ nmap <leader>u :UndotreeToggle<CR>
 nnoremap <C-b> :call ToggleQuickfixList()<cr>
 
 " neomake
+let g:neomake_go_gometalinter_args = [
+  \ '--fast',
+  \ '--enable=gosimple',
+  \ '--enable=unused',
+  \ '--enable=staticcheck',
+  \ '--enable=interfacer',
+  \ '--enable=errcheck',
+  \ '--enable=golint',
+  \ '--enable=vet',
+  \ '--enable=vetshadow',
+  \ ]
 let g:neomake_javascript_enabled_makers = ['eslint_d']
 let g:neomake_jsx_enabled_makers = ['eslint_d']
 let g:neomake_verbose = 0
@@ -437,6 +448,7 @@ let g:neomake_error_sign = {
   \ 'text': '⨯',
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
+autocmd! BufWritePost,BufEnter * Neomake
 
 " Fix colors for Neomake
 hi NeomakeWarningSign ctermfg=yellow guifg=yellow
@@ -531,7 +543,6 @@ augroup Javascript
   autocmd!
 	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
   autocmd BufWritePre *.js,*.jsx :Neoformat
-  autocmd BufWritePost *.js,*.jsx :Neomake
 augroup END
 
 " CSS
@@ -594,18 +605,6 @@ augroup VerticalHelp
 	autocmd!
 	command! -nargs=* -complete=help Help vertical belowright help <args>
 	autocmd FileType help wincmd L
-augroup END
-
-augroup AutoFixJS
-  autocmd!
-
-  function! ESLintFix()
-    silent execute "!eslint_d --fix %"
-    edit! %
-    Neomake
-  endfunction
-
-  autocmd FileType javascript nnoremap <silent> <leader>f :call ESLintFix()<CR>
 augroup END
 
 augroup AutoFixCSS
