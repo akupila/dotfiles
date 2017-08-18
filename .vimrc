@@ -96,7 +96,6 @@ call plug#end()
 
 set clipboard=unnamed                 " Share clipboard with OS X
 set complete=.,w,b,u                  " Complete from current file, split window, buffers, unloaded buffers
-set completeopt+=noinsert             " Automatically select first autocomplete option
 set expandtab                         " Expand an inserted tab to spaces
 set fillchars=""                      " Disable - | chars on horizontal/vertical splits
 set hidden                            " Allow hidden buffers with unsaved content
@@ -302,10 +301,10 @@ if has('nvim')
 	let g:deoplete#sources#go#align_class = 1
 	let g:deoplete#max_abbr_width = 160
 	let g:deoplete#max_menu_width = 80
-  inoremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
-  function! s:close_popup()
-    return pumvisible() ? deoplete#mappings#close_popup() : "\n"
-  endfunction
+  " inoremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
+  " function! s:close_popup()
+  "   return pumvisible() ? deoplete#mappings#close_popup() : "\n"
+  " endfunction
 	set completeopt-=preview
 endif
 
