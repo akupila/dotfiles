@@ -1,0 +1,7 @@
+snippet tests "Run table driven tests"
+for _, test := range ${1:tests} {
+	t.Run(test.${2:TestName}, func(t *testing.T) {
+		$0
+	})
+}
+endsnippet
