@@ -234,7 +234,7 @@ augroup ColorColumnFiletype
 	" Default
 	set colorcolumn=81
 	" 100 col
-	autocmd BufRead *.go set colorcolumn=101
+	autocmd BufRead *.go set colorcolumn=0
 	autocmd BufRead *.js set colorcolumn=101
 	autocmd BufRead *.jsx set colorcolumn=101
 augroup END
