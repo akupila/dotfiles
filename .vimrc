@@ -209,6 +209,9 @@ nmap X "_d
 nmap XX "_dd
 vmap X "_d
 vmap x "_d
+" select next/prev autocomplete result with tab/shift-tab
+inoremap <expr> <tab> pumvisible() ? "\<C-N>" : "\<tab>"
+inoremap <expr> <S-tab> pumvisible() ? "\<C-P>" : "\<S-tab>"
 
 " -------------------------------------
 " Colors
