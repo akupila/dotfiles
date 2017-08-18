@@ -5,3 +5,14 @@ for _, test := range ${1:tests} {
 	})
 }
 endsnippet
+
+snippet table "Create test table"
+tests := []struct{
+	TestName string
+	$0
+}{
+	{
+		TestName: ""
+	},
+}
+endsnippet
