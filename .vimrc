@@ -276,7 +276,6 @@ let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
 let g:go_list_type = "quickfix"
-let g:go_auto_type_info = 1
 hi def goSameId ctermbg=237 ctermfg=015 guifg=#BFFF00
 
 " Autocomplete
