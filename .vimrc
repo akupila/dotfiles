@@ -329,7 +329,7 @@ let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeShowHidden = 1
 
 " FZF
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:fzf_layout = { 'down': '~25%' }
 let g:fzf_buffers_jump = 1
 let g:fzf_files_options = '--preview "(highlight --style=molokai -O xterm256 {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
