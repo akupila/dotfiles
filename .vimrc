@@ -321,7 +321,7 @@ nnoremap <leader>gs :Gstatus<CR>
 
 " nerdtree
 nnoremap <silent> <c-n> :NERDTreeToggle<CR>
-nnoremap <silent> <c-m> :NERDTreeFind<CR>	
+nnoremap <silent> <leader><c-n> :NERDTreeFind<CR>
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeAutoDeleteBuffer = 1
