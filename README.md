@@ -14,6 +14,13 @@ brew install yadm
 brew install neovim
 ```
 
+Deoplete needs python3:
+
+```
+brew install python3
+pip3 install neovim
+```
+
 ## vim-plug
 
 Plugin manager for vim
