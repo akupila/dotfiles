@@ -60,9 +60,10 @@ alias gwi="find . -name '*.go' -not -path './vendor/*' | entr -c go install -v"
 alias gwt="find . -name '*.go' -not -path './vendor/*' | entr -c go test -short \`go list ./... | grep -v -E vendor\`"
 alias gtp="go test |& panicparse"
 
-# Kubernetes 
+# Lazy typing 
 
 alias k="kubectl"
+alias e="etcdctl"
 
 # Flow
 
