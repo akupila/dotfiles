@@ -2,7 +2,19 @@
 
 # TITLE ........................................ |
 # BODY                                           \ ................... |
+#
 # Start commit with:
+#
+# - feature(SCOPE): message
+# - fix(SCOPE): message
+# - documentation(SCOPE): message
+# - style(SCOPE): message
+# - refactor(SCOPE): message
+# - performance(SCOPE): message
+# - test(SCOPE): message
+# - revert(SCOPE): message
+# - WIP(SCOPE): message
+# 
 # - Add
 # - Fix
 # - Refactor
