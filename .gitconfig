@@ -12,7 +12,7 @@
 	tool = opendiff
 [core]
 	ignorecase = false
-	editor = /usr/local/bin/vim
+	editor = /usr/local/bin/nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	excludesfile = ~/.gitignore
 [diff]
@@ -25,4 +25,4 @@
 [grep]
 	lineNumber = true
 [commit]
-	template = /Users/akupila/.gittemplates/commit
+	template = ~/.gittemplates/commit
