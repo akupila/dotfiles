@@ -496,13 +496,13 @@ let g:easy_align_delimiters = {
 
 let g:neoformat_javascript_prettier = {
             \ 'exe': 'prettier',
-            \ 'args': ['--stdin', '--trailing-comma', 'es5', '--single-quote'],
+            \ 'args': ['--stdin'],
             \ 'stdin': 1,
             \ 'no_append': 1,
             \ }
 let g:neoformat_json_prettier = {
             \ 'exe': 'prettier',
-            \ 'args': ['--stdin', '--parser', 'json'],
+            \ 'args': ['--stdin'],
             \ 'stdin': 1,
             \ 'no_append': 1,
             \ }
