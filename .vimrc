@@ -3,21 +3,21 @@
 " -------------------------------------
 
 if !has('nvim')
-	set nocompatible               " Disable vi compatibility
-	filetype off                   " turn filetype detection off..
-	filetype plugin indent on      " .. and on again, enabling filetype and indent plugins
-	scriptencoding utf-8           " Fix interpreting .vimrc
-	set autoindent                 " Copy indent from last line when starting new line
-	set autoread                   " Automatically read files changed on disk
-	set backspace=indent,eol,start " Allow backspace in insert mode
-	set encoding=utf-8             " Set character encoding for buffers etc
-	set hlsearch                   " Highlight search matches
-	set incsearch                  " Highlight search matches as typed
-	set laststatus=2               " Always show statusbar
-	set mouse=a                    " Enable mouse in all modes
-	set smarttab " At beginning of line Tab inserts shiftwidth spaces
-	set ttyfast                    " Send more characters at a time
-	syntax enable                  " Enable syntax highlighting
+    set nocompatible               " Disable vi compatibility
+    filetype off                   " turn filetype detection off..
+    filetype plugin indent on      " .. and on again, enabling filetype and indent plugins
+    scriptencoding utf-8           " Fix interpreting .vimrc
+    set autoindent                 " Copy indent from last line when starting new line
+    set autoread                   " Automatically read files changed on disk
+    set backspace=indent,eol,start " Allow backspace in insert mode
+    set encoding=utf-8             " Set character encoding for buffers etc
+    set hlsearch                   " Highlight search matches
+    set incsearch                  " Highlight search matches as typed
+    set laststatus=2               " Always show statusbar
+    set mouse=a                    " Enable mouse in all modes
+    set smarttab " At beginning of line Tab inserts shiftwidth spaces
+    set ttyfast                    " Send more characters at a time
+    syntax enable                  " Enable syntax highlighting
 endif
 
 " -------------------------------------
@@ -34,7 +34,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'djoshea/vim-autoread'
 Plug 'easymotion/vim-easymotion'
@@ -43,6 +42,7 @@ Plug 'fatih/vim-go'
 Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
 Plug 'godlygeek/tabular'
 Plug 'godoctor/godoctor.vim'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
@@ -57,6 +57,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'vim-scripts/ReplaceWithRegister'
 augroup load_ultisnips
   autocmd!
@@ -113,13 +114,13 @@ set numberwidth=6                     " Wider line numbers
 set pumheight=10                      " Max 10 items in popup/autocomplete menu
 set relativenumber                    " Show relative line numbers
 set scrolloff=5                       " Offset top/bottom when scrolling
-set shiftwidth=2                      " Shift indentation 2 spaces
+set shiftwidth=4                      " Shift indentation n spaces
 set shortmess+=I                      " Hide intro message
 set smartcase                         " Enable case sensitive if input has capital letter
-set softtabstop=2                     " Convert a tab to 2 spaces
+set softtabstop=4                     " Convert a tab to n spaces
 set splitbelow                        " Split horizontal windows down
 set splitright                        " Split vertical windows to the right
-set tabstop=2                         " Set tab 2 spaces wide
+set tabstop=4                         " Set tab n spaces wide
 set undodir=~/.vim/undo               " For persistent undo
 set undofile                          " Enable persistent undo
 set updatetime=100                     " Trigger cursorhold faster
@@ -233,13 +234,13 @@ colorscheme molokai
 " -------------------------------------
 
 augroup ColorColumnFiletype
-	autocmd!
-	" Default
-	set colorcolumn=81
-	" 100 col
-	autocmd BufRead *.go set colorcolumn=0
-	autocmd BufRead *.js set colorcolumn=101
-	autocmd BufRead *.jsx set colorcolumn=101
+    autocmd!
+    " Default
+    set colorcolumn=81
+    " 100 col
+    autocmd BufRead *.go set colorcolumn=0
+    autocmd BufRead *.js set colorcolumn=101
+    autocmd BufRead *.jsx set colorcolumn=101
 augroup END
 
 " -------------------------------------
@@ -285,11 +286,11 @@ hi def goSameId ctermbg=237 ctermfg=015 guifg=#BFFF00
 
 " Neocomplete (vim)
 if !has('nvim')
-	let g:neocomplete#enable_at_startup = 1                       "  Enable on startup
-	let g:neocomplete#enable_auto_select = 1                      "  Automatically select first suggestion
-	set completeopt-=preview                                      "  Disable preview window
-	let g:neocomplete#sources#syntax#min_keyword_length = 2       "  Set minimum syntax keyword length.
-	noremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
+    let g:neocomplete#enable_at_startup = 1                       "  Enable on startup
+    let g:neocomplete#enable_auto_select = 1                      "  Automatically select first suggestion
+    set completeopt-=preview                                      "  Disable preview window
+    let g:neocomplete#sources#syntax#min_keyword_length = 2       "  Set minimum syntax keyword length.
+    noremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
   function! s:close_popup()
     return pumvisible() ? "\<C-y>" : "\<CR>"
   endfunction
@@ -297,18 +298,18 @@ endif
 
 " Deoplete (Neovim)
 if has('nvim')
-	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#ignore_sources = {}
-	let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
-	let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
-	let g:deoplete#sources#go#align_class = 1
-	let g:deoplete#max_abbr_width = 160
-	let g:deoplete#max_menu_width = 80
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#ignore_sources = {}
+    let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
+    let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
+    let g:deoplete#sources#go#align_class = 1
+    let g:deoplete#max_abbr_width = 160
+    let g:deoplete#max_menu_width = 80
   " inoremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
   " function! s:close_popup()
   "   return pumvisible() ? deoplete#mappings#close_popup() : "\n"
   " endfunction
-	set completeopt-=preview
+    set completeopt-=preview
 endif
 
 " vim-fugitive
@@ -520,16 +521,16 @@ let g:neoformat_only_msg_on_error = 1
 " Go
 augroup Go
   autocmd!
-	autocmd FileType go nmap <Leader>x <Plug>(go-def-split)
-	autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
-	autocmd FileType go nmap <Leader>i <Plug>(go-info)
-	autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
-	autocmd FileType go nmap <leader>b :GoBuild!<CR>
-	autocmd FileType go nmap <leader>t :GoTest!<CR>
-	autocmd FileType go nmap <Leader>d <Plug>(go-doc)
-	autocmd FileType go nmap <Leader>ct :GoCoverageToggle<CR>
-	autocmd FileType go nmap Q :GoAlternate!<CR>
-	autocmd FileType go nmap <Leader>p :GoDecls<CR>
+    autocmd FileType go nmap <Leader>x <Plug>(go-def-split)
+    autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+    autocmd FileType go nmap <Leader>i <Plug>(go-info)
+    autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
+    autocmd FileType go nmap <leader>b :GoBuild!<CR>
+    autocmd FileType go nmap <leader>t :GoTest!<CR>
+    autocmd FileType go nmap <Leader>d <Plug>(go-doc)
+    autocmd FileType go nmap <Leader>ct :GoCoverageToggle<CR>
+    autocmd FileType go nmap Q :GoAlternate!<CR>
+    autocmd FileType go nmap <Leader>p :GoDecls<CR>
 augroup END
 
 " Git commit
@@ -549,7 +550,7 @@ augroup END
 " JavaScript
 augroup Javascript
   autocmd!
-	autocmd FileType javascript nmap <Leader>i :FlowType<cr>
+    autocmd FileType javascript nmap <Leader>i :FlowType<cr>
   autocmd BufWritePre *.js,*.jsx :Neoformat
 augroup END
 
@@ -596,23 +597,23 @@ augroup END
 
 " Don't move backwards with ESC
 augroup NoMoveEsc
-	autocmd!
-	autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
+    autocmd!
+    autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 augroup END
 
 " Cursorline in normal more
 augroup CursorlineInsert
   autocmd!
-	set cursorline " default on
+    set cursorline " default on
   au InsertEnter * set nocursorline
   au InsertLeave * set cursorline
 augroup END
 
 " Open help in vertical split
 augroup VerticalHelp
-	autocmd!
-	command! -nargs=* -complete=help Help vertical belowright help <args>
-	autocmd FileType help wincmd L
+    autocmd!
+    command! -nargs=* -complete=help Help vertical belowright help <args>
+    autocmd FileType help wincmd L
 augroup END
 
 augroup AutoFixCSS
