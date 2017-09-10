@@ -1,373 +1,75 @@
-" -------------------------------------
-" Fix Vim stuff
-" -------------------------------------
+" --------------------------------------
+" General
+" --------------------------------------
 
-if !has('nvim')
-    set nocompatible               " Disable vi compatibility
-    filetype off                   " turn filetype detection off..
-    filetype plugin indent on      " .. and on again, enabling filetype and indent plugins
-    scriptencoding utf-8           " Fix interpreting .vimrc
-    set autoindent                 " Copy indent from last line when starting new line
-    set autoread                   " Automatically read files changed on disk
-    set backspace=indent,eol,start " Allow backspace in insert mode
-    set encoding=utf-8             " Set character encoding for buffers etc
-    set hlsearch                   " Highlight search matches
-    set incsearch                  " Highlight search matches as typed
-    set laststatus=2               " Always show statusbar
-    set mouse=a                    " Enable mouse in all modes
-    set smarttab " At beginning of line Tab inserts shiftwidth spaces
-    set ttyfast                    " Send more characters at a time
-    syntax enable                  " Enable syntax highlighting
+" Fix interpreting vimrc
+scriptencoding utf-8
+
+" Don't redraw when running macros
+set lazyredraw
+
+" Disable backups & swaps
+set noswapfile
+set nobackup
+
+" List hidden characters
+set list
+" Show tabs
+set listchars=tab:\⋮\ 
+" Show trailing spaces
+set listchars+=trail:·
+
+" Disable | characters on splits
+set fillchars=""
+
+" Do not unload abandonded (background) buffers
+set hidden
+
+" Use , as leader
+let mapleader = ","
+let g:mapleader = ","
+
+if has('nvim')
+  " Enable neovim live replace
+  set inccommand=nosplit
+  " Disable setting line cursor on insert
+  set guicursor=
 endif
 
-" -------------------------------------
+" --------------------------------------
 " Plugins
-" -------------------------------------
-
-" Automatically install vim-plug and run PlugInstall if vim-plug not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
-endif
+" https://github.com/junegunn/vim-plug#installation
+" --------------------------------------
 
 call plug#begin('~/.config/nvim/plugged')
+
+" --------------------------------------
+" General
+
+" Defaults
+Plug 'tpope/vim-sensible'
+
+" Git status in gutter
 Plug 'airblade/vim-gitgutter'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'christoomey/vim-tmux-navigator'
+
+" Automatically load file if changed on disk
 Plug 'djoshea/vim-autoread'
-Plug 'easymotion/vim-easymotion'
-Plug 'elzr/vim-json'
-Plug 'fatih/vim-go'
-Plug 'flowtype/vim-flow', { 'do': 'npm install -g flow-bin' } 
-Plug 'godlygeek/tabular'
-Plug 'godoctor/godoctor.vim'
-Plug 'jparise/vim-graphql'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-sneak'
-Plug 'kshenoy/vim-signature'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'mhinz/vim-startify'
-Plug 'milkypostman/vim-togglelist'
-Plug 'mxw/vim-jsx'
-Plug 'neomake/neomake', { 'on': 'Neomake' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'sbdchd/neoformat'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'SirVer/ultisnips', { 'on': [] }
-Plug 'vim-scripts/ReplaceWithRegister'
-augroup load_ultisnips
-  autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips')
-        \| autocmd! load_ultisnips
-augroup END
-Plug 'ap/vim-css-color'
-Plug 'tomasr/molokai'
-Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
+
+" Git info
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/YankRing.vim', { 
-            \ 'on' : [ 'YRToggle', 'YRClear', 'YRShow', 'YRGetElem', 
-            \          'YRGetMultiple', 'YRPush', 'YRPop', 'YRYankCount',
-            \          'YRYankRange', 'YRDeleteRange', 'YRPaste', 'YRReplace',
-            \          'YRMapsCreate', 'YRMapsDelete', 'YRSearch', 
-            \          'YRCheckClipboard', 'YRRunAfterMaps' ] }
-Plug 'wellle/targets.vim'
-if !has('nvim')
-  Plug 'Shougo/neocomplete.vim'
-else 
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'carlitux/deoplete-ternjs'
-  Plug 'steelsojka/deoplete-flow'
-  Plug 'zchee/deoplete-go', { 'do': 'make'}
-endif
-call plug#end()
-
-" -------------------------------------
-" Config
-" -------------------------------------
-
-set clipboard=unnamed                 " Share clipboard with OS X
-set complete=.,w,b,u                  " Complete from current file, split window, buffers, unloaded buffers
-set expandtab                         " Expand an inserted tab to spaces
-set fillchars=""                      " Disable - | chars on horizontal/vertical splits
-set hidden                            " Allow hidden buffers with unsaved content
-set history=250                       " 250 items in history
-set ignorecase                        " Ignore case for searching
-set lazyredraw                        " Don't redraw when we don't have to
-set list                              " Enable listing extra chars
-set listchars=tab:\⋮\ ,trail:·,nbsp:_
-set nobackup                          " No annoying backups
-set noerrorbells                      " No beeping
-set noshowmode                        " Don't show mode, airline shows it
-set noswapfile                        " No swaps
-set number                            " Show line numbers on active line
-set numberwidth=6                     " Wider line numbers
-set pumheight=10                      " Max 10 items in popup/autocomplete menu
-set relativenumber                    " Show relative line numbers
-set scrolloff=5                       " Offset top/bottom when scrolling
-set shiftwidth=4                      " Shift indentation n spaces
-set shortmess+=I                      " Hide intro message
-set smartcase                         " Enable case sensitive if input has capital letter
-set softtabstop=4                     " Convert a tab to n spaces
-set splitbelow                        " Split horizontal windows down
-set splitright                        " Split vertical windows to the right
-set tabstop=4                         " Set tab n spaces wide
-set undodir=~/.vim/undo               " For persistent undo
-set undofile                          " Enable persistent undo
-set updatetime=100                     " Trigger cursorhold faster
-set visualbell                        " Use visual bell instead of audible bell
-
-if has('nvim')
-  set inccommand=nosplit              " Enable neovim live replace
-  set guicursor=                      " Disable setting line cursor on insert
-endif
-
-" -------------------------------------
-" Key remaps
-" -------------------------------------
-
-" , as leader
-let mapleader=","
-" jk to exit insert mode
-imap jk <Esc>
-" ; instead of :
-noremap ; :
-" Yank to end of line
-nnoremap Y y$
-" Move to line above/below even if line is wrapping
-nnoremap j gj
-nnoremap k gk
-" Move current line, shift-alt-j down, shift-alt-k up. Maintain indentation
-nnoremap Ô :m .+1<CR>==
-nnoremap  :m .-2<CR>==
-" Resize vertical windows with + -
-nnoremap <silent> + :exe "vertical resize"  . (winwidth(0) * 4/3)<CR>
-nnoremap <silent> _ :exe "vertical resize"  . (winwidth(0) * 3/4)<CR>
-" Fast save
-nnoremap <leader>w :w!<CR>
-" Remove search highlight, show with double leader
-nnoremap <leader><space> :noh<CR>
-nnoremap <leader><leader><space> :set hlsearch<CR>
-" Move blocks in visual mode
-vnoremap < <gv
-vnoremap > >gv
-" Highlight search but don't move with *
-nnoremap <silent> * :let stay_star_view = winsaveview()<CR>*:call winrestview(stay_star_view)<CR>
-" Map H and L to beginning and end of line
-nnoremap H ^
-nnoremap L $
-vnoremap H ^
-vnoremap L $
-" Reload .vimrc config
-nnoremap <leader>cr :so $MYVIMRC<CR>
-" prev active buffer: alt-\
-nnoremap « <C-^><CR>
-" closee buffer with ctrl-w
-nnoremap <C-q> :bdel<CR>
-" center on screen when jumping to next result
-nnoremap n nzzzv
-nnoremap N Nzzzv
-" faster movement with alt pressed
-nnoremap ∆ 10j
-nnoremap ˚ 10k
-vnoremap ∆ 10j
-vnoremap ˚ 10k
-nnoremap ˙ 15h
-nnoremap ¬ 15l
-" faster scrolling
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-" replace word without overwriting register
-nnoremap <leader>r viw"_dP
-" sort lines
-vnoremap <f5> :sort i<cr>
-nnoremap <f5> vi{ :sort i<cr>
-" prev/next in quickfix
-nnoremap = :cnext<cr>zz
-nnoremap - :cprev<cr>zz
-" jump to ( and ) on line
-nnoremap ( f(
-nnoremap ) f(])
-nnoremap <leader>% ggVG
-" copy filepath to clipboard
-nnoremap <leader>cf :let @*=expand("%:t")<cr>:echo "filename copied to clipboard"<cr>
-nnoremap <leader>cp :let @*=expand("%")<cr>:echo "file path copied to clipboard"<cr>
-nnoremap <leader>cd :let @*=expand("%:p:h")<cr>:echo "dir copied to clipboard"<cr>
-" tab: next buf, shift-tab prev buf
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
-" delete without replacing default register
-nmap X "_d
-nmap XX "_dd
-vmap X "_d
-vmap x "_d
-" select next/prev autocomplete result with tab/shift-tab
-inoremap <expr> <tab> pumvisible() ? "\<C-N>" : "\<tab>"
-inoremap <expr> <S-tab> pumvisible() ? "\<C-P>" : "\<S-tab>"
-
-" -------------------------------------
-" Colors
-" -------------------------------------
-
-" nvim 0.1.5+ for true color
-if has("termguicolors")
-  set termguicolors
-else
-  set t_Co=256
-endif
-set background=dark
-
-let g:one_allow_italics = 1 
-colorscheme molokai
-
-" -------------------------------------
-" Color column
-" -------------------------------------
-
-augroup ColorColumnFiletype
-    autocmd!
-    " Default
-    set colorcolumn=81
-    " 100 col
-    autocmd BufRead *.go set colorcolumn=0
-    autocmd BufRead *.js set colorcolumn=101
-    autocmd BufRead *.jsx set colorcolumn=101
-augroup END
-
-" -------------------------------------
-" Plugin config
-" -------------------------------------
-
-" vim-airline
-let g:airline_theme = "powerlineish"
-let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['branch', 'tabline']
-let g:airline_section_y = ''
-let g:airline_section_z = '%3p%%  %l/%L  %c'
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#fnamecollapse = 0
-let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-" jump to tab with alt-1-9
-nmap ¡ <Plug>AirlineSelectTab1
-nmap ™ <Plug>AirlineSelectTab2
-nmap £ <Plug>AirlineSelectTab3
-nmap ¢ <Plug>AirlineSelectTab4
-nmap ∞ <Plug>AirlineSelectTab5
-nmap § <Plug>AirlineSelectTab6
-nmap ¶ <Plug>AirlineSelectTab7
-nmap • <Plug>AirlineSelectTab8
-nmap ª <Plug>AirlineSelectTab9
-
-" vim-go
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_fail_silently = 0
-let g:go_fmt_command = "goimports"
-let g:go_auto_sameids = 1
-let g:go_list_type = "quickfix"
-hi def goSameId ctermbg=237 ctermfg=015 guifg=#BFFF00
-
-" Autocomplete
-" Neocomplete & Deoplete
-
-" Neocomplete (vim)
-if !has('nvim')
-    let g:neocomplete#enable_at_startup = 1                       "  Enable on startup
-    let g:neocomplete#enable_auto_select = 1                      "  Automatically select first suggestion
-    set completeopt-=preview                                      "  Disable preview window
-    let g:neocomplete#sources#syntax#min_keyword_length = 2       "  Set minimum syntax keyword length.
-    noremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
-  function! s:close_popup()
-    return pumvisible() ? "\<C-y>" : "\<CR>"
-  endfunction
-endif
-
-" Deoplete (Neovim)
-if has('nvim')
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#ignore_sources = {}
-    let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
-    let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
-    let g:deoplete#sources#go#align_class = 1
-    let g:deoplete#max_abbr_width = 160
-    let g:deoplete#max_menu_width = 80
-  " inoremap <silent> <CR> <C-r>=<SID>close_popup()<CR>
-  " function! s:close_popup()
-  "   return pumvisible() ? deoplete#mappings#close_popup() : "\n"
-  " endfunction
-    set completeopt-=preview
-endif
-
-" vim-fugitive
-vnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gb :Gblame<CR>
-vnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gs :Gstatus<CR>
 
-" nerdtree
-nnoremap <silent> <c-n> :NERDTreeToggle<CR>
-nnoremap <silent> <leader><c-n> :NERDTreeFind<CR>
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeSortHiddenFirst = 1
-let g:NERDTreeShowHidden = 1
+" Replace selected text with register
+Plug 'vim-scripts/ReplaceWithRegister'
 
-" FZF
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore _testdata -g ""'
-let g:fzf_layout = { 'down': '~35%' }
-let g:fzf_buffers_jump = 1
-let g:fzf_files_options = '--tiebreak=end --preview "(highlight --style=molokai -O xterm256 {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit',
-  \ 'ctrl-o': 'edit' }
-nnoremap <C-p> :Files<CR>
-nnoremap π :Buffers<CR>
-nnoremap <leader>a :Ag 
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-inoremap <expr> <c-x><c-l> fzf#vim#complete#line({'down': '10%'})
+" Molokai colors
+Plug 'tomasr/molokai'
 
-" vim-json
-let g:vim_json_syntax_conceal = 0
+" Show buffers on top
+Plug 'ap/vim-buftabline'
 
-" vim-ultisnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-let g:UltiSnipsEditSplit = 'vertical' " open snippet editor in vertical window
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" YankRing.vim
-" Remap to not conflict with ctrl-p
-let g:yankring_replace_n_pkey = '[p'
-let g:yankring_replace_n_nkey = ']p'
-" Show history with rolling to p
-noremap ][p :YRShow<CR>
-
-" vim-markdown
-let g:vim_markdown_folding_disabled = 1
-
-" vim-startify
+" More useful screen
+Plug 'mhinz/vim-startify'
 " stay in dir where vim was openened
 let g:startify_change_to_dir = 0
 " don't need to look at a cow
@@ -382,59 +84,66 @@ let g:startify_list_order = [
     \ ['   bookmarks:'],
     \ 'bookmarks',
     \ ]
-let g:startify_bookmarks = [
-    \ { 'c': '~/.vimrc' },
-    \ { 'z': '~/.zshrc' }
-    \ ]
-autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
+" --------------------------------------
 
-" vim-sneak
-" use sneak instead of fF / tT
-let g:sneak#s_next = 1
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
+" --------------------------------------
+" Text helpers
 
-" vim-easymotion
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-let g:EasyMotion_enter_jump_first = 1
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-nmap <SPACE> <Plug>(easymotion-sn)
+" Toggle comments (gc - go comment)
+Plug 'tpope/vim-commentary'
 
-" deoplete-ternjs
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = 0
+" Toggle comments with gc
+Plug 'tpope/vim-commentary'
 
-" vim-flow
-let g:flow#autoclose = 1
-let g:flow#omnifunc = 1
+" More text targets: (), [], {}, <>
+Plug 'wellle/targets.vim'
+" --------------------------------------
 
-"Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
+" --------------------------------------
+" Navigation
+
+" FZF fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore _testdata -g ""'
+let g:fzf_layout = { 'down': '~35%' }
+let g:fzf_buffers_jump = 1
+let g:fzf_files_options = '--tiebreak=end --preview "(highlight --style=molokai -O xterm256 {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+nnoremap <C-p> :Files<CR>
+if has('mac')
+    nnoremap <silent> π :Buffers<CR>
+    nnoremap <silent> ® :History<CR>
+else
+    nnoremap <silent> <A-p> :Buffers<CR>
+    nnoremap <silent> <A-r> :History<CR>
 endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
+nnoremap <leader>a :Ag 
+inoremap <expr> <c-x><c-l> fzf#vim#complete#line()
 
-" undotree
-nmap <leader>u :UndotreeToggle<CR>
+" Nerdtree for file navigation
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFind'] }
+nnoremap <silent> <c-n> :NERDTreeToggle<CR>
+nnoremap <silent> <leader><c-n> :NERDTreeFind<CR>
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeSortHiddenFirst = 1
+let g:NERDTreeShowHidden = 1
 
-" vim-togglelist
-nnoremap <C-b> :call ToggleQuickfixList()<cr>
+" Fix opening file from FZF if Nerdtree open. Without this the file would open
+" in the nerdtree buffer
+nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"
 
-" neomake
+" Navigate vim and tmux panes with same keys
+Plug 'christoomey/vim-tmux-navigator'
+" --------------------------------------
+
+" --------------------------------------
+" Linting / Building
+
+" Neomake async lints files
+Plug 'neomake/neomake', { 'on': 'Neomake' }
 let g:neomake_go_gometalinter_args = [
   \ '--fast',
   \ '--enable=gosimple',
@@ -458,43 +167,11 @@ let g:neomake_error_sign = {
   \ 'texthl': 'GitGutterDeleteDefault',
   \ }
 autocmd! BufWritePost,BufEnter * Neomake
+" --------------------------------------
 
-" Fix colors for Neomake
-hi NeomakeWarningSign ctermfg=yellow guifg=yellow
-hi NeomakeErrorSign ctermfg=red guifg=red
-autocmd ColorScheme * hi NeomakeWarningSign ctermfg=yellow guifg=yellow guibg=none ctermbg=none
-autocmd ColorScheme * hi NeomakeErrorSign ctermfg=red guifg=red guibg=none ctermbg=none
-
-" vim-easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-let g:easy_align_delimiters = {
-\ '>': { 'pattern': '>>\|=>\|>' },
-\ '/': {
-\     'pattern':         '//\+',
-\     'delimiter_align': 'l',
-\     'ignore_groups':   ['!Comment'] },
-\ ']': {
-\     'pattern':       '[[\]]',
-\     'left_margin':   0,
-\     'right_margin':  0,
-\     'stick_to_left': 0
-\   },
-\ ')': {
-\     'pattern':       '[()]',
-\     'left_margin':   0,
-\     'right_margin':  0,
-\     'stick_to_left': 0
-\   },
-\ 'd': {
-\     'pattern':      ' \(\S\+\s*[;=]\)\@=',
-\     'left_margin':  0,
-\     'right_margin': 0
-\   }
-\ }
-
-" neoformat
-
+" --------------------------------------
+" Formatting
+Plug 'sbdchd/neoformat'
 let g:neoformat_javascript_prettier = {
             \ 'exe': 'prettier',
             \ 'args': ['--stdin'],
@@ -513,77 +190,320 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
+autocmd BufWritePre *.js,*.jsx,*.json,*.css,*.scss,*.graphql :Neoformat
 
-" -------------------------------------
+" Format markdown tables
+Plug 'godlygeek/tabular'
+" --------------------------------------
+
+" --------------------------------------
 " Filetypes
-" -------------------------------------
 
 " Go
-augroup Go
+Plug 'fatih/vim-go', { 'for': 'go' }
+
+" JavaScript
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+" JSX
+Plug 'mxw/vim-jsx', { 'for': 'jsx' }
+
+" Flow
+Plug 'flowtype/vim-flow'
+let g:flow#autoclose = 1
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
+
+Plug 'jparise/vim-graphql'
+
+" --------------------------------------
+
+" --------------------------------------
+" Autocomplete
+" Async autocompletion
+Plug 'Shougo/deoplete.nvim', { 'on': [], 'do': ':UpdateRemotePlugins' }
+augroup LoadDeoplete
   autocmd!
-    autocmd FileType go nmap <Leader>x <Plug>(go-def-split)
-    autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
-    autocmd FileType go nmap <Leader>i <Plug>(go-info)
-    autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
-    autocmd FileType go nmap <leader>b :GoBuild!<CR>
-    autocmd FileType go nmap <leader>t :GoTest!<CR>
-    autocmd FileType go nmap <Leader>d <Plug>(go-doc)
-    autocmd FileType go nmap <Leader>ct :GoCoverageToggle<CR>
-    autocmd FileType go nmap Q :GoAlternate!<CR>
-    autocmd FileType go nmap <Leader>p :GoDecls<CR>
+  autocmd InsertEnter * call plug#load('deoplete.nvim')
+                     \| autocmd! LoadDeoplete
+augroup END
+let g:deoplete#enable_at_startup = 1
+" Disable preview/scratch
+set completeopt-=preview
+
+" Autocomplete support for go
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+" --------------------------------------
+
+call plug#end()
+
+
+" --------------------------------------
+" General key maps
+" --------------------------------------
+
+" Exit insert and command mode with jk
+" Note: This is not set up for visual mode as otherwise it'll delay moving
+" down when selecting text which is really annoying
+inoremap jk <Esc>
+cnoremap jk <C-c>
+
+" ; instead of : to enter command mode
+noremap ; :
+
+" Yank to end of line
+nnoremap Y y$
+
+" --------------------------------------
+" Colors
+" --------------------------------------
+
+if has("termguicolors")
+  set termguicolors
+else
+  set t_Co=256
+endif
+set background=dark
+
+colorscheme molokai
+
+" --------------------------------------
+" Tabs / spaces
+" --------------------------------------
+
+" 1 tab = 4 spaces
+set tabstop=4
+" Convert inserted tab to spaces
+set expandtab
+" Shift 4 spaces
+set shiftwidth=4
+" Convert tabs to spaces
+set softtabstop=4
+
+" --------------------------------------
+" Line numbers
+" --------------------------------------
+
+" Show line number on active line
+set number
+
+" Relative numbers
+set relativenumber
+
+" Wider line numbers
+set numberwidth=6
+
+" --------------------------------------
+" Undo
+" --------------------------------------
+
+" Enable persistent undo
+set undofile
+set undodir=~/.vim/undo
+
+" --------------------------------------
+" Movement
+" --------------------------------------
+
+" Faster movement with ctrl
+if has('mac') 
+    nnoremap ∆ 10j
+    vnoremap ∆ 10j
+    nnoremap ˚ 10k
+    vnoremap ˚ 10k
+    nnoremap ˙ 15h
+    nnoremap ¬ 15l
+else
+    nnoremap <A-j> 10j
+    vnoremap <A-j> 10j
+    nnoremap <A-k> 10k
+    vnoremap <A-k> 10k
+    nnoremap <A-h> 15h
+    nnoremap <A-l> 15l
+endif
+
+" Move to line above/below even if line is wrapping
+nnoremap j gj
+nnoremap k gk
+
+" Move blocks in visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" H and L move to beginning / end of line
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+" Move line up/down with alt-j/k, maintain indentation
+if has('mac')
+    nnoremap <silent> Ô :m .+1<CR>==
+    nnoremap <silent>  :m .-2<CR>==
+else
+    nnoremap <silent> <A-j> :m .+1<CR>==
+    nnoremap <silent> <A-k> :m .-2<CR>==
+endif
+
+" Tab: next buf, Shift-Tab prev buf
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprev<CR>
+
+" Scroll 5 lines from top/bottom
+set scrolloff=5
+
+" Prev/next in quickfix
+nnoremap <silent> = :cnext<cr>zz
+nnoremap <silent> - :cprev<cr>zz
+
+" Cursorline in normal more
+augroup CursorlineInsert
+  autocmd!
+    set cursorline " default on
+  au InsertEnter * set nocursorline
+  au InsertLeave * set cursorline
 augroup END
 
-" Git commit
+" --------------------------------------
+" Search
+" --------------------------------------
+
+" Ignore case in search
+set ignorecase
+
+" Use case-sensitive search if query contains upper case chars
+set smartcase
+
+" Hide search highlight
+nnoremap <silent> <leader><space> :nohlsearch<CR>
+
+" Highlight search but don't move with *
+nnoremap <silent> * :let stay_star_view = winsaveview()<CR>*:call winrestview(stay_star_view)<CR>
+
+" --------------------------------------
+" Statusline
+" --------------------------------------
+
+" Always enable status line
+set laststatus=2
+
+hi User1 guibg=#AFD702 guifg=#000000
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+" Show git branch
+set statusline+=%1*
+set statusline+=%{StatuslineGit()}
+set statusline+=%*
+
+" Show filename
+set statusline+=\ %f
+
+" Display a warning if fileformat isn't unix
+set statusline+=%#warningmsg#
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%*
+
+" Show modifier flag
+set statusline+=%#warningmsg#
+set statusline+=%m
+set statusline+=%*
+
+" Right align remaining items
+set statusline+=%=
+
+" Show file type
+set statusline+=\ %{&filetype}
+
+" Percentage in file
+set statusline+=\ %p%%
+
+" Line / total lines
+set statusline+=\ %l/%L
+
+" Column
+set statusline+=:%c
+
+" Trailing space
+set statusline+=\ 
+
+" --------------------------------------
+" Clipboard
+" --------------------------------------
+
+if has('mac')
+set clipboard=unnamed
+endif
+
+" --------------------------------------
+" Search & replace
+" --------------------------------------
+
+" Center on screen when jumping to next result
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Enable incremental (real time) search
+set incsearch
+
+" --------------------------------------
+" Filetypes
+" --------------------------------------
+
 augroup GitCommit
   autocmd!
-  " enable spellcheck, allow to start with lowercase
+  " Enable spellcheck, allow to start with lowercase
   autocmd FileType gitcommit setlocal spell spellcapcheck=
 augroup END
 
-" Markdown
 augroup Markdown
   autocmd!
-  " enable spellcheck
+  " Enable spellcheck
   autocmd FileType markdown setlocal spell
 augroup END
 
-" JavaScript
-augroup Javascript
-  autocmd!
-    autocmd FileType javascript nmap <Leader>i :FlowType<cr>
-  autocmd BufWritePre *.js,*.jsx :Neoformat
-augroup END
-
-" CSS
-augroup CSS
-  autocmd!
-  autocmd BufWritePre *.css,*.scss,*.cssm :Neoformat
-augroup END
-
-" Json
-augroup Json
-  autocmd!
-  autocmd BufNewFile,BufRead *.babelrc set filetype=json
-  autocmd BufNewFile,BufRead *.stylelintrc set filetype=json
-  autocmd BufWritePre *.json :Neoformat
-augroup END
-
-" Shell
-augroup SH
+augroup envrc
   autocmd!
   autocmd BufNewFile,BufRead .envrc set filetype=sh
 augroup END
 
-" Crontab
-
 augroup Crontab
   autocmd!
+  " Disable backups, causes issues
   autocmd filetype crontab setlocal nobackup nowritebackup
 augroup END
 
-" -------------------------------------
+" --------------------------------------
 " Misc
-" -------------------------------------
+" --------------------------------------
+
+" Reload vimrc
+nnoremap <silent> <leader>cr :source $MYVIMRC<CR>
+
+" Don't move backwards with ESC
+augroup NoMoveEsc
+    autocmd!
+    autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
+augroup END
+
+" Open vertical help with H
+" :h topic -> horizontal
+" :H topic -> vertical
+cnoreabbrev H vertical botright h
 
 " Fast escape
 set notimeout
@@ -595,34 +515,3 @@ augroup FastEscape
   au InsertLeave * set timeoutlen=1000
 augroup END
 
-" Don't move backwards with ESC
-augroup NoMoveEsc
-    autocmd!
-    autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
-augroup END
-
-" Cursorline in normal more
-augroup CursorlineInsert
-  autocmd!
-    set cursorline " default on
-  au InsertEnter * set nocursorline
-  au InsertLeave * set cursorline
-augroup END
-
-" Open help in vertical split
-augroup VerticalHelp
-    autocmd!
-    command! -nargs=* -complete=help Help vertical belowright help <args>
-    autocmd FileType help wincmd L
-augroup END
-
-augroup AutoFixCSS
-  autocmd!
-
-  function! Stylefmt()
-    silent execute "!stylefmt %"
-    edit! %
-  endfunction
-
-  autocmd FileType css nnoremap <silent> <leader>f :call Stylefmt()<CR>
-augroup END
