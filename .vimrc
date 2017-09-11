@@ -463,6 +463,12 @@ set incsearch
 " Filetypes
 " --------------------------------------
 
+augroup JavaScript
+  autocmd!
+  autocmd FileType javascript nnoremap <silent> gd :FlowJumpToDef<CR>
+  autocmd FileType javascript nnoremap <silent> <leader>i :FlowType<CR>
+augroup END
+
 augroup GitCommit
   autocmd!
   " Enable spellcheck, allow to start with lowercase
