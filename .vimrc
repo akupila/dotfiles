@@ -119,7 +119,6 @@ else
     nnoremap <silent> <A-r> :History<CR>
 endif
 nnoremap <leader>a :Ag 
-inoremap <expr> <c-x><c-l> fzf#vim#complete#line()
 
 " Nerdtree for file navigation
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFind'] }
