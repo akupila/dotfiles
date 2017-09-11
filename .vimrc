@@ -225,19 +225,24 @@ Plug 'jparise/vim-graphql'
 
 " --------------------------------------
 " Autocomplete
-" Async autocompletion
-Plug 'Shougo/deoplete.nvim', { 'on': [], 'do': ':UpdateRemotePlugins' }
-augroup LoadDeoplete
-  autocmd!
-  autocmd InsertEnter * call plug#load('deoplete.nvim')
-                     \| autocmd! LoadDeoplete
-augroup END
-let g:deoplete#enable_at_startup = 1
-" Disable preview/scratch
-set completeopt-=preview
+" Autocompletion manager
+" mistune: autocomplete for markdown
+Plug 'roxma/nvim-completion-manager'
+" Requires vim8 with has('python') or has('python3')
+" Requires the installation of msgpack-python. (pip install msgpack-python)
+if !has('nvim')
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-" Autocomplete support for go
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Prev/next autocomplete result with tab/shift-tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Flow
+Plug 'roxma/ncm-flow', { 'for': 'javascript' }
+
+" CSS
+Plug 'calebeby/ncm-css', { 'for': 'css' }
 " --------------------------------------
 
 call plug#end()
