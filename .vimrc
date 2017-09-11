@@ -392,7 +392,7 @@ nnoremap <silent> * :let stay_star_view = winsaveview()<CR>*:call winrestview(st
 " Always enable status line
 set laststatus=2
 
-hi User1 guibg=#AFD702 guifg=#000000
+hi User1 guifg=#AFD702 guibg=#3E3D32
 
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
