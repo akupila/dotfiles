@@ -25,6 +25,10 @@ set fillchars=""
 " Do not unload abandonded (background) buffers
 set hidden
 
+" Split to right and down
+set splitbelow
+set splitright
+
 " Use , as leader
 let mapleader = ","
 let g:mapleader = ","
