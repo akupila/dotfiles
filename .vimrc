@@ -158,8 +158,7 @@ let g:neomake_go_gometalinter_args = [
   \ '--enable=vet',
   \ '--enable=vetshadow',
   \ ]
-let g:neomake_javascript_enabled_makers = ['eslint_d']
-let g:neomake_jsx_enabled_makers = ['eslint_d']
+let g:neomake_javascript_enabled_makers = ['eslint_d', 'flow']
 let g:neomake_verbose = 0
 let g:neomake_warning_sign = {
   \ 'text': '!',
@@ -193,7 +192,7 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
-autocmd BufWritePre *.js,*.jsx,*.json,*.css,*.scss,*.graphql :Neoformat
+autocmd! BufWritePre *.js,*.jsx,*.json,*.css,*.scss,*.graphql :Neoformat
 
 " Format markdown tables
 Plug 'godlygeek/tabular'
@@ -211,20 +210,8 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " JSX
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 
-" Flow
-Plug 'flowtype/vim-flow'
-let g:flow#autoclose = 1
-"Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
-
+" GraphQL
 Plug 'jparise/vim-graphql'
-
 " --------------------------------------
 
 " --------------------------------------
@@ -360,8 +347,11 @@ else
 endif
 
 " Tab: next buf, Shift-Tab prev buf
-nnoremap <silent> <Tab> :bnext<CR>
-nnoremap <silent> <S-Tab> :bprev<CR>
+nnoremap <silent> <Tab> :cclose<CR> :bnext<CR>
+nnoremap <silent> <S-Tab> :cclose<CR> :bprev<CR>
+
+" Open quickfix list
+nnoremap <silent> <leader>o :copen<CR>
 
 " Scroll 5 lines from top/bottom
 set scrolloff=5
