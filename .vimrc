@@ -525,3 +525,5 @@ augroup FastEscape
   au InsertLeave * set timeoutlen=1000
 augroup END
 
+" Remember location in file when opened
+autocmd! BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
