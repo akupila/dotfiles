@@ -203,6 +203,7 @@ Plug 'godlygeek/tabular'
 
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
+let g:go_fmt_command = "goimports"
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
