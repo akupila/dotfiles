@@ -205,6 +205,7 @@ Plug 'godlygeek/tabular'
 Plug 'fatih/vim-go', { 'for': 'go' }
 let g:go_fmt_command = "goimports"
 autocmd! FileType go nnoremap <silent> Q :GoAlternate!<CR>
+autocmd! FileType go nmap <Leader>i <Plug>(go-info)
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
