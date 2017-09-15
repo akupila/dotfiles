@@ -217,6 +217,15 @@ Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 
 " GraphQL
 Plug 'jparise/vim-graphql'
+
+" Flow
+Plug 'flowtype/vim-flow'
+" Neobuild will show errors
+let g:flow#showquickfix = 0
+" Disable omnifunc (already provided by nvim-completion-manager
+let g:flow#omnifunc = 0
+autocmd FileType javascript nnoremap <silent> gd :FlowJumpToDef<CR>
+autocmd FileType javascript nnoremap <silent> <leader>i :FlowType<CR>
 " --------------------------------------
 
 " --------------------------------------
@@ -476,12 +485,6 @@ set incsearch
 " --------------------------------------
 " Filetypes
 " --------------------------------------
-
-augroup JavaScript
-  autocmd!
-  autocmd FileType javascript nnoremap <silent> gd :FlowJumpToDef<CR>
-  autocmd FileType javascript nnoremap <silent> <leader>i :FlowType<CR>
-augroup END
 
 augroup GitCommit
   autocmd!
