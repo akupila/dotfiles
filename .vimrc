@@ -206,8 +206,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
-autocmd! FileType go nnoremap <silent> Q :GoAlternate!<CR>
-autocmd! FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nnoremap <silent> Q :GoAlternate!<CR>
+autocmd FileType go nnoremap <silent> <Leader>i <Plug>(go-info)
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
