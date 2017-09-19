@@ -475,10 +475,6 @@ endif
 " Search & replace
 " --------------------------------------
 
-" Center on screen when jumping to next result
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
 " Enable incremental (real time) search
 set incsearch
 
