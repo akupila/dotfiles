@@ -127,3 +127,4 @@ ssh() {
 
 # Fix colors for git messages when in tmux
 [[ $TMUX != "" ]] && export TERM="xterm-256color"
+export PATH="/usr/local/sbin:$PATH"
