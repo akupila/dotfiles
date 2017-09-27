@@ -514,6 +514,11 @@ augroup Markdown
   autocmd FileType markdown setlocal spell
 augroup END
 
+augroup JavaScript
+  autocmd!
+  autocmd BufNewFile *.js,*.jsx 0r ~/.vimtemplates/template.js | exec "normal! G"
+augroup END
+
 augroup envrc
   autocmd!
   autocmd BufNewFile,BufRead .envrc set filetype=sh
