@@ -560,3 +560,7 @@ augroup END
 
 " Remember location in file when opened
 autocmd! BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Set more undo points in insert mode
+inoremap . .<C-g>u
+inoremap , ,<C-g>u
