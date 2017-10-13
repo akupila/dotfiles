@@ -225,6 +225,7 @@ let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 autocmd FileType go nnoremap <silent> Q :GoAlternate!<CR>
 autocmd FileType go nnoremap <silent> <Leader>i :GoInfo<CR>
+autocmd FileType go nnoremap <silent> <Leader>t :GoCoverageToggle<CR>
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
