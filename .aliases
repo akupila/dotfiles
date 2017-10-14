@@ -52,14 +52,6 @@ alias gr=rebaseStatus || { echo "No rebase in progress?" }
 
 alias vim="nvim"
 
-# Go
-
-alias gt="go list ./... | grep -vE vendor | xargs go test -short"
-alias gw="find . -name '*.go' -not -path './vendor/*' | entr -c go build -v"
-alias gwi="find . -name '*.go' -not -path './vendor/*' | entr -c go install -v"
-alias gwt="find . -name '*.go' -not -path './vendor/*' | entr -c go test -short \`go test ./..`"
-alias gtp="go test |& panicparse"
-
 # Lazy typing 
 
 alias k="kubectl"
