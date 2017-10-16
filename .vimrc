@@ -245,6 +245,9 @@ let g:flow#omnifunc = 0
 autocmd FileType javascript nnoremap <silent> gd :FlowJumpToDef<CR>
 autocmd FileType javascript nnoremap <silent> <leader>i :FlowType<CR>
 
+" Markdown
+Plug 'plasticboy/vim-markdown'
+
 " Jenkinks
 Plug 'martinda/Jenkinsfile-vim-syntax'
 " --------------------------------------
