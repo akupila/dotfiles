@@ -61,6 +61,8 @@ Plug 'djoshea/vim-autoread'
 
 " Git info
 Plug 'tpope/vim-fugitive'
+" Enable GBrowse for github
+Plug 'tpope/vim-rhubarb'
 nnoremap <leader>gb :Gblame<CR>
 
 " Replace selected text with register
