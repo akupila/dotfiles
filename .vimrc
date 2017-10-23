@@ -213,6 +213,9 @@ autocmd! BufWritePre *.js,*.jsx,*.json,*.css,*.scss,*.graphql :Neoformat
 
 " Format markdown tables
 Plug 'godlygeek/tabular'
+
+" Change surrounding quotes, brackets etc
+Plug 'tpope/vim-surround'
 " --------------------------------------
 
 " --------------------------------------
