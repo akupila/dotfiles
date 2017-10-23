@@ -211,9 +211,6 @@ let g:neoformat_basic_format_trim = 1
 let g:neoformat_only_msg_on_error = 1
 autocmd! BufWritePre *.js,*.jsx,*.json,*.css,*.scss,*.graphql :Neoformat
 
-" Format markdown tables
-Plug 'godlygeek/tabular'
-
 " Change surrounding quotes, brackets etc
 Plug 'tpope/vim-surround'
 " --------------------------------------
@@ -249,7 +246,10 @@ autocmd FileType javascript nnoremap <silent> gd :FlowJumpToDef<CR>
 autocmd FileType javascript nnoremap <silent> <leader>i :FlowType<CR>
 
 " Markdown
+" Required to format markdown tables
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 
 " Jenkinks
 Plug 'martinda/Jenkinsfile-vim-syntax'
