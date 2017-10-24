@@ -279,6 +279,28 @@ Plug 'roxma/ncm-flow', { 'for': 'javascript' }
 Plug 'calebeby/ncm-css', { 'for': 'css' }
 " --------------------------------------
 
+" --------------------------------------
+" Misc
+
+" Distraction free writing
+Plug 'junegunn/goyo.vim'
+let g:goyo_width = 100
+
+function! s:goyo_enter()
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+endfunction
+
+function! s:goyo_leave()
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" --------------------------------------
+
 call plug#end()
 
 
