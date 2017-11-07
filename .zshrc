@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export GOPATH=/Users/akupila/go
+export GOPATH=/Users/$(whoami)/go
 export PATH=$PATH:$GOPATH/bin
 export KUBE_EDITOR=nvim
 
