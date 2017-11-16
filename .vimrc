@@ -56,6 +56,9 @@ Plug 'tpope/vim-sensible'
 " Git status in gutter
 Plug 'airblade/vim-gitgutter'
 
+" Helper for rebase (p, e, f etc)
+Plug 'pix/git-rebase-helper'
+
 " Automatically load file if changed on disk
 Plug 'djoshea/vim-autoread'
 
