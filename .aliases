@@ -20,6 +20,7 @@ alias yl="yadm log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Crese
 alias gp="git log --stat --max-count=1 --abbrev-commit --pretty=format:'%C(yellow)%h%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset'"
 alias gh="git log -p -M --follow --abbrev-commit -- "
 alias gc="git-cop --police"
+alias gpf="git show --pretty=\"\" --name-only head"
 
 rebaseStatus() {
 	if [ ! -d ".git" ]; then
