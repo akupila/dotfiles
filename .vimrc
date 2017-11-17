@@ -518,6 +518,25 @@ set statusline+=:%c
 set statusline+=\ 
 
 " --------------------------------------
+"  Folding
+" --------------------------------------
+
+set foldmethod=syntax
+
+" Default to no folds
+set foldlevel=99
+
+" Only fold top level folds
+set foldnestmax=1
+
+" Toggle fold with space
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+nnoremap <silent> zM zMzz
+nnoremap <silent> zR zRzz
+
+" --------------------------------------
 " Clipboard
 " --------------------------------------
 
@@ -551,6 +570,7 @@ augroup END
 augroup JavaScript
   autocmd!
   autocmd BufNewFile *.js,*.jsx 0r ~/.vimtemplates/template.js | exec "normal! G"
+  set foldnestmax=2
 augroup END
 
 augroup envrc
