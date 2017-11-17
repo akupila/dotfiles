@@ -624,6 +624,8 @@ autocmd! BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "nor
 " Set more undo points in insert mode
 inoremap . .<C-g>u
 inoremap , ,<C-g>u
+inoremap ) )<C-g>u
+inoremap } }<C-g>u
 
 " Resize vertical windows with shift + / -
 nnoremap <silent> + :exe "vertical resize"  . (winwidth(0) * 4/3)<CR>
