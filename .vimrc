@@ -437,6 +437,14 @@ augroup CursorlineInsert
 augroup END
 
 " --------------------------------------
+" Wildmenu
+" --------------------------------------
+
+set wildmenu
+set wildignorecase
+set wildmode=longest,full
+
+" --------------------------------------
 " Search
 " --------------------------------------
 
