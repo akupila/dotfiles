@@ -132,7 +132,9 @@ Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore _testdata -g ""'
+" Use .ignore file in directory to exclude more files:
+" https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage#ignore
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:fzf_layout = { 'down': '~35%' }
 let g:fzf_buffers_jump = 1
 let g:fzf_files_options = '--tiebreak=end --preview "(highlight --style=molokai -O xterm256 {} || coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'

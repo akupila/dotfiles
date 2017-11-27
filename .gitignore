@@ -5,3 +5,4 @@
 .vim/undo/
 .tern-port
 .envrc
+.ignore
