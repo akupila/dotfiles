@@ -5,43 +5,43 @@ endsnippet
 
 snippet cwm "componentWillMount"
 componentWillMount() {
-  $0
+	$0
 }
 endsnippet
 
 snippet cdm "componentDidMount"
 componentDidMount() {
-  $0
+	$0
 }
 endsnippet
 
 snippet cwrp "componentWillReceiveProps"
 componentWillReceiveProps(nextProps) {
-  $0
+	$0
 }
 endsnippet
 
 snippet scu "shouldComponentUpdate"
 shouldComponentUpdate(nextProps, nextState) {
-  return ${1:true};
+	return ${1:true};
 }
 endsnippet
 
 snippet cwu "componentWillUpdate"
 componentWillUpdate(nextProps, nextState) {
-  $0
+	$0
 }
 endsnippet
 
 snippet cdu "componentDidUpdate"
 componentDidUpdate(prevProps, prevState) {
-  $0
+	$0
 }
 endsnippet
 
 snippet cwu "componentWillUnmount"
 componentWillUnmount() {
-  $0
+	$0
 }
 endsnippet
 
@@ -54,29 +54,35 @@ endsnippet
 snippet compf "functional component"
 import React from 'react';
 
-export default () => (
-	<div>
-		$0
-	</div>
+type Props = {
+};
+
+export default (props: Props) => (
+	$0
 );
 endsnippet
 
 snippet compc "class component"
 import React, { Component } from 'react';
 
-class ${1:Name} extends Component {
+type Props = {
+};
+
+class ${1:Name} extends Component<Props> {
 	
 	render() {
 		return (
-			<div>
-				$0
-			</div>
+			$0
 		);
 	}
 
 }
 
 export default $1;
+endsnippet
+
+snippet imprn "import react native"
+import {$0  } from 'react-native';
 endsnippet
 
 snippet hr "horizontal rule"

@@ -306,6 +306,23 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " --------------------------------------
 
+" --------------------------------------
+" Snippets
+
+Plug 'SirVer/ultisnips', { 'on': [] }
+augroup load_ultisnips
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips')
+        \| autocmd! load_ultisnips
+augroup END
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']		
+let g:UltiSnipsEditSplit = 'vertical' 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" --------------------------------------
+
 call plug#end()
 
 
