@@ -273,15 +273,35 @@ if !has('nvim')
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" don't give |ins-completion-menu| messages.  For example,
+" '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
+set shortmess+=c
+
 " Prev/next autocomplete result with tab/shift-tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+imap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
+imap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+imap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
+imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-u>":"\<CR>")
 
 " Flow
 Plug 'roxma/ncm-flow', { 'for': 'javascript' }
 
 " CSS
 Plug 'calebeby/ncm-css', { 'for': 'css' }
+" --------------------------------------
+
+" --------------------------------------
+" Snippets
+
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsEditSplit = 'vertical' 
+let g:UltiSnipsExpandTrigger		= "<c-u>"
+let g:UltiSnipsJumpForwardTrigger	= "<tab>"
+let g:UltiSnipsJumpBackwardTrigger	= "<s-tab>"
+
 " --------------------------------------
 
 " --------------------------------------
@@ -306,22 +326,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " --------------------------------------
 
-" --------------------------------------
-" Snippets
-
-Plug 'SirVer/ultisnips', { 'on': [] }
-augroup load_ultisnips
-  autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips')
-        \| autocmd! load_ultisnips
-augroup END
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']		
-let g:UltiSnipsEditSplit = 'vertical' 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" --------------------------------------
 
 call plug#end()
 

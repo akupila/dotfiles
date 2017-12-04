@@ -1,6 +1,7 @@
 snippet flow "Add @flow annotation"
 // @flow
 
+
 endsnippet
 
 snippet cwm "componentWillMount"
@@ -16,25 +17,25 @@ componentDidMount() {
 endsnippet
 
 snippet cwrp "componentWillReceiveProps"
-componentWillReceiveProps(nextProps) {
+componentWillReceiveProps(nextProps: Props) {
 	$0
 }
 endsnippet
 
 snippet scu "shouldComponentUpdate"
-shouldComponentUpdate(nextProps, nextState) {
+shouldComponentUpdate(nextProps: Props${1:, nextState: $2}) {
 	return ${1:true};
 }
 endsnippet
 
 snippet cwu "componentWillUpdate"
-componentWillUpdate(nextProps, nextState) {
+componentWillUpdate(nextProps: Props${1:, nextState: $2}) {
 	$0
 }
 endsnippet
 
 snippet cdu "componentDidUpdate"
-componentDidUpdate(prevProps, prevState) {
+componentDidUpdate(prevProps: Props${1:, prevState: $2}) {
 	$0
 }
 endsnippet
@@ -81,8 +82,18 @@ class ${1:Name} extends Component<Props> {
 export default $1;
 endsnippet
 
-snippet imprn "import react native"
+snippet import-react-native "import from react native"
 import {$0  } from 'react-native';
+endsnippet
+
+snippet import-react "import react"
+import React${1:, { ${2:Pure}Component }} from 'react-native';
+endsnippet
+
+snippet styles "react native stylesheet"
+const styles = StyleSheet.create({
+	$0
+});
 endsnippet
 
 snippet hr "horizontal rule"
