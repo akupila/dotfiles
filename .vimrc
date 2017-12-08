@@ -124,9 +124,6 @@ Plug 'tpope/vim-commentary'
 " More text targets: (), [], {}, <>
 Plug 'wellle/targets.vim'
 
-" Move useful word motions
-" CamelCaseACRONYMWords_underscore1234
-Plug 'chaoren/vim-wordmotion'
 " --------------------------------------
 
 " --------------------------------------
