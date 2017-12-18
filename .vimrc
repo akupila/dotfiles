@@ -259,6 +259,9 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 
+" Markdown table of contents
+Plug 'mzlogin/vim-markdown-toc'
+
 " Jenkinks
 Plug 'martinda/Jenkinsfile-vim-syntax'
 " --------------------------------------
