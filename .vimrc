@@ -257,7 +257,9 @@ autocmd FileType javascript nnoremap <silent> <leader>i :FlowType<CR>
 " Required to format markdown tables
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled = 1
+
+" Show markdown table of contents
+autocmd FileType markdown nnoremap <silent> <leader>t :Toc<CR>
 
 " Markdown table of contents
 Plug 'mzlogin/vim-markdown-toc'
@@ -600,6 +602,8 @@ augroup Markdown
   autocmd!
   " Enable spellcheck
   autocmd FileType markdown setlocal spell
+  " Set comment
+  autocmd FileType markdown setlocal commentstring=<!--\ %s\ -->
 augroup END
 
 augroup JavaScript
@@ -617,6 +621,15 @@ augroup Crontab
   autocmd!
   " Disable backups, causes issues
   autocmd filetype crontab setlocal nobackup nowritebackup
+augroup END
+
+augroup LocationList
+    autocmd!
+    " Jump and close location list on enter/o, close on q/esc
+    autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
+    autocmd FileType qf nmap <buffer> o <cr>:lcl<cr>
+    autocmd FileType qf nmap <buffer> q :lcl<cr>
+    autocmd FileType qf nmap <buffer> <esc> :lcl<cr>
 augroup END
 
 " --------------------------------------
