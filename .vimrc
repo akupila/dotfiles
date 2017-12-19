@@ -221,6 +221,14 @@ autocmd! BufWritePre *.js,*.jsx,*.json,*.css,*.scss,*.graphql :Neoformat
 
 " Change surrounding quotes, brackets etc
 Plug 'tpope/vim-surround'
+
+" Reformat paragraph
+" 1. set mark f
+" 2. select paragraph
+" 3. format
+" 4. replace multiple spaces with 1
+" 5. jump back to mark
+nmap <silent> <leader>f mfvipgqvip:s/ \+/ /g<CR>:noh<CR>`f
 " --------------------------------------
 
 " --------------------------------------
