@@ -1,6 +1,24 @@
 [user]
 	name = Antti Kupila
 	email = akupila@gmail.com
+[alias]
+    # log
+    # generic log
+    l = log --graph --pretty=log
+    ll = log --graph --pretty=log-extended
+    p = log --stat --max-count=1 --pretty=log-simple
+    # reflog
+    rl = reflog --format=reflog
+    # show files in commit
+    files = show --pretty="" --name-only
+    # show current hash
+    hash = rev-parse head
+[pretty]
+    # https://git-scm.com/docs/pretty-formats
+    log = %C(auto)%h %d %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
+    log-extended = %C(auto)%h %C(green)%an %C(auto)%d %C(bold)%s%Creset %C(dim)(%cd, %cr)%C(reset)
+    log-simple = %C(auto)%h %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
+    reflog = %C(auto)%h %<|(17)%gd %C(green)%<|(49)%cd%Creset %C(bold)%gs%Creset
 [mergetool]
 	keepBackup = false
 [color]

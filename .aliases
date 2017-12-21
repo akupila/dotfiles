@@ -8,20 +8,14 @@ alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
 # log
-alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
-# log to master
-alias glm="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit master head"
-alias gls="git log --stat"
+alias gl="git l"
+# log with master
+alias glm="git l master head"
 # log all
-alias gla="git log --graph --pretty=format:'%C(yellow)%h%Creset %Cgreen%an%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit --all"
-alias glr="git reflog --pretty=format:'%C(yellow)%h %C(cyan)%gd %C(green)%cd%Creset  %C(bold)%gs%Creset'"
+alias gla="git ll --all"
+alias glr="git rl"
 alias gb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:green)%(refname:short)%(color:reset) - %(color:yellow)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) %(color:dim)(%(committerdate:relative))%(color:reset)'"
-alias ys="yadm status"
-alias yl="yadm log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset' --abbrev-commit"
-alias gp="git log --stat --max-count=1 --abbrev-commit --pretty=format:'%C(yellow)%h%Creset %C(bold)%s%Creset %C(dim)(%cr)%Creset'"
-alias gh="git log -p -M --follow --abbrev-commit -- "
-alias gc="git-cop --police"
-alias gpf="git show --pretty=\"\" --name-only head"
+alias gp="git p"
 
 rebaseStatus() {
 	if [ ! -d ".git" ]; then
