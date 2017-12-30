@@ -128,3 +128,13 @@ ssh() {
 # Fix colors for git messages when in tmux
 [[ $TMUX != "" ]] && export TERM="xterm-256color"
 export PATH="/usr/local/sbin:$PATH"
+
+cover() {
+    pkg=$(go list $1 | sed "s/[^[:alnum:]]/-/g")
+    profile=$TMPDIR/$pkg.cover
+    html=$TMPDIR/$pkg.html
+    go test -coverprofile $profile "${@:1}" || return 1
+    go tool cover -html=$profile -o $html || return 1
+    rm $profile
+    echo $html
+}
