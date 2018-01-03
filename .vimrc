@@ -274,6 +274,9 @@ Plug 'mzlogin/vim-markdown-toc'
 
 " Jenkinks
 Plug 'martinda/Jenkinsfile-vim-syntax'
+
+" Toml
+Plug 'cespare/vim-toml'
 " --------------------------------------
 
 " --------------------------------------
