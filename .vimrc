@@ -165,6 +165,9 @@ nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : ''
 
 " Navigate vim and tmux panes with same keys
 Plug 'christoomey/vim-tmux-navigator'
+
+" Quickfix jump with ]l [l etc
+Plug 'tpope/vim-unimpaired'
 " --------------------------------------
 
 " --------------------------------------
