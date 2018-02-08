@@ -379,6 +379,9 @@ set background=dark
 
 colorscheme molokai
 
+" Fix strange issue where special chars would get a blue background
+hi Special guibg=none gui=none
+
 " --------------------------------------
 " Tabs / spaces
 " --------------------------------------
