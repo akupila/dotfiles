@@ -509,13 +509,6 @@ nnoremap <silent> * :let stay_star_view = winsaveview()<CR>*:call winrestview(st
 " Enable extended regular expressions
 set magic
 
-" Make vim regexps use verymagic (more like PCREs, write \w+ instead if \w\+)
-nnoremap / /\v
-cnoremap %s/ %smagic/
-cnoremap \>s/ \>smagic/
-nnoremap :g/ :g/\v
-nnoremap :g// :g//
-
 " --------------------------------------
 " Statusline
 " --------------------------------------
