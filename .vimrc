@@ -167,6 +167,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Quickfix jump with ]l [l etc
 Plug 'tpope/vim-unimpaired'
+
+" Show marks
+Plug 'kshenoy/vim-signature'
 " --------------------------------------
 
 " --------------------------------------
