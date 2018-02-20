@@ -258,14 +258,16 @@ Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'jparise/vim-graphql'
 
 " Flow
-Plug 'flowtype/vim-flow'
-" Neobuild will show errors
-let g:flow#showquickfix = 1
-let g:flow#autoclose = 1
-" Disable omnifunc (already provided by nvim-completion-manager
-let g:flow#omnifunc = 0
-autocmd FileType javascript nnoremap <silent> gd :FlowJumpToDef<CR>
-autocmd FileType javascript nnoremap <silent> <leader>i :FlowType<CR>
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+    \ }
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
 " Markdown
 " Required to format markdown tables
