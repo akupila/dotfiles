@@ -13,6 +13,8 @@
     files = show --pretty="" --name-only
     # show current hash
     hash = rev-parse head
+    # show recently worked on local branches
+    r = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 [pretty]
     # https://git-scm.com/docs/pretty-formats
     log = %C(auto)%h %d %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
