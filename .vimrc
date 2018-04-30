@@ -285,6 +285,9 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Toml
 Plug 'cespare/vim-toml'
+
+" GLSL
+Plug 'tikhomirov/vim-glsl'
 " --------------------------------------
 
 " --------------------------------------
