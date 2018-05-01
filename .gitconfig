@@ -1,50 +1,12 @@
 [user]
 	name = Antti Kupila
 	email = akupila@gmail.com
-[alias]
-    # log
-    # generic log
-    l = log --graph --pretty=log
-    ll = log --graph --pretty=log-extended
-    p = log --stat --max-count=1 --pretty=log-simple
-    # reflog
-    rl = reflog --format=reflog
-    # show files in commit
-    files = show --pretty="" --name-only
-    # show current hash
-    hash = rev-parse head
-    # show recently worked on local branches
-    recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
-[pretty]
-    # https://git-scm.com/docs/pretty-formats
-    log = %C(auto)%h %d %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
-    log-extended = %C(auto)%h %C(green)%an %C(auto)%d %C(bold)%s%Creset %C(dim)(%cd, %cr)%C(reset)
-    log-simple = %C(auto)%h %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
-    reflog = %C(auto)%h %<|(17)%gd %C(green)%<|(49)%cd%Creset %C(bold)%gs%Creset
 [interactive]
-    singleKey = true
-[mergetool]
-	keepBackup = false
-[color]
-	ui = auto
-[branch]
-	autosetupmerge = true
-[merge]
-	stat = true
-	tool = opendiff
-[core]
-	ignorecase = false
-	editor = /usr/local/bin/nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = ~/.gitignore
-[diff]
-	compactionHeuristic = true
-[diff-so-fancy]
+	# Enable single key interactions in patch add etc
+	singleKey = true
 [pull]
+	# Apply local commits after remote on pull
 	rebase = true
 [rebase]
+	# Enable moving --fixup commits to correct places
 	autosquash = true
-[grep]
-	lineNumber = true
-[commit]
-	template = ~/.gittemplates/commit
