@@ -8,6 +8,13 @@ set mousehide                          " Hide mouse when typing
 set undofile                           " Enable persistent undo
 set hidden                             " Do not abandon hidden buffers
 
+" don't give |ins-completion-menu| messages.  For example:
+" '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
+set shortmess+=c
+
+" Disable preview in autocomplete
+set completeopt-=preview
+
 " }}}
 " Key remaps {{{
 
@@ -127,6 +134,23 @@ Plug 'plasticboy/vim-markdown'         " Markdown
 Plug 'godlygeek/tabular'               " Markdown tables (required vim-markdown)
 
 Plug 'mzlogin/vim-markdown-toc'        " Markdown table of contents
+
+" Autocomplete
+if !has("python3")
+	echo "deoplete requires python 3"
+	echo "pip3 install --user neovim"
+endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go'
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
+
+" Prev/next autocomplete result with tab/shift-tab and ctrl-j/k
+imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+imap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
+imap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+imap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
+imap <expr> <CR>  (pumvisible() ?  "\<c-y>" : "\<CR>")
 
 call plug#end()
 
