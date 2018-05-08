@@ -8,9 +8,8 @@ set mousehide                          " Hide mouse when typing
 set undofile                           " Enable persistent undo
 set hidden                             " Do not abandon hidden buffers
 
-" don't give |ins-completion-menu| messages.  For example:
-" '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
-set shortmess+=c
+" Clear some messages:
+set shortmess=flnIc
 
 " Disable preview in autocomplete
 set completeopt-=preview
@@ -214,6 +213,21 @@ set statusline+=:%c
 
 " Trailing space
 set statusline+=\ 
+
+" }}}
+" Spell check {{{
+
+augroup GitCommitSpell
+  autocmd!
+  " Enable spellcheck, allow to start with lowercase
+  autocmd FileType gitcommit setlocal spell spellcapcheck=
+augroup END
+
+augroup ReadmeSpell
+  autocmd!
+  " Enable spellcheck
+  autocmd FileType markdown setlocal spell
+augroup END
 
 " }}}
 " vim: set foldmethod=marker:
