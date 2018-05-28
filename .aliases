@@ -61,3 +61,8 @@ alias gwf="find src -name '*.js' -o -name '.jsx' -not -path 'node_modules' | ent
 # general
 
 alias pwdc="pwd | pbcopy && echo path \($(pwd)\) copied to clipboard"
+
+
+# Fix crappy wifi by restarting it (after sleep)
+
+alias fixwifi="echo \"Restarting wifi..\" && networksetup -setairportpower en0 off; networksetup -setairportpower en0 on"
