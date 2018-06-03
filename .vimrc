@@ -124,6 +124,9 @@ Plug 'tpope/vim-commentary'
 " More text targets: (), [], {}, <>
 Plug 'wellle/targets.vim'
 
+" Align by = etc
+Plug 'vim-scripts/Align'
+
 " --------------------------------------
 
 " --------------------------------------
