@@ -401,13 +401,13 @@ hi Special guibg=none gui=none
 " --------------------------------------
 
 " 1 tab = 4 spaces
-set tabstop=4
+set tabstop=2
 " Convert inserted tab to spaces
 set expandtab
-" Shift 4 spaces
-set shiftwidth=4
+" Shift 2 spaces
+set shiftwidth=2
 " Convert tabs to spaces
-set softtabstop=4
+set softtabstop=2
 
 " --------------------------------------
 " Line numbers
