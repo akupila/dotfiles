@@ -390,6 +390,9 @@ set background=dark
 
 colorscheme molokai
 
+" Increase line number visibility (original in Molokai #465457)
+hi LineNr          guifg=#656E70
+
 " Fix strange issue where special chars would get a blue background
 hi Special guibg=none gui=none
 
