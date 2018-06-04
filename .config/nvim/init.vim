@@ -52,6 +52,10 @@ nnoremap <C-k> 10k
 nnoremap <C-h> 15h
 nnoremap <C-l> 15l
 
+" Tab: next buf, Shift-Tab prev buf
+nnoremap <silent> <Tab> :cclose<CR> :bnext<CR>
+nnoremap <silent> <S-Tab> :cclose<CR> :bprev<CR>
+
 " }}}
 " Plugins {{{
 
