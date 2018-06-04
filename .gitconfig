@@ -1,6 +1,8 @@
 [user]
 	name = Antti Kupila
 	email = akupila@gmail.com
+[core]
+	excludesfile=~/.gitignore
 [interactive]
 	# Enable single key interactions in patch add etc
 	singleKey = true
