@@ -19,10 +19,7 @@ export PATH=$PATH:$GOPATH/bin
 # }}}
 # History {{{
 
-if [ -S "$HISTFILE" ]; then
-	HISTFILE=~/.histfile
-fi
-
+HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
