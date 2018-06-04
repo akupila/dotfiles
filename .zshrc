@@ -90,6 +90,9 @@ bindkey -e
 bindkey '^r' history-incremental-search-backward
 
 # }}}
+# Hooks {{{
+eval "$(direnv hook zsh)"
+# }}}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
