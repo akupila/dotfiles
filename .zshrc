@@ -8,6 +8,11 @@ alias l='ls -alh'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
+# Git
+alias gs="git status"
+alias gd="git diff"
+alias gds="git diff --staged"
+
 # }}}
 # Export {{{
 
