@@ -16,7 +16,7 @@ alias gds="git diff --staged"
 # }}}
 # Export {{{
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
