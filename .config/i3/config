@@ -185,7 +185,7 @@ bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute 0 toggl
 
 # Colors
 #                       BORDER   BBACKGROUND  TEXT     INDICATOR  CHILD_BORDER
-client.focused          #333333	 #444444      #EEEEEE  #888888    #333333
+client.focused          #000000	 #66D9EF      #000000  #888888    #66D9EF
 client.focused_inactive #000000  #222222      #ffffff  #484e50
 client.unfocused        #000000  #111111      #888888  #292d2e 
-client.urgent           #C10004  #900000      #ffffff  #900000    #900000
+client.urgent           #C10004  #F92672      #ffffff  #F92672    #F92672
