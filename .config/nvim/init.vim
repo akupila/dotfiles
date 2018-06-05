@@ -234,4 +234,18 @@ augroup ReadmeSpell
 augroup END
 
 " }}}
+" Other {{{
+
+" Display the highlight group and color under the cursor
+function! PrintHiGroup()
+	let id = synID(line("."), col("."), 1)
+	echo synIDattr(id, "name") .
+		\ " " .
+		\ synIDattr(synIDtrans(id), "fg") . 
+		\ " " .
+		\ synIDattr(synIDtrans(id), "bg")
+endfunction
+map <F10> :call PrintHiGroup()<CR>
+
+" }}}
 " vim: set foldmethod=marker:
