@@ -105,7 +105,9 @@ Plug 'wellle/targets.vim'              " More text targets: (), [], {}, <>
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<CR>
-nnoremap <leader>a :Ag
+
+command! -bang -nargs=* FindInFiles call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+nnoremap <leader>f :FindInFiles 
 
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
 nnoremap <silent> <c-n> :NERDTreeToggle<CR>
@@ -163,6 +165,18 @@ call plug#end()
 set termguicolors
 set background=dark
 colorscheme molokai
+
+" }}}
+" Indent {{{
+
+" 1 tab = 4 spaces
+set tabstop=4
+" Convert inserted tab to spaces
+set expandtab
+" Shift 2 spaces
+set shiftwidth=4
+" Convert tabs to spaces
+set softtabstop=4
 
 " }}}
 " Status line {{{
