@@ -12,3 +12,9 @@
 [rebase]
 	# Enable moving --fixup commits to correct places
 	autosquash = true
+[mergetool]
+    keepBackup = false
+[pretty]
+    # https://git-scm.com/docs/pretty-formats
+    minimal = %C(auto)%h %d %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
+    reflog = %C(auto)%h %<|(17)%gd %C(green)%<|(49)%cd%Creset %C(bold)%gs%Creset

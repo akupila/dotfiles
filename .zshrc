@@ -10,6 +10,11 @@ alias pbpaste='xsel --clipboard --output'
 
 # Git
 alias gs="git status"
+# quick log
+alias gl="git log --graph --pretty=minimal"
+# previous commit
+alias gp="git log --stat --max-count=1"
+# quick diff
 alias gd="git diff"
 alias gds="git diff --staged"
 
