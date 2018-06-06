@@ -7,6 +7,8 @@ set numberwidth=5                      " Wider line numbers
 set mousehide                          " Hide mouse when typing
 set undofile                           " Enable persistent undo
 set hidden                             " Do not abandon hidden buffers
+set ignorecase                         " Ignore case in search
+set smartcase                          " Use case-sensitive search if query contains uppercase characters
 
 " Clear some messages:
 set shortmess=flnIc
