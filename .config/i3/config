@@ -200,8 +200,8 @@ for_window [class="^.*"] border pixel 1
 new_window 1pixel
 
 # Brightness control
-bindsym XF86MonBrightnessUp  	exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown	exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp  	exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown	exec xbacklight -dec 20
 
 # Volume control
 bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +5%
