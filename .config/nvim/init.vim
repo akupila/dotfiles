@@ -9,12 +9,16 @@ set undofile                           " Enable persistent undo
 set hidden                             " Do not abandon hidden buffers
 set ignorecase                         " Ignore case in search
 set smartcase                          " Use case-sensitive search if query contains uppercase characters
+set incsearch                          " Enable incremental (real time) search
 
 " Clear some messages:
 set shortmess=flnIc
 
 " Disable preview in autocomplete
 set completeopt-=preview
+
+" Highlight search without moving when using *
+nnoremap <silent> * :let start_pos = winsaveview()<CR>*:call winrestview(start_pos)<CR>
 
 " }}}
 " Key remaps {{{
@@ -57,6 +61,9 @@ nnoremap <C-l> 15l
 " Tab: next buf, Shift-Tab prev buf
 nnoremap <silent> <Tab> :cclose<CR> :bnext<CR>
 nnoremap <silent> <S-Tab> :cclose<CR> :bprev<CR>
+
+" Hide search highlight
+nnoremap <silent> <leader><space> :nohlsearch<CR>
 
 " }}}
 " Plugins {{{
