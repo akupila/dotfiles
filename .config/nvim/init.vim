@@ -65,6 +65,9 @@ nnoremap <silent> <S-Tab> :cclose<CR> :bprev<CR>
 " Hide search highlight
 nnoremap <silent> <leader><space> :nohlsearch<CR>
 
+" Delete current buffer
+nnoremap <silent> <C-q> :bdelete<CR>
+
 " }}}
 " Plugins {{{
 
