@@ -66,11 +66,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+m split h
+# split mode
+bindsym $mod+t split toggle
 
-# split in vertical orientation
-bindsym $mod+n split v 
+# move to other monitor
+bindsym $mod+m move workspace to output right
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -169,8 +169,8 @@ hide_edge_borders smart
 
 # Colors
 # CLASS                 BORDER  BGROUND TEXT    INDICTR CHLD_BR
-client.focused          #66D9EF #66D9EF #000000 #000000 #66D9EF
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50 #5F676A
+client.focused          #66D9EF #66D9EF #000000 #A6E22E #66D9EF
+client.focused_inactive #333333 #5F676A #FFFFFF #333333 #333333
 client.unfocused        #333333 #222222 #888888 #292D2E #000000
 client.urgent           #2F343A #F92672 #FFFFFF #F92672 #F92672
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
