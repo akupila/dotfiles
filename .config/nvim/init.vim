@@ -87,6 +87,8 @@ Plug 'tpope/vim-rhubarb'               " Enable GBrowse for opening line on Gith
 " Show git blame
 nnoremap <leader>gb :Gblame<CR>
 
+Plug 'airblade/vim-gitgutter'          " Git status in gutter
+
 Plug 'vim-scripts/ReplaceWithRegister' " Replace selected text with register
 
 Plug 'tomasr/molokai'                  " Molokai colorscheme
@@ -114,6 +116,8 @@ Plug 'tpope/vim-commentary'            " Toggle comments with gc
 
 Plug 'wellle/targets.vim'              " More text targets: (), [], {}, <>
 
+Plug 'vim-scripts/Align'               " Align helper (:Align = etc)
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<CR>
@@ -133,13 +137,15 @@ let g:NERDTreeShowHidden = 1
 Plug 'tpope/vim-surround'              " Add/change surrounding quotes, brackets etc
 
 " Go
-Plug 'fatih/vim-go', { 'for': 'go' }
-let g:go_fmt_fail_silently = 0
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
+let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
-autocmd FileType go nnoremap <silent> Q :GoAlternate!<CR>
-autocmd FileType go nnoremap <silent> <Leader>i :GoInfo<CR>
-autocmd FileType go nnoremap <silent> <Leader>t :GoCoverageToggle<CR>
+autocmd FileType go nmap <buffer> Q <Plug>(go-alternate-edit)
+autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <buffer> <Leader>t <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-rename)
+autocmd FileType go nmap <buffer> <Space> :GoDeclsDir<CR>
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -158,8 +164,13 @@ if !has("python3")
 	echo "pip3 install --user neovim"
 endif
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go'
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#align_class = 1
 autocmd InsertEnter * call deoplete#enable()
 
 " Prev/next autocomplete result with tab/shift-tab and ctrl-j/k
@@ -169,6 +180,36 @@ imap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 imap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
 imap <expr> <CR>  (pumvisible() ?  "\<c-y>" : "\<CR>")
 
+Plug 'neomake/neomake'
+autocmd BufWritePost * Neomake
+let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
+let g:neomake_warning_sign = {'text': '›', 'texthl': 'NeomakeWarningSign'}
+let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
+let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
+let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
+let g:neomake_go_gometalinter_maker = {
+  \ 'args': [
+  \   '--tests',
+  \   '--enable-gc',
+  \   '--concurrency=3',
+  \   '--fast',
+  \   '-D', 'aligncheck',
+  \   '-D', 'dupl',
+  \   '-D', 'gocyclo',
+  \   '-D', 'gotype',
+  \   '-E', 'errcheck',
+  \   '-E', 'misspell',
+  \   '-E', 'unused',
+  \   '%:p:h',
+  \ ],
+  \ 'append_file': 0,
+  \ 'errorformat':
+  \   '%E%f:%l:%c:%trror: %m,' .
+  \   '%W%f:%l:%c:%tarning: %m,' .
+  \   '%E%f:%l::%trror: %m,' .
+  \   '%W%f:%l::%tarning: %m'
+  \ }
+
 call plug#end()
 
 " }}}
@@ -177,6 +218,12 @@ call plug#end()
 set termguicolors
 set background=dark
 colorscheme molokai
+
+" Set neomake sign colors
+hi NeomakeErrorSign        guifg=#FF2222 guibg=#232526
+hi NeomakeWarningSign      guifg=#BBBB00 guibg=#232526
+hi NeomakeMessageSign      guifg=#999999 guibg=#232526
+hi NeomakeInfoSign         guifg=#21BCFF guibg=#232526
 
 " }}}
 " Indent {{{
