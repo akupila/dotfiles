@@ -55,8 +55,6 @@ nnoremap <silent> <leader>cr :source $MYVIMRC<CR>
 " Faster movement with ctrl
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k
-nnoremap <C-h> 15h
-nnoremap <C-l> 15l
 
 " Tab: next buf, Shift-Tab prev buf
 nnoremap <silent> <Tab> :cclose<CR> :bnext<CR>
