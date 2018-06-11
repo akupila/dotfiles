@@ -139,7 +139,7 @@ Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
-autocmd FileType go nmap <buffer> Q <Plug>(go-alternate-edit)
+autocmd FileType go nmap <buffer> Q :GoAlternate!<CR>
 autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <buffer> <Leader>t <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-rename)
