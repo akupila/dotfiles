@@ -147,10 +147,21 @@ let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 autocmd FileType go nmap <buffer> Q :GoAlternate!<CR>
-autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <buffer> <Leader>t <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-rename)
+autocmd FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
 autocmd FileType go nmap <buffer> <Space> :GoDeclsDir<CR>
+" Enable highlighting
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+" Auto show info
+let g:go_auto_type_info = 1
+let g:go_updatetime = 250
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
