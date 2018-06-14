@@ -20,6 +20,13 @@ set completeopt-=preview
 " Highlight search without moving when using *
 nnoremap <silent> * :let start_pos = winsaveview()<CR>*:call winrestview(start_pos)<CR>
 
+" Fix clipboard
+if has("mac")
+    set clipboard=unnamed
+else
+    set clipboard=unnamedplus
+endif
+
 " }}}
 " Key remaps {{{
 
