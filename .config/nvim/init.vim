@@ -74,6 +74,28 @@ nnoremap <silent> <leader><space> :nohlsearch<CR>
 nnoremap <silent> <C-q> :bdelete<CR>
 
 " }}}
+" Autocommands {{{
+
+" Don't move backwards with ESC
+augroup NoMoveEsc
+    autocmd!
+    autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
+augroup END
+
+" Fast escape
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+augroup FastEscape
+  autocmd!
+  au InsertEnter * set timeoutlen=0
+  au InsertLeave * set timeoutlen=1000
+augroup END
+
+" Remember location in file when opened
+autocmd! BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" }}}
 " Plugins {{{
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
