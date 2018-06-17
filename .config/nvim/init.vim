@@ -248,6 +248,10 @@ let g:neomake_go_gometalinter_maker = {
   \   '%W%f:%l::%tarning: %m'
   \ }
 
+" Graphviz
+Plug 'wannesm/wmgraphviz.vim'
+autocmd FileType dot nmap <buffer> <leader>i :GraphvizInteractive<CR>
+
 call plug#end()
 
 " }}}
