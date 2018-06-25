@@ -32,6 +32,9 @@ else
     set clipboard=unnamedplus
 endif
 
+" Enable live replace
+set inccommand=nosplit
+
 " }}}
 " Key remaps {{{
 
