@@ -284,14 +284,14 @@ hi NeomakeInfoSign         guifg=#21BCFF guibg=#232526
 " }}}
 " Indent {{{
 
-" 1 tab = 4 spaces
+" Default: 1 tab = 4 spaces, expand & convert tabs to spaces
+
 set tabstop=4
-" Convert inserted tab to spaces
 set expandtab
-" Shift 2 spaces
 set shiftwidth=4
-" Convert tabs to spaces
 set softtabstop=4
+
+autocmd Filetype yaml setlocal ts=2 sw=2
 
 " }}}
 " Status line {{{
