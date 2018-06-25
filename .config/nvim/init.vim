@@ -63,6 +63,10 @@ nnoremap <silent> <leader>cr :source $MYVIMRC<CR>
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k
 
+" Move blocks in visual mode while maintaining selection
+vnoremap < <gv
+vnoremap > >gv
+
 " Tab: next buf, Shift-Tab prev buf
 nnoremap <silent> <Tab> :cclose<CR> :bnext<CR>
 nnoremap <silent> <S-Tab> :cclose<CR> :bprev<CR>
