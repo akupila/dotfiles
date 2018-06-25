@@ -17,6 +17,11 @@ set shortmess=flnIc
 " Disable preview in autocomplete
 set completeopt-=preview
 
+" Disable swaps and backups
+" djoshea/vim-autoread will read latest version of file to avoid conflicts
+set noswapfile
+set nobackup
+
 " Highlight search without moving when using *
 nnoremap <silent> * :let start_pos = winsaveview()<CR>*:call winrestview(start_pos)<CR>
 
@@ -148,6 +153,8 @@ Plug 'tpope/vim-commentary'            " Toggle comments with gc
 Plug 'wellle/targets.vim'              " More text targets: (), [], {}, <>
 
 Plug 'vim-scripts/Align'               " Align helper (:Align = etc)
+
+Plug 'djoshea/vim-autoread'            " Automatically load changed file from disk
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
