@@ -18,6 +18,9 @@ alias gp="git log --stat --max-count=1 --format=medium"
 alias gd="git diff"
 alias gds="git diff --staged"
 
+# Ignore from history
+alias exit=" exit"
+
 # }}}
 # Export {{{
 
