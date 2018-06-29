@@ -163,9 +163,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<CR>
 
-command! -bang -nargs=* FindInFiles call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-nnoremap <leader>f :FindInFiles 
-
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
 nnoremap <silent> <c-n> :NERDTreeToggle<CR>
 nnoremap <silent> <leader><c-n> :NERDTreeFind<CR>
@@ -263,6 +260,15 @@ let g:neomake_go_gometalinter_maker = {
 " Graphviz
 Plug 'wannesm/wmgraphviz.vim'
 autocmd FileType dot nmap <buffer> <leader>i :GraphvizInteractive<CR>
+
+" Project wide search/replace
+Plug 'dyng/ctrlsf.vim'
+nmap     <C-f> <Plug>CtrlSFPrompt
+nmap     <leader><C-f> <Plug>CtrlSFCwordPath
+vmap     <C-f> <Plug>CtrlSFVwordExec
+vmap     <C-f> <Plug>CtrlSFVwordExec
+nnoremap ff :CtrlSFToggle<CR>
+let g:ctrlsf_default_view_mode = 'compact'
 
 call plug#end()
 
