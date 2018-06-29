@@ -42,7 +42,7 @@ setopt inc_append_history
 # When trimming history, remove oldest duplicates first
 setopt hist_expire_dups_first
 # Do not write events to history that are duplicates of previous events
-setopt hist_ignore_dups
+setopt hist_ignore_all_dups
 # Remove line from history when first character is a space
 setopt hist_ignore_space
 # When searching history, don't display already cycled results twice
