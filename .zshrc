@@ -1,22 +1,19 @@
 # Alias {{{
 
-alias ..='cd ..'
-alias ...='cd ...'
-alias l='ls -alh'
-
-# Enable pbcopy on arch
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
+# All commands are prefixed with space -> do not store in history
+alias ..=' cd ..'
+alias ...=' cd ...'
+alias l=' ls -alh'
 
 # Git
-alias gs="git status"
+alias gs=" git status"
 # quick log
-alias gl="git log --graph"
+alias gl=" git log --graph"
 # previous commit
-alias gp="git log --stat --max-count=1 --format=medium"
+alias gp=" git log --stat --max-count=1 --format=medium"
 # quick diff
-alias gd="git diff"
-alias gds="git diff --staged"
+alias gd=" git diff"
+alias gds=" git diff --staged"
 
 # Ignore from history
 alias exit=" exit"
