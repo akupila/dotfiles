@@ -113,5 +113,18 @@ eval "$(jump shell)"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # }}}
+# Functions {{{
+
+go-cover() { 
+  t=$(mktemp)
+  go test $COVERFLAGS -coverprofile=$t $@ && go tool cover -func=$t && unlink $t
+}
+
+go-cover-web() {
+  t=$(mktemp)
+  go test $COVERFLAGS -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
+}
+
+# }}}
 
 # vim: set foldmethod=marker :
