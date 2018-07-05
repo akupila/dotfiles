@@ -285,6 +285,9 @@ hi NeomakeWarningSign      guifg=#BBBB00 guibg=#232526
 hi NeomakeMessageSign      guifg=#999999 guibg=#232526
 hi NeomakeInfoSign         guifg=#21BCFF guibg=#232526
 
+" Increase line number visibility (original: #465457)
+hi LineNr   guifg=#656E70
+
 " }}}
 " Indent {{{
 
