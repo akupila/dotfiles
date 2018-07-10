@@ -227,35 +227,11 @@ imap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 imap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
 imap <expr> <CR>  (pumvisible() ?  "\<c-y>" : "\<CR>")
 
-Plug 'neomake/neomake'
-autocmd BufWritePost * Neomake
-let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {'text': '›', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
-let g:neomake_go_gometalinter_maker = {
-  \ 'args': [
-  \   '--tests',
-  \   '--enable-gc',
-  \   '--concurrency=3',
-  \   '--fast',
-  \   '-D', 'aligncheck',
-  \   '-D', 'dupl',
-  \   '-D', 'gocyclo',
-  \   '-D', 'gotype',
-  \   '-E', 'errcheck',
-  \   '-E', 'misspell',
-  \   '-E', 'unused',
-  \   '%:p:h',
-  \ ],
-  \ 'append_file': 0,
-  \ 'errorformat':
-  \   '%E%f:%l:%c:%trror: %m,' .
-  \   '%W%f:%l:%c:%tarning: %m,' .
-  \   '%E%f:%l::%trror: %m,' .
-  \   '%W%f:%l::%tarning: %m'
-  \ }
+" ALE linter
+Plug 'w0rp/ale'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '-'
 
 " Graphviz
 Plug 'wannesm/wmgraphviz.vim'
@@ -279,11 +255,10 @@ set termguicolors
 set background=dark
 colorscheme molokai
 
-" Set neomake sign colors
-hi NeomakeErrorSign        guifg=#FF2222 guibg=#232526
-hi NeomakeWarningSign      guifg=#BBBB00 guibg=#232526
-hi NeomakeMessageSign      guifg=#999999 guibg=#232526
-hi NeomakeInfoSign         guifg=#21BCFF guibg=#232526
+" Tweak ALE colors
+highlight ALEErrorSign        guifg=#FF2222 guibg=#232526
+highlight ALEWarningSign      guifg=#BBBB00 guibg=#232526
+highlight ALEInfoSign         guifg=#21BCFF guibg=#232526
 
 " Increase line number visibility (original: #465457)
 hi LineNr   guifg=#656E70
