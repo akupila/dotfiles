@@ -76,8 +76,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Tab: next buf, Shift-Tab prev buf
-nnoremap <silent> <Tab> :cclose<CR> :bnext<CR>
-nnoremap <silent> <S-Tab> :cclose<CR> :bprev<CR>
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprev<CR>
 
 " Hide search highlight
 nnoremap <silent> <leader><space> :nohlsearch<CR>
