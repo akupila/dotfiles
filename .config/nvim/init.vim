@@ -121,8 +121,6 @@ call plug#begin()
 Plug 'pix/git-rebase-helper'           " Git Rebase Helper
 
 Plug 'tpope/vim-fugitive'              " Git info
-
-Plug 'tpope/vim-rhubarb'               " Enable GBrowse for opening line on Github
 " Show git blame
 nnoremap <leader>gb :Gblame<CR>
 
