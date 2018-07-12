@@ -245,6 +245,9 @@ vmap     <C-f> <Plug>CtrlSFVwordExec
 vmap     <C-f> <Plug>CtrlSFVwordExec
 nnoremap ff :CtrlSFToggle<CR>
 let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_auto_focus = {
+    \ "at" : "start"
+    \ }
 
 call plug#end()
 
