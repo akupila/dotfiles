@@ -130,6 +130,8 @@ Plug 'vim-scripts/ReplaceWithRegister' " Replace selected text with register
 
 Plug 'tomasr/molokai'                  " Molokai colorscheme
 
+Plug 'rakr/vim-one'                    " One colorscheme
+
 Plug 'ap/vim-buftabline'               " Show buffers on top
 " Show buffers if there are two or more open
 let g:buftabline_show = 1
@@ -266,6 +268,17 @@ highlight IncSearch           guifg=#FFFFFF guibg=#000000
 " Increase line number visibility (original: #465457)
 highlight LineNr              guifg=#656E70
 
+function! ToggleLight()
+if (g:colors_name == "molokai")
+    colorscheme one
+    set background=light
+else
+    colorscheme molokai
+    set background=dark
+endif
+endfunction
+nnoremap <silent> <F10> :call ToggleLight()<CR>
+
 " }}}
 " Indent {{{
 
@@ -359,7 +372,7 @@ function! PrintHiGroup()
 		\ " " .
 		\ synIDattr(synIDtrans(id), "bg")
 endfunction
-map <F10> :call PrintHiGroup()<CR>
+nnoremap <F9> :call PrintHiGroup()<CR>
 
 " }}}
 " vim: set foldmethod=marker:
