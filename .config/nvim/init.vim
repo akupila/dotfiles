@@ -183,6 +183,7 @@ autocmd FileType go nmap <buffer> Q :GoAlternate!<CR>
 autocmd FileType go nmap <buffer> <Leader>t <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
 autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-iferr)
 autocmd FileType go nmap <buffer> <Space> :GoDeclsDir<CR>
 " Enable highlighting
 let g:go_highlight_build_constraints = 1
