@@ -10,6 +10,7 @@ set hidden                             " Do not abandon hidden buffers
 set ignorecase                         " Ignore case in search
 set smartcase                          " Use case-sensitive search if query contains uppercase characters
 set incsearch                          " Enable incremental (real time) search
+set scrolloff=5                        " Scroll n lines from top/bottom
 
 " Clear some messages:
 set shortmess=flnIc
