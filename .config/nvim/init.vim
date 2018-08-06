@@ -186,6 +186,8 @@ autocmd FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
 autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-iferr)
 autocmd FileType go nmap <buffer> <Space> :GoDeclsDir<CR>
+" Disable spell on strings, only apply to comments
+let g:go_highlight_string_spellcheck = 0
 " Enable highlighting
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
@@ -355,15 +357,21 @@ set statusline+=\
 " Spell check {{{
 
 augroup GitCommitSpell
-  autocmd!
-  " Enable spellcheck, allow to start with lowercase
-  autocmd FileType gitcommit setlocal spell spellcapcheck=
+    autocmd!
+    " Enable spellcheck, allow to start with lowercase
+    autocmd FileType gitcommit setlocal spell spellcapcheck=
 augroup END
 
 augroup ReadmeSpell
-  autocmd!
-  " Enable spellcheck
-  autocmd FileType markdown setlocal spell
+    autocmd!
+    " Enable spellcheck
+    autocmd FileType markdown setlocal spell
+augroup END
+
+augroup GoSpell
+    autocmd!
+    " Enable spellcheck, allow to start with lowercase
+    autocmd FileType go setlocal spell spellcapcheck=
 augroup END
 
 " }}}
