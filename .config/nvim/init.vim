@@ -256,6 +256,12 @@ let g:ctrlsf_auto_close = {
     \ "compact": 1
     \ }
 
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+let g:UltiSnipsExpandTrigger = "<c-u>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 call plug#end()
 
 " }}}
