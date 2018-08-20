@@ -186,7 +186,6 @@ autocmd FileType go nmap <buffer> <silent> <Leader>t :GoCoverageToggle -short<CR
 autocmd FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
 autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-iferr)
-autocmd FileType go nmap <buffer> <Space> :GoDeclsDir<CR>
 " Disable spell on strings, only apply to comments
 let g:go_highlight_string_spellcheck = 0
 " Enable highlighting
