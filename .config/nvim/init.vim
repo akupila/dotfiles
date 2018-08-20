@@ -11,6 +11,7 @@ set ignorecase                         " Ignore case in search
 set smartcase                          " Use case-sensitive search if query contains uppercase characters
 set incsearch                          " Enable incremental (real time) search
 set scrolloff=5                        " Scroll n lines from top/bottom
+set noshowmode                         " Disable showing mode, cursor change is sufficient
 
 " Clear some messages:
 set shortmess=flnIc
