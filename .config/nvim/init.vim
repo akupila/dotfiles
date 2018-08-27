@@ -12,6 +12,7 @@ set smartcase                          " Use case-sensitive search if query cont
 set incsearch                          " Enable incremental (real time) search
 set scrolloff=5                        " Scroll n lines from top/bottom
 set noshowmode                         " Disable showing mode, cursor change is sufficient
+set updatetime=250                     " Faster cursorhold
 
 " Clear some messages:
 set shortmess=flnIc
