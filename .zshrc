@@ -99,6 +99,10 @@ bindkey -e
 
 bindkey '^r' history-incremental-search-backward
 
+# Delete char with del key
+bindkey "^[[3~" delete-char
+bindkey "^[[3;5~" delete-char
+
 # }}}
 # Hooks {{{
 
