@@ -130,5 +130,11 @@ go-cover-web() {
 }
 
 # }}}
+# Autocompletion for tools {{{
+
+# Autocompletion for AWS cli
+source /usr/bin/aws_zsh_completer.sh
+
+# }}}
 
 # vim: set foldmethod=marker :
