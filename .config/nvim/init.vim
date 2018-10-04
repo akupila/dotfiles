@@ -264,6 +264,8 @@ let g:UltiSnipsExpandTrigger = "<c-u>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+Plug 'AndrewRadev/splitjoin.vim'
+
 call plug#end()
 
 " }}}
