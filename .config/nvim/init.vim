@@ -200,6 +200,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
+" Generate go table driven tests
+Plug 'buoto/gotests-vim', { 'for': 'go' }
+
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
