@@ -86,10 +86,7 @@ autoload -U colors && colors
 # Enable command substitution in prompt (and parameter expansion, arithmetic expansion)
 setopt promptsubst
 
-local ret_status="%(?:%{$fg_bold[green]%}›:%{$fg_bold[red]%}›)"
-local dir="%{$fg[cyan]%}%3d"
-
-PROMPT='%{${ret_status}%} %{${dir}%} %{$(gitprompt)%}%{$reset_color%}'
+PROMPT='%(?:%{$fg_bold[green]%}›:%{$fg_bold[red]%}›) %{$fg[cyan]%}%3d %{$(gitprompt -zsh)%}%{$reset_color%}'
 
 # }}}
 # Key bindings {{{
