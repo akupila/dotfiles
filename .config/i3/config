@@ -140,22 +140,60 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        # bindsym Left resize shrink width 10 px or 10 ppt
+        # bindsym Down resize grow height 10 px or 10 ppt
+        # bindsym Up resize shrink height 10 px or 10 ppt
+        # bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+
+        # switch to edge resize mode
+        bindsym h mode "resize-left"
+        bindsym Left mode "resize-left"
+        bindsym j mode "resize-down"
+        bindsym Down mode "resize-down"
+        bindsym k mode "resize-up"
+        bindsym Up mode "resize-up"
+        bindsym l mode "resize-right"
+        bindsym Right mode "resize-right"
+}
+
+mode "resize-left" {
+        bindsym h resize grow left 10 px or 10 ppt
+        bindsym l resize shrink left 10 px or 10 ppt
+        bindsym Left resize grow left 10 px or 10 ppt
+        bindsym Right resize shrink left 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+mode "resize-down" {
+        bindsym j resize grow down 10 px or 10 ppt
+        bindsym k resize shrink down 10 px or 10 ppt
+        bindsym Down resize grow down 10 px or 10 ppt
+        bindsym Up resize shrink down 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+mode "resize-up" {
+        bindsym j resize shrink up 10 px or 10 ppt
+        bindsym k resize grow up 10 px or 10 ppt
+        bindsym Down resize shrink up 10 px or 10 ppt
+        bindsym Up resize grow up 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+mode "resize-right" {
+        bindsym h resize shrink right 10 px or 10 ppt
+        bindsym l resize grow right 10 px or 10 ppt
+        bindsym Left resize shrink right 10 px or 10 ppt
+        bindsym Right resize grow right 10 px or 10 ppt
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
