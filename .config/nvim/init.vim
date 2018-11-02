@@ -403,6 +403,7 @@ nnoremap <F9> :call PrintHiGroup()<CR>
 
 " Fix fat fingers, replace 1= with !=
 iabbr 1= !=
+iabbr Functinos Functions
 
 " }}}
 " vim: set foldmethod=marker:
