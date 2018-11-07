@@ -13,9 +13,8 @@ set incsearch                          " Enable incremental (real time) search
 set scrolloff=5                        " Scroll n lines from top/bottom
 set noshowmode                         " Disable showing mode, cursor change is sufficient
 set updatetime=250                     " Faster cursorhold
-
-" Clear some messages:
-set shortmess=flnIc
+set shortmess=aIc                      " Shorter mesasges (a), no intro (I), disable completion message (c)
+set nomore                             " Disable 'Press ENTER to continue' when there are multiple lines in output
 
 " Disable preview in autocomplete
 set completeopt-=preview
