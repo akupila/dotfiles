@@ -230,6 +230,9 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 let g:deoplete#sources#go#align_class = 1
 autocmd InsertEnter * call deoplete#enable()
 
+" Smart autocomplete
+Plug 'zxqfl/tabnine-vim'
+
 " Prev/next autocomplete result with tab/shift-tab and ctrl-j/k
 imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 imap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
