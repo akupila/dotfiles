@@ -179,6 +179,8 @@ Plug 'tpope/vim-surround'              " Add/change surrounding quotes, brackets
 " Go
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 let g:go_fmt_fail_silently = 1
+" Disable SUCCESS messages
+let g:go_echo_command_info = 0
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 autocmd FileType go nmap <buffer> Q :GoAlternate!<CR>
