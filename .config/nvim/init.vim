@@ -380,6 +380,7 @@ augroup ReadmeSpell
     autocmd!
     " Enable spellcheck
     autocmd FileType markdown setlocal spell
+    autocmd FileType markdown set foldlevel=99
 augroup END
 
 augroup GoSpell
