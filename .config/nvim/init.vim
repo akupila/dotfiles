@@ -223,13 +223,13 @@ endif
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#align_class = 1
-autocmd InsertEnter * call deoplete#enable()
+" autocmd InsertEnter * call deoplete#enable()
 
 " Prev/next autocomplete result with tab/shift-tab and ctrl-j/k
 imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -274,6 +274,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 Plug 'AndrewRadev/splitjoin.vim'
 
 call plug#end()
+
+" Set higher priority on gocode autocomplete, otherwise TabNine (1000) appears before it
+call deoplete#custom#source('go', 'rank', 1500)
 
 " }}}
 " Colors {{{
