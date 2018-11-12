@@ -1,8 +1,1 @@
-.DS_Store
-.vim/bundle/
-.vim/backup/
-.vim/swap/
-.vim/undo/
-.tern-port
 .envrc
-.ignore
