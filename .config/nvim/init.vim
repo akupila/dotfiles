@@ -40,7 +40,7 @@ set inccommand=nosplit
 " }}}
 " Key remaps {{{
 
-" Use , as lader
+" Use , as leader
 let maploader   = ","
 let g:mapleader = ","
 
@@ -120,21 +120,20 @@ endif
 
 call plug#begin()
 
-Plug 'pix/git-rebase-helper'           " Git Rebase Helper
+Plug 'pix/git-rebase-helper'                                                   " Git Rebase Helper
 
-Plug 'tpope/vim-fugitive'              " Git info
-" Show git blame
+Plug 'tpope/vim-fugitive'                                                      " Git info
 nnoremap <leader>gb :Gblame<CR>
 
-Plug 'airblade/vim-gitgutter'          " Git status in gutter
+Plug 'airblade/vim-gitgutter'                                                  " Git status in gutter
 
-Plug 'vim-scripts/ReplaceWithRegister' " Replace selected text with register
+Plug 'vim-scripts/ReplaceWithRegister'                                         " Replace selected text with register
 
-Plug 'tomasr/molokai'                  " Molokai colorscheme
+Plug 'tomasr/molokai'                                                          " Molokai colorscheme
 
-Plug 'rakr/vim-one'                    " One colorscheme
+Plug 'rakr/vim-one'                                                            " One colorscheme
 
-Plug 'ap/vim-buftabline'               " Show buffers on top
+Plug 'ap/vim-buftabline'                                                       " Show buffers on top
 " Show buffers if there are two or more open
 let g:buftabline_show = 1
 " Show indicator when buffer is not saved
@@ -153,15 +152,16 @@ nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
 
-Plug 'tpope/vim-commentary'            " Toggle comments with gc
+Plug 'tpope/vim-commentary'                                                    " Toggle comments with gc
 
-Plug 'wellle/targets.vim'              " More text targets: (), [], {}, <>
+Plug 'wellle/targets.vim'                                                      " More text targets: (), [], {}, <>
 
-Plug 'vim-scripts/Align'               " Align helper (:Align = etc)
+Plug 'vim-scripts/Align'                                                       " Align helper (:Align = etc)
 
-Plug 'djoshea/vim-autoread'            " Automatically load changed file from disk
+Plug 'djoshea/vim-autoread'                                                    " Automatically load changed file from disk
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<CR>
 
@@ -174,46 +174,21 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeShowHidden = 1
 
-Plug 'tpope/vim-surround'              " Add/change surrounding quotes, brackets etc
+Plug 'tpope/vim-surround'                                                      " Add/change surrounding quotes, brackets etc
 
-" Go
-Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
-let g:go_fmt_fail_silently = 1
-" Disable SUCCESS messages
-let g:go_echo_command_info = 0
-let g:go_fmt_command = "goimports"
-let g:go_list_type = "quickfix"
-autocmd FileType go nmap <buffer> Q :GoAlternate!<CR>
-autocmd FileType go nmap <buffer> <silent> <Leader>t :GoCoverageToggle -short<CR>
-autocmd FileType go nmap <buffer> <Leader>T <Plug>(go-coverage-browser)
-autocmd FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
-autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
-autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-iferr)
-" Disable spell on strings, only apply to comments
-let g:go_highlight_string_spellcheck = 0
-" Enable highlighting
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }               " Go
 
-" Generate go table driven tests
-Plug 'buoto/gotests-vim', { 'for': 'go' }
+Plug 'buoto/gotests-vim', { 'for': 'go' }                                      " Generate go table driven tests
 
-" JavaScript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                        " JavaScript
 
-Plug 'mxw/vim-jsx', { 'for': 'jsx' }   " JSX
+Plug 'mxw/vim-jsx', { 'for': 'jsx' }                                           " JSX
 
-Plug 'plasticboy/vim-markdown'         " Markdown
+Plug 'plasticboy/vim-markdown'                                                 " Markdown
 
-Plug 'godlygeek/tabular'               " Markdown tables (required vim-markdown)
+Plug 'godlygeek/tabular'                                                       " Markdown tables (required vim-markdown)
 
-Plug 'mzlogin/vim-markdown-toc'        " Markdown table of contents
+Plug 'mzlogin/vim-markdown-toc'                                                " Markdown table of contents
 
 " Autocomplete
 if !has("python3")
@@ -229,7 +204,6 @@ let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#align_class = 1
-" autocmd InsertEnter * call deoplete#enable()
 
 " Prev/next autocomplete result with tab/shift-tab and ctrl-j/k
 imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -244,14 +218,11 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>'
 let g:ale_sign_warning = '-'
 
-Plug 'uber/prototool', { 'rtp':'vim/prototool' }
+Plug 'uber/prototool', { 'rtp':'vim/prototool' }                               " Protobuf
 
-" Graphviz
-Plug 'wannesm/wmgraphviz.vim'
-autocmd FileType dot nmap <buffer> <leader>i :GraphvizInteractive<CR>
+Plug 'wannesm/wmgraphviz.vim'                                                  " Graphviz
 
-" Project wide search/replace
-Plug 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'                                                         " Project wide search/replace
 nmap <C-f> <Plug>CtrlSFPrompt
 nmap <leader><C-f> <Plug>CtrlSFCwordPath
 vmap <C-f> <Plug>CtrlSFVwordExec
@@ -265,18 +236,14 @@ let g:ctrlsf_auto_close = {
     \ "compact": 1
     \ }
 
+" Snippets
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 let g:UltiSnipsExpandTrigger = "<c-u>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-Plug 'AndrewRadev/splitjoin.vim'
-
 call plug#end()
-
-" Set higher priority on gocode autocomplete, otherwise TabNine (1000) appears before it
-call deoplete#custom#source('go', 'rank', 1500)
 
 " }}}
 " Colors {{{
@@ -316,8 +283,6 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-
-autocmd Filetype yaml setlocal ts=2 sw=2
 
 " }}}
 " Status line {{{
@@ -372,28 +337,6 @@ set statusline+=:%c
 
 " Trailing space
 set statusline+=\ 
-
-" }}}
-" Spell check {{{
-
-augroup GitCommitSpell
-    autocmd!
-    " Enable spellcheck, allow to start with lowercase
-    autocmd FileType gitcommit setlocal spell spellcapcheck=
-augroup END
-
-augroup ReadmeSpell
-    autocmd!
-    " Enable spellcheck
-    autocmd FileType markdown setlocal spell
-    autocmd FileType markdown set foldlevel=99
-augroup END
-
-augroup GoSpell
-    autocmd!
-    " Enable spellcheck, allow to start with lowercase
-    autocmd FileType go setlocal spell spellcapcheck=
-augroup END
 
 " }}}
 " Other {{{
