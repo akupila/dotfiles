@@ -91,10 +91,7 @@ nnoremap <silent> <C-q> :bdelete<CR>
 " Autocommands {{{
 
 " Don't move backwards with ESC
-augroup NoMoveEsc
-    autocmd!
-    autocmd InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
-augroup END
+autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 
 " Fast escape
 set notimeout
