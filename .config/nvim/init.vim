@@ -163,8 +163,20 @@ Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<CR>
 
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
-nnoremap <silent> <c-n> :NERDTreeToggle<CR>
-nnoremap <silent> <leader><c-n> :NERDTreeFind<CR>
+func! NERDTreeToggleWithRefresh()
+    :NERDTreeToggle
+    if (exists("b:NERDTreeType") == 1)
+        call feedkeys("R")
+    endif
+endfunction
+func! NERDTreeFindWithRefresh()
+    :NERDTreeFind
+    if (exists("b:NERDTreeType") == 1)
+        call feedkeys("R")
+    endif
+endfunction
+nnoremap <silent> <c-n> :call NERDTreeToggleWithRefresh()<CR>
+nnoremap <silent> <leader><c-n> :call NERDTreeFindWithRefresh()<CR>
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeAutoDeleteBuffer = 1
