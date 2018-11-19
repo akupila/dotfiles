@@ -135,3 +135,4 @@ source /usr/bin/aws_zsh_completer.sh
 # }}}
 
 # vim: set foldmethod=marker :
+source /usr/share/nvm/init-nvm.sh
