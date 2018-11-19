@@ -87,6 +87,9 @@ nnoremap <silent> <leader><space> :nohlsearch<CR>
 " Delete current buffer
 nnoremap <silent> <C-q> :bdelete<CR>
 
+" Go to beginning of line with ctrl-a in command mode, like in zsh
+cnoremap <C-a> <C-b>
+
 " }}}
 " Autocommands {{{
 
