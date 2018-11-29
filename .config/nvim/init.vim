@@ -15,6 +15,8 @@ set noshowmode                         " Disable showing mode, cursor change is 
 set updatetime=250                     " Faster cursorhold
 set shortmess=aIc                      " Shorter mesasges (a), no intro (I), disable completion message (c)
 set nomore                             " Disable 'Press ENTER to continue' when there are multiple lines in output
+set list                               " Display hidden characters
+set listchars=tab:›·,trail:·,nbsp:⎵
 
 " Disable preview in autocomplete
 set completeopt-=preview
@@ -282,6 +284,9 @@ highlight IncSearch           guifg=#FFFFFF guibg=#000000
 
 " Increase line number visibility (original: #465457)
 highlight LineNr              guifg=#656E70
+
+" Decrease invisible character visibility (original: #465457)
+highlight NonText guifg=#2a3234
 
 function! ToggleLight()
 if (g:colors_name == "molokai")
