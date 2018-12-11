@@ -130,9 +130,16 @@ go-cover-web() {
 # Autocompletion for tools {{{
 
 # Autocompletion for AWS cli
-source /usr/bin/aws_zsh_completer.sh
+case `uname` in
+  Darwin)
+    # brew --prefix awscli = /usr/local/opt/awscli but very slow
+    source /usr/local/opt/awscli/libexec/bin/aws_zsh_completer.sh
+  ;;
+  Linux)
+    source /usr/bin/aws_zsh_completer.sh
+  ;;
+esac
 
 # }}}
 
 # vim: set foldmethod=marker :
-source /usr/share/nvm/init-nvm.sh
