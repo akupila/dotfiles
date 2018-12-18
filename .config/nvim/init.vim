@@ -205,6 +205,18 @@ Plug 'tpope/vim-surround'                                                      "
 
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }               " Go
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next', 
+    \ 'do': 'bash install.sh'
+    \ } 
+let g:LangaugeClient_changeThrottle = 0.1
+let g:LangaugeClient_rootMarkers = {
+    \ 'go': ['.git', 'go.mod']
+    \ }
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['bingo', '-mode', 'stdio', '--logfile', '/tmp/lspserver.log', '--trace', '--pprof', ':6060'],
+    \ }
+
 Plug 'buoto/gotests-vim', { 'for': 'go' }                                      " Generate go table driven tests
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                        " JavaScript
@@ -223,14 +235,9 @@ if !has("python3")
 	echo "pip3 install --user neovim"
 endif
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#align_class = 1
 
 " Prev/next autocomplete result with tab/shift-tab and ctrl-j/k
 imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
