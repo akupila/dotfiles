@@ -203,7 +203,7 @@ let g:NERDTreeShowHidden = 1
 
 Plug 'tpope/vim-surround'                                                      " Add/change surrounding quotes, brackets etc
 
-Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }               " Go
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }                            " Go
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next', 
