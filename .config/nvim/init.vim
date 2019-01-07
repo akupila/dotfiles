@@ -375,14 +375,17 @@ set statusline+=%=
 " Show file type
 set statusline+=\ %{&filetype}
 
-" Percentage in file
-set statusline+=\ %p%%
+" Line : Column
+set statusline+=\ %l:%c
 
-" Line / total lines
-set statusline+=\ %l/%L
+" FileOffset returns zero indexed byte offset
+" The default %o starts at 1
+function! FileOffset()
+    return line2byte(line('.')) + col('.') - 2
+endfunction
 
-" Column
-set statusline+=:%c
+" Byte index
+set statusline+=\ %{FileOffset()}
 
 " Trailing space
 set statusline+=\ 
