@@ -13,6 +13,12 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
+let g:go_debug_windows = {
+    \ 'stack': 'leftabove 40vnew',
+    \ 'out':   'botright 30new',
+    \ 'vars':  'leftabove 80vnew',
+    \ }
+
 autocmd FileType go nmap <buffer> Q :GoAlternate!<CR>
 autocmd FileType go nmap <buffer> <silent> <Leader>t :GoCoverageToggle -short<CR>
 autocmd FileType go nmap <buffer> <Leader>T <Plug>(go-coverage-browser)
