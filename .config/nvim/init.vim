@@ -235,7 +235,7 @@ if !has("python3")
 	echo "pip3 install --user neovim"
 endif
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
