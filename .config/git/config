@@ -11,6 +11,9 @@
 [pull]
 	# Apply local commits after remote on pull
 	rebase = true
+[fetch]
+    # Remove tracking of remote branches that have been deleted
+	prune = true
 [rebase]
 	# Enable moving --fixup commits to correct places
 	autosquash = true
