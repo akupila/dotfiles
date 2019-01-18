@@ -252,7 +252,7 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>'
 let g:ale_sign_warning = '-'
 let g:ale_linters = {'go': ['golangci-lint']}
-let g:ale_go_golangci_lint_options = '--fast'
+let g:ale_go_golangci_lint_options = '--fast -e "Error return of","should have comment"'
 
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }                               " Protobuf
 
