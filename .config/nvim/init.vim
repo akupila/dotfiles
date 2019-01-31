@@ -301,15 +301,21 @@ set background=dark
 colorscheme molokai
 
 " Tweak ALE colors
-highlight ALEErrorSign        guifg=#FF2222 guibg=#232526
-highlight ALEWarningSign      guifg=#BBBB00 guibg=#232526
-highlight ALEInfoSign         guifg=#21BCFF guibg=#232526
+highlight ALEErrorSign          guifg=#FF2222 guibg=#232526
+highlight ALEWarningSign        guifg=#BBBB00 guibg=#232526
+highlight ALEInfoSign           guifg=#21BCFF guibg=#232526
+
+" Tweak git gutter to match
+highlight GitGutterAdd          guifg=#A6E22E guibg=#232526
+highlight GitGutterChange       guifg=#75715E guibg=#232526
+highlight GitGutterDelete       guifg=#F92672 guibg=#232526
+highlight GitGutterChangeDelete guifg=#F92672 guibg=#232526
 
 " Improve visibility of current item when doing s//gc
-highlight IncSearch           guifg=#FFFFFF guibg=#000000
+highlight IncSearch             guifg=#FFFFFF guibg=#000000
 
 " Increase line number visibility (original: #465457)
-highlight LineNr              guifg=#656E70
+highlight LineNr                guifg=#656E70
 
 " Decrease invisible character visibility (original: #465457)
 highlight NonText guifg=#2a3234
