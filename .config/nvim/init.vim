@@ -291,6 +291,11 @@ Plug 'b4b4r07/vim-hcl'
 
 Plug 'fatih/vim-hclfmt'
 
+" Typescript
+" npm install -g typescript neovim
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+
 " Autoformat on save
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
