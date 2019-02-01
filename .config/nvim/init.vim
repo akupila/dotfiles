@@ -212,9 +212,9 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LangaugeClient_rootMarkers = {
     \ 'go': ['.git', 'go.mod']
     \ }
-" Use https://github.com/saibing/bingo for go language server
+" go get golang.org/x/tools/cmd/gopls
 let g:LanguageClient_serverCommands = {
-    \ 'go': ['bingo', '-mode', 'stdio', '--logfile', '/tmp/lspserver.log'],
+    \ 'go': ['gopls', '-logfile', '/tmp/gopls.log'],
     \ }
 
 Plug 'buoto/gotests-vim', { 'for': 'go' }                                      " Generate go table driven tests
