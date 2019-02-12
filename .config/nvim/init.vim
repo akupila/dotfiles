@@ -277,15 +277,17 @@ let g:ctrlsf_auto_close = {
     \ }
 
 " Snippets
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
-let g:UltiSnipsExpandTrigger = "<c-u>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 Plug 'b4b4r07/vim-hcl'
 
