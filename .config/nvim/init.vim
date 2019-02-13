@@ -220,6 +220,7 @@ let g:LanguageClient_rootMarkers = {
 " go get golang.org/x/tools/cmd/gopls
 let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls', '-logfile', '/tmp/gopls.log'],
+    \ 'typescript': ['javascript-typescript-stdio'],
     \ }
 
 Plug 'buoto/gotests-vim', { 'for': 'go' }                                      " Generate go table driven tests
