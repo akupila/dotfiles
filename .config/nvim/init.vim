@@ -214,7 +214,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 " resolved:
 let g:LanguageClient_useVirtualText = 0
 let g:LanguageClient_changeThrottle = 0.5
-let g:LangaugeClient_rootMarkers = {
+let g:LanguageClient_rootMarkers = {
     \ 'go': ['.git', 'go.mod']
     \ }
 " go get golang.org/x/tools/cmd/gopls
