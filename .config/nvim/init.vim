@@ -219,7 +219,7 @@ let g:LanguageClient_rootMarkers = {
     \ }
 " go get golang.org/x/tools/cmd/gopls
 let g:LanguageClient_serverCommands = {
-    \ 'go': ['gopls', '-logfile', '/tmp/gopls.log'],
+    \ 'go': ['bingo', '-mode', 'stdio', '--logfile', '/tmp/lspserver.log'],
     \ 'typescript': ['javascript-typescript-stdio'],
     \ }
 
