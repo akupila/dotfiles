@@ -17,6 +17,7 @@ set shortmess=aIc                      " Shorter mesasges (a), no intro (I), dis
 set nomore                             " Disable 'Press ENTER to continue' when there are multiple lines in output
 set list                               " Display hidden characters
 set listchars=tab:›·,trail:·,nbsp:⎵
+set signcolumn=yes                     " Prevent potential blinking with sign column hiding
 
 " Disable preview in autocomplete
 set completeopt-=preview
