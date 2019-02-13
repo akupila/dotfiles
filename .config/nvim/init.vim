@@ -230,6 +230,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                        "
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }                                           " JSX
 
 Plug 'plasticboy/vim-markdown'                                                 " Markdown
+let g:vim_markdown_conceal = 0
 
 Plug 'godlygeek/tabular'                                                       " Markdown tables (required vim-markdown)
 
