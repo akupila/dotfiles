@@ -230,7 +230,6 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                        "
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }                                           " JSX
 
 Plug 'plasticboy/vim-markdown'                                                 " Markdown
-let g:vim_markdown_conceal = 0
 
 Plug 'godlygeek/tabular'                                                       " Markdown tables (required vim-markdown)
 
@@ -286,11 +285,6 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
 
 Plug 'b4b4r07/vim-hcl'
 
