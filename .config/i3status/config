@@ -24,7 +24,7 @@ disk "/" {
 }
 
 wireless _first_ {
-    format_up = "%essid%quality"
+    format_up = "%essid%quality %ip"
     format_down = "offline"
 }
 
