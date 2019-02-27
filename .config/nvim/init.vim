@@ -93,6 +93,9 @@ nnoremap <silent> <C-q> :bdelete<CR>
 " Go to beginning of line with ctrl-a in command mode, like in zsh
 cnoremap <C-a> <C-b>
 
+" Switch to previous buffer
+nnoremap <space><space> :edit#<CR>
+
 " }}}
 " Autocommands {{{
 
