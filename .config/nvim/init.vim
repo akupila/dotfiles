@@ -210,22 +210,22 @@ Plug 'tpope/vim-surround'                                                      "
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }                            " Go
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next', 
-    \ 'do': 'bash install.sh'
-    \ } 
-" Until https://github.com/autozimu/LanguageClient-neovim/issues/603 is
-" resolved:
-let g:LanguageClient_useVirtualText = 0
-let g:LanguageClient_changeThrottle = 0.5
-let g:LanguageClient_rootMarkers = {
-    \ 'go': ['.git', 'go.mod']
-    \ }
-" go get golang.org/x/tools/cmd/gopls
-let g:LanguageClient_serverCommands = {
-    \ 'go': ['bingo', '-mode', 'stdio', '--logfile', '/tmp/lspserver.log'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next', 
+"     \ 'do': 'bash install.sh'
+"     \ } 
+" " Until https://github.com/autozimu/LanguageClient-neovim/issues/603 is
+" " resolved:
+" let g:LanguageClient_useVirtualText = 0
+" let g:LanguageClient_changeThrottle = 0.5
+" let g:LanguageClient_rootMarkers = {
+"     \ 'go': ['.git', 'go.mod']
+"     \ }
+" " go get golang.org/x/tools/cmd/gopls
+" let g:LanguageClient_serverCommands = {
+"     \ 'go': ['bingo', '-mode', 'stdio', '--logfile', '/tmp/lspserver.log'],
+"     \ 'typescript': ['javascript-typescript-stdio'],
+"     \ }
 
 Plug 'buoto/gotests-vim', { 'for': 'go' }                                      " Generate go table driven tests
 
@@ -240,21 +240,58 @@ Plug 'godlygeek/tabular'                                                       "
 Plug 'mzlogin/vim-markdown-toc'                                                " Markdown table of contents
 
 " Autocomplete
-if !has("python3")
-	echo "deoplete requires python 3"
-	echo "pip3 install --user neovim"
-endif
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
-" Prev/next autocomplete result with tab/shift-tab and ctrl-j/k
-imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
-imap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
-imap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-imap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
-imap <expr> <CR>  (pumvisible() ?  "\<c-y>" : "\<CR>")
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 " ALE linter
 Plug 'w0rp/ale'

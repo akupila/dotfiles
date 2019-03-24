@@ -28,6 +28,3 @@ autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-iferr)
 
 " Enable spellcheck, allow to start with lowercase
 setlocal spell spellcapcheck=
-
-" Set higher priority on gocode autocomplete, otherwise TabNine (1000) appears before it
-call deoplete#custom#source('go', 'rank', 1500)
