@@ -1,0 +1,186 @@
+# Set windows key as modifier
+set $mod Mod4
+
+# Set font
+font pango:Hack 9
+
+# Start a terminal
+bindsym $mod+Return exec kitty
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split mode (direction right/down)
+bindsym $mod+t split toggle
+
+# Move to next monitor
+bindsym $mod+m move workspace to output right
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout 
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+# Focus the child container
+bindsym $mod+z focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+# Exit sway
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'Kill Sway?' -b 'Yes' 'swaymsg exit'"
+
+# Resize window 
+mode "resize" {
+        # Back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+
+        # Switch to edge resize mode
+        bindsym h mode "resize-left"
+        bindsym j mode "resize-down"
+        bindsym k mode "resize-up"
+        bindsym l mode "resize-right"
+}
+
+mode "resize-left" {
+        bindsym h resize grow left 10 px or 10 ppt
+        bindsym l resize shrink left 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+mode "resize-down" {
+        bindsym j resize grow down 10 px or 10 ppt
+        bindsym k resize shrink down 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+mode "resize-up" {
+        bindsym j resize shrink up 10 px or 10 ppt
+        bindsym k resize grow up 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+mode "resize-right" {
+        bindsym h resize shrink right 10 px or 10 ppt
+        bindsym l resize grow right 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Enter resize mode
+bindsym $mod+r mode "resize"
+
+# Styling
+
+hide_edge_borders smart
+
+# Colors
+# CLASS                 BORDER  BGROUND TEXT    INDICTR CHLD_BR
+client.focused          #66D9EF #66D9EF #000000 #A6E22E #66D9EF
+client.focused_inactive #333333 #5F676A #FFFFFF #333333 #333333
+client.unfocused        #333333 #222222 #888888 #292D2E #000000
+client.urgent           #2F343A #F92672 #FFFFFF #F92672 #F92672
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
+client.background       #000000
+
+bar {
+    status_command i3status
+    font pango: Hack 9
+    colors {
+        background #000000
+        statusline #FFFFFF
+        separator  #666666
+
+        # CLASS            BORDER  BGROUND TEXT
+        focused_workspace  #66D9EF #66D9EF #000000
+        active_workspace   #333333 #222222 #FFFFFF
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2F343A #F92672 #FFFFFF
+        binding_mode       #2F343A #F92672 #FFFFFF
+    }
+}
+
+# Disable window title
+default_border pixel 1
+
+# Input
+
+# Faster keyboard repeat
+input * repeat_delay 250
+input * repeat_rate 75
+
+# Output
+
+# Sway background when nothing is open
+output * bg #000000 solid_color
+
+# Brightness control
+bindsym XF86MonBrightnessUp     exec brightnessctl s +10%
+bindsym XF86MonBrightnessDown   exec brightnessctl s 10%-
+
+# Volume control
+bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute 0 toggle
