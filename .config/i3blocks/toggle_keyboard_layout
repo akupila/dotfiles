@@ -1,0 +1,10 @@
+#!/bin/bash
+
+lang=$(setxkbmap -query | grep layout | awk '{print $2}')
+
+if [[ $lang == "us" ]]; then
+    setxkbmap se
+else
+    setxkbmap us
+fi
+pkill -SIGRTMIN+10 i3blocks

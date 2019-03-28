@@ -146,7 +146,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
 client.background       #000000
 
 bar {
-    status_command i3status
+    status_command i3blocks
     font pango: Hack 9
     colors {
         background #000000
