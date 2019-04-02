@@ -5,7 +5,7 @@ set $mod Mod4
 font pango:Hack 9
 
 # Start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty --single-instance
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -175,7 +175,10 @@ input * repeat_delay 250
 input * repeat_rate 70
 
 # Natural scroll
+# Built in trackpad
 input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad natural_scroll enabled
+# Magic trackpad
+input 1452:613:Apple_Inc._Magic_Trackpad_2 natural_scroll enabled
 
 # Output
 
@@ -193,6 +196,9 @@ bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute 0 toggl
 
 # Toggle keyboard
 bindsym Ctrl+Alt+Space exec ~/.config/i3blocks/toggle_keyboard_layout
+
+# Lock
+bindsym $mod+Alt+l exec swaylock
 
 # Auto lock / sleep
 exec swayidle timeout 300 'swaylock -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -c 000000'
