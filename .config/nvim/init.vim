@@ -210,23 +210,6 @@ Plug 'tpope/vim-surround'                                                      "
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }                            " Go
 
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next', 
-"     \ 'do': 'bash install.sh'
-"     \ } 
-" " Until https://github.com/autozimu/LanguageClient-neovim/issues/603 is
-" " resolved:
-" let g:LanguageClient_useVirtualText = 0
-" let g:LanguageClient_changeThrottle = 0.5
-" let g:LanguageClient_rootMarkers = {
-"     \ 'go': ['.git', 'go.mod']
-"     \ }
-" " go get golang.org/x/tools/cmd/gopls
-" let g:LanguageClient_serverCommands = {
-"     \ 'go': ['bingo', '-mode', 'stdio', '--logfile', '/tmp/lspserver.log'],
-"     \ 'typescript': ['javascript-typescript-stdio'],
-"     \ }
-
 Plug 'buoto/gotests-vim', { 'for': 'go' }                                      " Generate go table driven tests
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                        " JavaScript
