@@ -222,6 +222,8 @@ Plug 'godlygeek/tabular'                                                       "
 
 Plug 'mzlogin/vim-markdown-toc'                                                " Markdown table of contents
 
+Plug 'posva/vim-vue'                                                           " Vue
+
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
