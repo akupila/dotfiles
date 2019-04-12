@@ -225,6 +225,9 @@ let g:vmt_list_item_char = '-'
 let g:vmt_fence_text = 'TOC'
 let g:vmt_fence_closing_text = '/TOC'
 
+" { 'do': { -> mkdp#util#install() } } without node installed
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }        " Live markdown preview
+
 Plug 'posva/vim-vue'                                                           " Vue
 
 " Autocomplete
