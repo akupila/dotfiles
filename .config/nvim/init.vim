@@ -221,6 +221,9 @@ Plug 'plasticboy/vim-markdown'                                                 "
 Plug 'godlygeek/tabular'                                                       " Markdown tables (required vim-markdown)
 
 Plug 'mzlogin/vim-markdown-toc'                                                " Markdown table of contents
+let g:vmt_list_item_char = '-'
+let g:vmt_fence_text = 'TOC'
+let g:vmt_fence_closing_text = '/TOC'
 
 Plug 'posva/vim-vue'                                                           " Vue
 
