@@ -187,6 +187,10 @@ input 1452:613:Apple_Inc._Magic_Trackpad_2 natural_scroll enabled
 # Sway background when nothing is open
 output * bg #000000 solid_color
 
+# Display positions, laptops screen bottom left
+output eDP-1 pos 0 360
+output DP-1 pos 1920 0
+
 # Brightness control
 bindsym XF86MonBrightnessUp     exec brightnessctl s +10%
 bindsym XF86MonBrightnessDown   exec brightnessctl s 10%-
