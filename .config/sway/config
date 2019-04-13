@@ -1,11 +1,10 @@
 # Set windows key as modifier
-set $mod Mod4
-
+set $mod Mod4 
 # Set font
 font pango:Hack 9
 
 # Start a terminal
-bindsym $mod+Return exec kitty --single-instance
+bindsym $mod+Return exec KITTY_ENABLE_WAYLAND=1 kitty --single-instance
 
 # Kill focused window
 bindsym $mod+Shift+q kill
