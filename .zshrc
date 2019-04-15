@@ -24,7 +24,7 @@ alias exit=" exit"
 export EDITOR="nvim"
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:~/.yarn/bin
 
 # }}}
 # History {{{
