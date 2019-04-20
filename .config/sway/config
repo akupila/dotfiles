@@ -208,4 +208,7 @@ bindsym Ctrl+Alt+Space exec ~/.config/i3blocks/toggle_keyboard_layout
 bindsym $mod+Alt+l exec swaylock
 
 # Auto lock / sleep
-exec swayidle timeout 600 'swaylock -c 000000' timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -c 000000'
+exec swayidle timeout 590 'notify-send -t 9900 "Locking in 10sec"' timeout 600 'swaylock -c 000000' timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -c 000000'
+
+# Start mako for notifications
+exec mako
