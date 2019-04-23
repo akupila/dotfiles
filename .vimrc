@@ -101,10 +101,10 @@ Plug 'ap/vim-buftabline'
 Plug 'b4b4r07/vim-hcl'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
-Plug 'fatih/vim-hclfmt'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+Plug 'maxboisvert/vim-simple-complete'
 Plug 'myitcv/govim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'pix/git-rebase-helper'
@@ -126,6 +126,14 @@ set t_Co=256
 set t_ut=
 set termguicolors
 colorscheme molokai
+
+" }}}
+" Indent {{{
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " }}}
 " Status line {{{
