@@ -180,8 +180,10 @@ input * repeat_rate 70
 # Natural scroll
 # Built in trackpad
 input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad natural_scroll enabled
+input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad click_method clickfinger
 # Magic trackpad
 input 1452:613:Apple_Inc._Magic_Trackpad_2 natural_scroll enabled
+input 1452:613:Apple_Inc._Magic_Trackpad_2 click_method clickfinger
 
 # Output
 
