@@ -17,6 +17,7 @@
 [rebase]
 	# Enable moving --fixup commits to correct places
 	autosquash = true
+	autostash = true
 [mergetool]
     keepBackup = false
 [format]
