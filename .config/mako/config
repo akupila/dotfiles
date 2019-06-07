@@ -4,4 +4,4 @@ font=Hack 10
 border-size=0
 margin=12
 padding=12,16
-default-timeout=2500
+default-timeout=5000
