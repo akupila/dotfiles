@@ -77,6 +77,8 @@ zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' rehash true
 # Keep dirs and files separated
 zstyle ':completion:*' list-dirs-first true
+# Case-insensive matching and that matching may occur on both sides of the current word
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
 # }}}
 # Prompt {{{
