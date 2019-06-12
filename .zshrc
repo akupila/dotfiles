@@ -95,7 +95,7 @@ PROMPT='%(?:%{$fg_bold[green]%}›:%{$fg_bold[red]%}›) %{$fg[cyan]%}%3d %{$(gi
 bindkey -e
 
 bindkey '^r' history-incremental-search-backward
-bindkey '^p' history-beginning-search-backward
+bindkey '^p' up-line-or-search
 bindkey '^n' history-beginning-search-forward
 
 # Delete char with del key
