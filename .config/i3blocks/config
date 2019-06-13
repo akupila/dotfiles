@@ -70,20 +70,20 @@ signal=10
 #instance=/mnt/data
 interval=120
 
+[ssid]
+command=iwgetid -r
+interval=10
+separator=false
+
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
-#instance=wlan0
+instance=wlp2s0
 # color=#A6E22E
 interval=10
-# separator=false
-
-# [wifi]
-# instance=wlp2s0
-# interval=10
-# separator=true
+separator=true
 
 #[bandwidth]
 ##instance=eth0
