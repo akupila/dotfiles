@@ -85,7 +85,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 mouse_warping container
 
 # Screenshot
-bindsym Print exec slurp | grim -g - ~/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+bindsym Print exec slurp | grim -g - - | wl-copy && wl-paste > ~/screenshots/$(date +'%Y-%m-%d-%H%M%S.png')
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
