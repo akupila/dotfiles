@@ -1,19 +1,30 @@
-" General {{{
-"
-set nocompatible
+" Hover an option and press shift-k for help
 
-set completeopt-=preview
+" General {{{
+
+set autoindent
+set autoread
+set background=dark
+set balloondelay=250
+set belloff=all
+set complete-=i
+set completeopt=popup
+set completepopup=align:menu,border:off,highlight:Pmenu
 set encoding=utf-8
+set expandtab
+set formatoptions=tcqj
 set hidden
 set history=1000
 set hlsearch
 set ignorecase
+set incsearch
 set laststatus=2
 set lazyredraw
 set list
 set listchars=tab:›·,trail:·,nbsp:⎵
+set mouse=a
 set nobackup
-set nomore
+set nofsync
 set noshowmode
 set noswapfile
 set number
@@ -22,29 +33,43 @@ set relativenumber
 set scrolloff=3
 set shortmess=aIc
 set signcolumn=yes
-set smartcase                          
+set smartcase
 set smarttab
+set termguicolors
+set ttimeoutlen=50
 set ttyfast
-set undodir=expand(~/.local/share/vim/undo)
+set ttymouse=sgr
 set undofile
 set updatetime=250
+set viminfo+=!
 set wildmenu
+
+filetype plugin indent on
 
 " }}}
 " Clipboard {{{
 
 if has("mac")
-    set clipboard=unnamed
+  set clipboard=unnamed
 else
-    set clipboard=unnamedplus
+  set clipboard=unnamedplus
+
+  if exists('$WAYLAND_DISPLAY') && executable('wl-copy') && executable('wl-paste')
+    xnoremap <silent> y y:call system("wl-copy", @")<cr>
+    nnoremap <silent> p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<CR>p
+  endif
 endif
 
 " }}}
-" Key remaps {{{
+" Key remapping {{{
 
 " Use , as leader
 let maploader = ","
 let g:mapleader = ","
+
+" Toggle alternate file
+nnoremap Q <c-^>
+vnoremap Q <nop>
 
 " Exit insert and command mode with jk
 " This is not set up for visual mode as otherwise it'll delay moving
@@ -69,11 +94,7 @@ vnoremap H ^
 vnoremap L $
 
 " Reload vimrc
-nnoremap <leader>cr :source $MYVIMRC<CR>
-
-" Faster movement with ctrl
-nnoremap <C-j> 10j
-nnoremap <C-k> 10k
+nnoremap <leader>cr :source $MYVIMRC<CR>:nohlsearch<CR>
 
 " Move blocks in visual mode while maintaining selection
 vnoremap < <gv
@@ -90,50 +111,57 @@ nnoremap <silent> * :let start_pos = winsaveview()<CR>*:call winrestview(start_p
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Delete current buffer
-nnoremap <C-q> :bdelete<CR>
+nnoremap <leader>q :bdelete<CR>
+nnoremap <leader>Q :bdelete!<CR>
+
+" Replace visual selection
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " }}}
 " Plugins {{{
+
 call plug#begin()
 
-Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-buftabline'
 Plug 'b4b4r07/vim-hcl'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
-Plug 'godlygeek/tabular'
+Plug 'govim/govim', { 'for': 'go' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-Plug 'maxboisvert/vim-simple-complete'
-Plug 'myitcv/govim'
-Plug 'mzlogin/vim-markdown-toc'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'pix/git-rebase-helper'
-Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'preservim/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'romainl/vim-qf'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'wellle/targets.vim' 
+Plug 'wellle/targets.vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
 " }}}
 " Colors {{{
 
-set t_Co=256
-set t_ut=
-set termguicolors
 colorscheme molokai
 
-" }}}
-" Indent {{{
+set t_ut=
+" Fix undercurl
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+hi SpellBad term=undercurl cterm=undercurl ctermbg=NONE gui=undercurl guisp=red
 
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+hi TabLine term=NONE cterm=NONE gui=NONE
 
 " }}}
 " Status line {{{
@@ -171,9 +199,6 @@ set statusline+=\
 " }}}
 " Autocommands {{{
 
-" Don't move backwards with ESC
-autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
-
 " Fast escape
 set notimeout
 set ttimeout
@@ -185,8 +210,53 @@ augroup FastEscape
 augroup END
 
 " Remember location in file when opened
-autocmd! BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+fun! RestorePos()
+    if &ft == 'gitrebase'
+        return
+    endif
+    if line("'\"") <= 0 || line("'\"") <= line("$")
+        return
+    endif
+    exec "normal! g'\""
+endfun
+autocmd! BufReadPost * call RestorePos()
 
-" }}}
+" Don't move backwards with ESC
+autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
+
+autocmd! VimResized * wincmd =
+
+" Hide scratch from buffer list (created from autocomplete popup)
+fun! HideScratch()
+  if (&bufhidden == 'wipe')
+    setlocal nobuflisted
+  endif
+endfun
+augroup Scratch
+  autocmd!
+  au BufEnter * call HideScratch()
+augroup END
+
+" Don't keep initial buffer around
+" https://vi.stackexchange.com/a/715
+fun! Start()
+    " Don't run if: we have commandline arguments, we don't have an empty
+    " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
+    if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
+        return
+    endif
+    enew
+    setlocal
+        \ bufhidden=wipe
+        \ buftype=nofile
+        \ nobuflisted
+        \ nocursorcolumn
+        \ nocursorline
+        \ nolist
+        \ nonumber
+        \ noswapfile
+        \ norelativenumber
+endfun
+autocmd VimEnter * call Start()
 
 " vim: set foldmethod=marker:

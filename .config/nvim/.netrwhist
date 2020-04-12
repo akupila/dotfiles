@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/akupila/dev/scope/cmd/updatestatuspage'
+let g:netrw_dirhist_6='/home/akupila/dev/scope/storage'
+let g:netrw_dirhist_5='/home/akupila/dev/servicescope/test'
+let g:netrw_dirhist_4='/home/akupila/dev/statuscheck/api'
+let g:netrw_dirhist_3='/home/akupila/dev/statuscheck/web/components'
+let g:netrw_dirhist_2='/home/akupila/go/src/github.com/func/func/provider'
+let g:netrw_dirhist_1='/home/akupila/.config'

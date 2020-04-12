@@ -1,0 +1,125 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray", "pulseaudio", "network", "custom/wireguard", "idle_inhibitor", "cpu", "memory", "battery", "clock"],
+    "sway/workspaces": {
+        "format": "{name}",
+        "disable-scroll": true
+    },
+    "sway/mode": {
+        "format": "{}"
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["","", "", "", "", "", "", "", "", "", ""],
+        "format-charging": "{capacity}% ",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "network": {
+        "format": "{icon}",
+        "format-alt": "{icon} {ipaddr}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": ["直"],
+            "ethernet": [""],
+            "disconnected": ["睊"]
+        },
+        "on-click": "kitty -e nmtui",
+        "tooltip": false
+    },
+    "custom/wireguard": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "bash ~/.config/waybar/scripts/wireguard.sh",
+        "on-click": "kitty -e bash ~/.config/waybar/scripts/wireguard-toggle.sh"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-alt": "{volume} {icon}",
+        "format-alt-click": "click-right",
+        "format-muted": "",
+        "format-icons": {
+            "phone": [" 奄", " 奔", " 墳"],
+            "default": ["奄", "奔", "墳"]
+        },
+        "scroll-step": 10,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": [""],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+    },
+    "cpu": {
+       "format": "{load}%",
+       "on-click": "kitty -e htop"
+    },
+    "memory": {
+        "format": "{percentage}%",
+        "on-click": "kitty -e htop"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-alt": "{status} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "﯈"
+        },
+        "tooltip": false
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format-critical": "{temperatureC}°C ",
+      "format": "{temperatureC}°C "
+    },
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec-if": "ping wttr.in -c1"
+    },
+    "custom/spotify": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/spotify.sh",
+        "exec-if": "pgrep spotify",
+        "escape": true
+    },
+    "custom/storage": {
+        "format": "{} ",
+        "format-alt": "{percentage}% ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+    "tray": {
+        "icon-size": 18
+    }
+}

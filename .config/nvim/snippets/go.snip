@@ -1,0 +1,28 @@
+snippet table
+    tests := []struct{
+        name string
+    }{
+        // Add test cases
+    }
+
+    for _, tt := range tests {
+        t.Run(tt.name, func(t *testing.T) {
+            $0
+        })
+    }
+    
+snippet tableerr
+    tests := []struct{
+        name    string
+        wantErr bool
+    }{
+        // Add test cases
+    }
+
+    for _, tt := range tests {
+        t.Run(tt.name, func(t *testing.T) {
+			if (err != nil) != tt.wantErr {
+				t.Fatalf("${1:Method}() error = %v, wantErr %v", err, tt.wantErr)
+			}
+        })
+    }

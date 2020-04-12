@@ -1,182 +1,149 @@
-# Alias {{{
+## Options section
+setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob                                               # Case insensitive globbing
+setopt rcexpandparam                                            # Array expension with parameters
+setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+setopt nobeep                                                   # No beep
+setopt appendhistory                                            # Immediately append history instead of overwriting
+setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+setopt share_history                                            # Import new comands and appends typed commands to history
 
-# All commands are prefixed with space -> do not store in history
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+HISTFILE=~/.zhistory
+HISTSIZE=10000
+SAVEHIST=500
+WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
+
+# Exports
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:~/.local/bin
+export GOPROXY=https://proxy.golang.org
+export GOPRIVATE=github.com/akupila
+
+# NPM / Yarn
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+## Keybindings section
+bindkey -e
+bindkey '^[[7~' beginning-of-line                               # Home key
+bindkey '^[[H' beginning-of-line                                # Home key
+if [[ "${terminfo[khome]}" != "" ]]; then
+  bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
+fi
+bindkey '^[[8~' end-of-line                                     # End key
+bindkey '^[[F' end-of-line                                      # End key
+if [[ "${terminfo[kend]}" != "" ]]; then
+  bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
+fi
+bindkey '^[[2~' overwrite-mode                                  # Insert key
+bindkey '^[[3~' delete-char                                     # Delete key
+bindkey '^[[C'  forward-char                                    # Right key
+bindkey '^[[D'  backward-char                                   # Left key
+bindkey '^[[5~' history-beginning-search-backward               # Page up key
+bindkey '^[[6~' history-beginning-search-forward                # Page down key
+
+# Navigate words with ctrl+arrow keys
+bindkey '^[Oc' forward-word                                     #
+bindkey '^[Od' backward-word                                    #
+bindkey '^[[1;5D' backward-word                                 #
+bindkey '^[[1;5C' forward-word                                  #
+bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
+bindkey '^[[Z' undo                                             # Shift+tab undo last action
+
+## Alias section
+alias cp='cp -i'                                                # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+alias gs='git status'
+alias gl='git --no-pager log --max-count 20 --graph'
+alias gla='git --no-pager log --max-count 30 --all --graph'
+alias gp='git log --stat --max-count=1 --format=medium'         # Show previous commit
+alias gd='git diff --ignore-all-space'
+alias gds='git diff --staged --ignore-all-space'
+alias rm='trash'
+alias vi='vim'
+alias goupdates='go list -u -m -json all | go-mod-outdated -update -direct'
+## Aliases ignored from history
 alias ..=' cd ..'
 alias ...=' cd ...'
 alias l=' ls -alh'
-
-# Git
-alias gs=" git status"
-# quick log
-alias gl=" git log --graph"
-# previous commit
-alias gp=" git log --stat --max-count=1 --format=medium"
-# quick diff
-alias gd=" git diff"
-alias gds=" git diff --staged"
-
-# Ignore from history
 alias exit=" exit"
 
-# }}}
-# Export {{{
+# Theming section  
+autoload -U compinit colors zcalc
+compinit -d
+colors
 
-export EDITOR="nvim"
-export GOPATH=~/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin:~/.yarn/bin
-
-# }}}
-# History {{{
-
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-
-# Allow multiple terminal sessions to all append to one zsh command history
-setopt append_history
-# Save timestamp and duration
-setopt extended_history
-# Adds commands as they are typed, don't wait until shell exit
-setopt inc_append_history
-# When trimming history, remove oldest duplicates first
-setopt hist_expire_dups_first
-# Do not write events to history that are duplicates of previous events
-setopt hist_ignore_all_dups
-# Remove line from history when first character is a space
-setopt hist_ignore_space
-# When searching history, don't display already cycled results twice
-setopt hist_reduce_blanks
-# Don't execute, just expand history
-setopt hist_verify
-# Import new comands and appends typed commands to history
-setopt share_history
-
-# }}}
-# Completion {{{
-
-autoload -Uz compinit && compinit
-
-# When completing fomr the middle of a word, move the cursor to the end of the
-# # word
-setopt always_to_end
-# Show completion menu on successive tab press (requires unsetop menu_complete)
-set auto_menu
-# Any parameter that is set to the absolute name of a directory immediately
-# becomes a name for that directory
-setopt auto_name_dirs
-# Allow completion from withing a word/phrase
-setopt complete_in_word
-
-# Do not autoselect the first completion entry
-unsetopt menu_complete
-
-# Enable autocompletion menu
-zstyle ':completion:*:*:*:*:*' menu select
-# Automatically update PATH entries
-zstyle ':completion:*' rehash true
-# Keep dirs and files separated
-zstyle ':completion:*' list-dirs-first true
-# Case-insensive matching and that matching may occur on both sides of the current word
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-
-# }}}
-# Prompt {{{
-
-autoload -U colors && colors
-
-# Enable command substitution in prompt (and parameter expansion, arithmetic expansion)
-setopt promptsubst
+# enable substitution for prompt
+setopt prompt_subst
 
 PROMPT='%(?:%{$fg_bold[green]%}›:%{$fg_bold[red]%}›) %{$fg[cyan]%}%3d %{$(gitprompt -zsh)%}%{$reset_color%}'
 
-# }}}
-# Key bindings {{{
+# Color man pages
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-r
 
-# Use emacs-like key bindings by default
-bindkey -e
 
-bindkey '^r' history-incremental-search-backward
-bindkey '^p' up-line-or-search
-bindkey '^n' history-beginning-search-forward
+## Plugins section: Enable fish style features
+# Use syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Use history substring search
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# bind UP and DOWN arrow keys to history substring search
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
-# Delete char with del key
-bindkey "^[[3~" delete-char
-bindkey "^[[3;5~" delete-char
-
-# }}}
-# Hooks {{{
+# Hooks
 
 eval "$(direnv hook zsh)"
-eval "$(jump shell)"
+eval "$(jump shell zsh)"
 
-# }}}
-# FZF {{{
+# Misg
+
+# AWS cli autocomplete
+source /usr/bin/aws_zsh_completer.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='rg --files'
+function gdoc() {
+  if [ ! -f go.mod ]
+  then
+    echo "error: go.mod not found" >&2
+    return
+  fi
 
-# }}}
-# Functions {{{
-
-go-cover() { 
-  t=$(mktemp)
-  go test $COVERFLAGS -coverprofile=$t $@ && go tool cover -func=$t && unlink $t
+  module=$(sed -n 's/^module \(.*\)/\1/p' go.mod)
+  mkdir -p /tmp/tmpgoroot/doc
+  mkdir -p /tmp/tmpgopath/src/${module}
+  tar -c --exclude='.git' --exclude='tmp' . | tar -x -C /tmp/tmpgopath/src/${module}
+  xdg-open "http://localhost:6060/pkg/${module}" 2> /dev/null
+  GOROOT=/tmp/tmpgoroot/ GOPATH=/tmp/tmpgopath/ godoc -http=localhost:6060
+  rm -rf /tmp/tmpgopath/src/${module}
 }
 
-go-cover-web() {
-  t=$(mktemp)
-  go test $COVERFLAGS -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
+function gocover() {
+  FILE=$(mktemp)
+  go test -coverprofile=$FILE ./... && go tool cover -html=$FILE
+  rm $FILE
 }
 
-# Retry a command up to a specific numer of times until it exits successfully,
-# with exponential back off.
-#
-#  $ retry 5 echo Hello
-#  Hello
-#
-#  $ retry 5 false
-#  Retry 1/5 exited 1, retrying in 1 seconds...
-#  Retry 2/5 exited 1, retrying in 2 seconds...
-#  Retry 3/5 exited 1, retrying in 4 seconds...
-#  Retry 4/5 exited 1, retrying in 8 seconds...
-#  Retry 5/5 exited 1, no more retries left.
-#
-function retry {
-  local retries=$1
-  shift
-
-  local count=0
-  until "$@"; do
-    exit=$?
-    wait=$((2 ** $count))
-    count=$(($count + 1))
-    if [ $count -lt $retries ]; then
-      echo "Retry $count/$retries exited $exit, retrying in $wait seconds..."
-      sleep $wait
-    else
-      echo "Retry $count/$retries exited $exit, no more retries left."
-      return $exit
-    fi
-  done
-  return 0
-}
-
-# }}}
-# Autocompletion for tools {{{
-
-# Autocompletion for AWS cli
-case `uname` in
-  Darwin)
-    # brew --prefix awscli = /usr/local/opt/awscli but very slow
-    source /usr/local/opt/awscli/libexec/bin/aws_zsh_completer.sh
-  ;;
-  Linux)
-    source /usr/bin/aws_zsh_completer.sh
-  ;;
-esac
-
-# }}}
-
-# vim: set foldmethod=marker :

@@ -14,7 +14,6 @@ set scrolloff=5                        " Scroll n lines from top/bottom
 set noshowmode                         " Disable showing mode, cursor change is sufficient
 set updatetime=250                     " Faster cursorhold
 set shortmess=aIc                      " Shorter mesasges (a), no intro (I), disable completion message (c)
-set nomore                             " Disable 'Press ENTER to continue' when there are multiple lines in output
 set list                               " Display hidden characters
 set listchars=tab:›·,trail:·,nbsp:⎵
 set signcolumn=yes                     " Prevent potential blinking with sign column hiding
@@ -113,7 +112,17 @@ augroup FastEscape
 augroup END
 
 " Remember location in file when opened
-autocmd! BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" autocmd! BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+augroup envrc_ft
+  au!
+  autocmd BufNewFile,BufRead .envrc set syntax=sh
+augroup END
+
+augroup cloudformation_ft
+  au!
+  autocmd BufNewFile,BufRead template.yaml set syntax=cloudformation
+augroup END
 
 " }}}
 " Plugins {{{
@@ -136,8 +145,6 @@ Plug 'airblade/vim-gitgutter'                                                  "
 Plug 'vim-scripts/ReplaceWithRegister'                                         " Replace selected text with register
 
 Plug 'tomasr/molokai'                                                          " Molokai colorscheme
-
-Plug 'rakr/vim-one'                                                            " One colorscheme
 
 Plug 'ap/vim-buftabline'                                                       " Show buffers on top
 " Show buffers if there are two or more open
@@ -175,8 +182,6 @@ Plug 'tpope/vim-commentary'                                                    "
 
 Plug 'wellle/targets.vim'                                                      " More text targets: (), [], {}, <>
 
-Plug 'vim-scripts/Align'                                                       " Align helper (:Align = etc)
-
 Plug 'djoshea/vim-autoread'                                                    " Automatically load changed file from disk
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
@@ -201,7 +206,7 @@ nnoremap <silent> <c-n> :call NERDTreeToggleWithRefresh()<CR>
 nnoremap <silent> <leader><c-n> :call NERDTreeFindWithRefresh()<CR>
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMinimalMenu = 1
+" let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeShowHidden = 1
@@ -232,16 +237,16 @@ Plug 'posva/vim-vue'                                                           "
 
 " Autocomplete
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
+nnoremap gh :YcmCompleter GoToDeclaration<CR>
+nnoremap gd :YcmCompleter GoToDefinition<CR>
 
 " ALE linter
-Plug 'w0rp/ale'
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '>'
-let g:ale_sign_warning = '-'
-let g:ale_linters = {'go': ['golangci-lint']}
-let g:ale_go_golangci_lint_options = '--fast -e "Error return of","should have comment","undeclared name"'
-
-Plug 'uber/prototool', { 'rtp':'vim/prototool' }                               " Protobuf
+" Plug 'w0rp/ale'
+" let g:ale_sign_column_always = 1
+" let g:ale_sign_error = '>'
+" let g:ale_sign_warning = '-'
+" let g:ale_linters = {'go': ['golangci-lint']}
+" let g:ale_go_golangci_lint_options = '--fast -e "Error return value of","should have comment","undeclared name"'
 
 Plug 'wannesm/wmgraphviz.vim'                                                  " Graphviz
 
@@ -269,15 +274,20 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 Plug 'b4b4r07/vim-hcl'
 
-Plug 'fatih/vim-hclfmt'
+" Plug 'fatih/vim-hclfmt'
 
 " Typescript
 " npm install -g typescript neovim
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 
+Plug 'NLKNguyen/cloudformation-syntax.vim'
 
 Plug 'prettier/vim-prettier'
+
+Plug 'jparise/vim-graphql'
+
+Plug 'ntpeters/vim-better-whitespace'
 
 " Autoformat on save
 let g:prettier#autoformat = 0
