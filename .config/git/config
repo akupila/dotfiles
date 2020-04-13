@@ -1,0 +1,28 @@
+[alias]
+    recent = for-each-ref \
+        --sort=-committerdate \
+        --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) (%(color:green)%(committerdate:relative)%(color:reset))' \
+        refs/heads
+[core]
+	excludesfile=~/.gitignore
+[interactive]
+	# Enable single key interactions in patch add etc
+	singleKey = true
+[pull]
+	# Apply local commits after remote on pull
+	rebase = true
+[fetch]
+    # Remove tracking of remote branches that have been deleted
+	prune = true
+[rebase]
+	# Enable moving --fixup commits to correct places
+	autosquash = true
+	autostash = true
+[mergetool]
+    keepBackup = false
+[format]
+    pretty=minimal
+[pretty]
+    # https://git-scm.com/docs/pretty-formats
+    minimal = %C(auto)%h %d %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
+    reflog = %C(auto)%h %<|(17)%gd %C(green)%<|(49)%cd%Creset %C(bold)%gs%Creset
