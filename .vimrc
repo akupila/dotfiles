@@ -19,7 +19,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars=tab:›·,trail:·,nbsp:⎵
+set listchars=tab:⎸\ ,trail:·,nbsp:⎵
 set mouse=a
 set nobackup
 set nofsync
@@ -120,6 +120,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 call plug#begin()
 
+Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
@@ -130,9 +131,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'pix/git-rebase-helper'
 Plug 'preservim/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'romainl/vim-qf'
-Plug 'tomasr/molokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wellle/targets.vim'
@@ -150,20 +151,25 @@ call plug#end()
 " }}}
 " Colors {{{
 
-colorscheme molokai
+let ayucolor="dark"
+colorscheme ayu
 
 set t_ut=
-" Fix undercurl
+
+" IndentLine {{
+let g:indentLine_char = '⎸'
+let g:indentLine_first_char = 'x'
+" }}
+
+" " Fix undercurl
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
-hi SpellBad term=undercurl cterm=undercurl ctermbg=NONE gui=undercurl guisp=red
-
-hi TabLine term=NONE cterm=NONE gui=NONE
+hi SpellBad cterm=undercurl
 
 " }}}
 " Status line {{{
 
-hi User1 guifg=#AFD702 guibg=#3E3D32
+hi User1 guifg=#E6E1CF guibg=#253340
 
 " Reset
 set statusline=
@@ -255,5 +261,13 @@ fun! Start()
         \ norelativenumber
 endfun
 autocmd VimEnter * call Start()
+
+" Show cursorline, hide in insert mode
+set cursorline
+augroup CursorLine
+  autocmd!
+  au InsertEnter * set nocursorline
+  au InsertLeave * set cursorline
+augroup END
 
 " vim: set foldmethod=marker:
