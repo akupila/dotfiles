@@ -1,0 +1,42 @@
+ignore-empty-password
+
+color=000000
+ring-color=4B0082
+
+indicator-radius=32
+indicator-thickness=5
+
+ring-color=14191F
+ring-ver-color=FF7733
+ring-wrong-color=FF3333
+ring-clear-color=00000000
+inside-wrong-color=00000000
+inside-ver-color=00000000
+inside-clear-color=00000000
+key-hl-color=FF7733
+
+text-color=00000000
+text-clear-color=00000000
+text-caps-lock-color=00000000
+text-ver-color=00000000
+text-wrong-color=00000000
+
+# AYU
+# -------------------
+# Black        0F1419
+# Black 2      14191F
+# Black 3      2D3640
+# Gray         5C6773
+# Pink         F07178
+# Yellow       FFEE99
+# Dark yellow  E7C547
+# Blue         36A3D9
+# Blue 2       3E4B59
+# Pale Green   95E6CB
+# Olive        B8CC52
+# Light orange FFB454
+# Dark Orange  F29718
+# Pale orange  E6B673
+# Soft red     FF7733
+# Hard red     FF3333
+# Pale yellow  E6E1CF
