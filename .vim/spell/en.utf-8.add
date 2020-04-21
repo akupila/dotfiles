@@ -4,3 +4,5 @@ CloudFormation
 S3
 json
 Noop
+unicode
+cli
