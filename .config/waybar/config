@@ -45,12 +45,6 @@
         "on-click": "kitty -e nmtui",
         "tooltip": false
     },
-    "custom/wireguard": {
-        "format": "{}",
-        "interval": 1,
-        "exec": "bash ~/.config/waybar/scripts/wireguard.sh",
-        "on-click": "kitty -e bash ~/.config/waybar/scripts/wireguard-toggle.sh"
-    },
     "pulseaudio": {
         "format": "{icon}",
         "format-alt": "{volume} {icon}",
