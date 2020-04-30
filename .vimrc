@@ -132,6 +132,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
+Plug 'cespare/vim-go-templates'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
 Plug 'govim/govim', { 'for': 'go' }
