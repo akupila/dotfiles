@@ -120,6 +120,8 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 call plug#begin()
 
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
 Plug 'djoshea/vim-autoread'
@@ -133,7 +135,6 @@ Plug 'preservim/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'
 Plug 'romainl/vim-qf'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wellle/targets.vim'
