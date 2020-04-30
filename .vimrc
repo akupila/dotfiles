@@ -45,6 +45,14 @@ set wildmenu
 filetype plugin indent on
 
 " }}}
+" Indent {{{
+
+" Default
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" }}}
 " Clipboard {{{
 
 if has("mac")
