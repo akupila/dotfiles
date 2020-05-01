@@ -128,7 +128,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 call plug#begin()
 
-Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
@@ -165,11 +164,6 @@ let ayucolor="dark"
 colorscheme ayu
 
 set t_ut=
-
-" IndentLine {{
-let g:indentLine_char = '⎸'
-let g:indentLine_first_char = 'x'
-" }}
 
 " " Fix undercurl
 let &t_Cs = "\e[4:3m"
