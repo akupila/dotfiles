@@ -6,3 +6,5 @@ setlocal foldmethod=syntax
 setlocal foldlevel=99
 
 setlocal colorcolumn=120
+
+iabbrev 1= !=
