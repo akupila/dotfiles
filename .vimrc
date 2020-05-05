@@ -10,6 +10,7 @@ set completeopt=popup
 set completepopup=align:menu,border:off,highlight:Pmenu
 set encoding=utf-8
 set expandtab
+set foldopen-=search
 set formatoptions=tcqj
 set hidden
 set history=1000
@@ -138,6 +139,7 @@ Plug 'govim/govim', { 'for': 'go' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'obreitwi/vim-sort-folds'
 Plug 'pix/git-rebase-helper'
 Plug 'preservim/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'romainl/vim-qf'

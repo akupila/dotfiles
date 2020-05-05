@@ -6,3 +6,9 @@ json
 Noop
 unicode
 cli
+struct
+ARN
+aws
+arn
+KMS
+VPC
