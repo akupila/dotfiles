@@ -5,7 +5,7 @@ set autoread
 set background=dark
 set balloondelay=250
 set belloff=all
-set completeopt=menuone,noinsert,preview,popup
+set completeopt=menuone,longest,preview,popup
 set completepopup=align:menu,border:off,highlight:Pmenu
 set encoding=utf-8
 set expandtab
