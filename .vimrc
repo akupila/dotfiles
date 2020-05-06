@@ -54,20 +54,6 @@ set shiftwidth=4
 set softtabstop=4
 
 " }}}
-" Clipboard {{{
-
-if has("mac")
-  set clipboard=unnamed
-else
-  set clipboard=unnamedplus
-
-  if exists('$WAYLAND_DISPLAY') && executable('wl-copy') && executable('wl-paste')
-    xnoremap <silent> y y:call system("wl-copy", @")<cr>
-    nnoremap <silent> p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<CR>p
-  endif
-endif
-
-" }}}
 " Key remapping {{{
 
 " Use , as leader
@@ -133,6 +119,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
 Plug 'cespare/vim-go-templates'
+Plug 'christoomey/vim-system-copy'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
 Plug 'govim/govim', { 'for': 'go' }
