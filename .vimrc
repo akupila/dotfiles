@@ -1,22 +1,15 @@
 " General {{{
 
-set autoindent
-set autoread
 set background=dark
 set balloondelay=250
 set belloff=all
 set completeopt=menuone,longest,preview,popup
 set completepopup=align:menu,border:off,highlight:Pmenu
-set encoding=utf-8
 set expandtab
-set foldopen-=search
 set formatoptions=tcqj
 set hidden
-set history=1000
 set hlsearch
 set ignorecase
-set incsearch
-set laststatus=2
 set lazyredraw
 set list
 set listchars=tab:⎸\ ,trail:·,nbsp:⎵
@@ -27,20 +20,15 @@ set noswapfile
 set number
 set numberwidth=4
 set relativenumber
-set scrolloff=3
 set shortmess=aIc
 set signcolumn=yes
 set smartcase
 set smarttab
 set termguicolors
-set ttimeoutlen=50
 set ttyfast
 set undofile
 set updatetime=250
 set viminfo+=!
-set wildmenu
-
-filetype plugin indent on
 
 " }}}
 " Indent {{{
@@ -115,7 +103,6 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
-Plug 'cespare/vim-go-templates'
 Plug 'christoomey/vim-system-copy'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
@@ -123,13 +110,12 @@ Plug 'govim/govim', { 'for': 'go' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'obreitwi/vim-sort-folds'
 Plug 'pix/git-rebase-helper'
 Plug 'preservim/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'romainl/vim-qf'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wellle/targets.vim'
