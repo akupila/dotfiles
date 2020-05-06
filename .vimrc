@@ -5,8 +5,7 @@ set autoread
 set background=dark
 set balloondelay=250
 set belloff=all
-set complete-=i
-set completeopt=popup
+set completeopt=menuone,noinsert,preview,popup
 set completepopup=align:menu,border:off,highlight:Pmenu
 set encoding=utf-8
 set expandtab
@@ -135,14 +134,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wellle/targets.vim'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 call plug#end()
 
