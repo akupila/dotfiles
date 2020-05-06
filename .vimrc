@@ -20,7 +20,6 @@ set laststatus=2
 set lazyredraw
 set list
 set listchars=tab:⎸\ ,trail:·,nbsp:⎵
-set mouse=a
 set nobackup
 set nofsync
 set noshowmode
@@ -36,7 +35,6 @@ set smarttab
 set termguicolors
 set ttimeoutlen=50
 set ttyfast
-set ttymouse=sgr
 set undofile
 set updatetime=250
 set viminfo+=!
