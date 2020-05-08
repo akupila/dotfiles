@@ -3,7 +3,7 @@
 set background=dark
 set balloondelay=250
 set belloff=all
-set completeopt=menuone,longest,preview,popup
+set completeopt=menuone,preview,popup
 set completepopup=align:menu,border:off,highlight:Pmenu
 set expandtab
 set formatoptions=tcqj
