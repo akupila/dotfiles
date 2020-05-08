@@ -66,12 +66,6 @@ nnoremap Y y$
 nnoremap j gj
 nnoremap k gk
 
-" H and L move to beginning / end of line
-nnoremap H ^
-nnoremap L $
-vnoremap H ^
-vnoremap L $
-
 " Reload vimrc
 nnoremap <leader>cr :source $MYVIMRC<CR>:nohlsearch<CR>
 
