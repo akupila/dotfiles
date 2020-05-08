@@ -79,10 +79,6 @@ nnoremap <leader>cr :source $MYVIMRC<CR>:nohlsearch<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Tab: next buf, Shift-Tab prev buf
-nnoremap <silent> <Tab> :bnext<CR>
-nnoremap <silent> <S-Tab> :bprev<CR>
-
 " Highlight search without moving when using *
 nnoremap <silent> * :let start_pos = winsaveview()<CR>*:call winrestview(start_pos)<CR>
 
@@ -203,6 +199,7 @@ autocmd! BufReadPost * call RestorePos()
 " Don't move backwards with ESC
 autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 
+" Auto resize splits when terminal is resized
 autocmd! VimResized * wincmd =
 
 " Hide scratch from buffer list (created from autocomplete popup)
@@ -215,28 +212,6 @@ augroup Scratch
   autocmd!
   au BufEnter * call HideScratch()
 augroup END
-
-" Don't keep initial buffer around
-" https://vi.stackexchange.com/a/715
-fun! Start()
-    " Don't run if: we have commandline arguments, we don't have an empty
-    " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
-    if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
-        return
-    endif
-    enew
-    setlocal
-        \ bufhidden=wipe
-        \ buftype=nofile
-        \ nobuflisted
-        \ nocursorcolumn
-        \ nocursorline
-        \ nolist
-        \ nonumber
-        \ noswapfile
-        \ norelativenumber
-endfun
-autocmd VimEnter * call Start()
 
 " Show cursorline, hide in insert mode
 set cursorline
