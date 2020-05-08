@@ -96,6 +96,13 @@ nnoremap <leader>Q :bdelete!<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " }}}
+" Netrw {{{
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_winsize=25
+
+nnoremap <silent> <C-n> :Lexplore<CR>
+" }}}
 " Plugins {{{
 
 call plug#begin()
@@ -111,7 +118,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pix/git-rebase-helper'
-Plug 'preservim/nerdtree', { 'on': ['NERDTRee', 'NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
