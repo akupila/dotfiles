@@ -30,6 +30,8 @@ set ttyfast
 set undofile
 set updatetime=250
 set viminfo+=!
+set wildmenu
+set wildmode=longest:full,full
 
 " }}}
 " Indent {{{
