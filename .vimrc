@@ -187,6 +187,9 @@ fun! HideScratch()
   if (&bufhidden == 'wipe')
     setlocal nobuflisted
   endif
+  if (expand('%') == '')
+    setlocal nobuflisted
+  endif
 endfun
 augroup Scratch
   autocmd!
