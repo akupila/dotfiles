@@ -193,28 +193,6 @@ augroup Scratch
   au BufEnter * call HideScratch()
 augroup END
 
-" Don't keep initial buffer around
-" https://vi.stackexchange.com/a/715
-fun! Start()
-    " Don't run if: we have commandline arguments, we don't have an empty
-    " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
-    if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
-        return
-    endif
-    enew
-    setlocal
-        \ bufhidden=wipe
-        \ buftype=nofile
-        \ nobuflisted
-        \ nocursorcolumn
-        \ nocursorline
-        \ nolist
-        \ nonumber
-        \ noswapfile
-        \ norelativenumber
-endfun
-autocmd VimEnter * call Start()
-
 " Show cursorline, hide in insert mode
 set cursorline
 augroup CursorLine
