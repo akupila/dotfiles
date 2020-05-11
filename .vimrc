@@ -176,16 +176,6 @@ set statusline+=\
 " }}}
 " Autocommands {{{
 
-" Fast escape
-set notimeout
-set ttimeout
-set ttimeoutlen=10
-augroup FastEscape
-  autocmd!
-  au InsertEnter * set timeoutlen=0
-  au InsertLeave * set timeoutlen=1000
-augroup END
-
 " Remember location in file when opened
 fun! RestorePos()
     if &ft == 'gitrebase'
