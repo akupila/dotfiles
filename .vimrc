@@ -176,18 +176,6 @@ set statusline+=\
 " }}}
 " Autocommands {{{
 
-" Remember location in file when opened
-fun! RestorePos()
-    if &ft == 'gitrebase'
-        return
-    endif
-    if line("'\"") <= 0 || line("'\"") <= line("$")
-        return
-    endif
-    exec "normal! g'\""
-endfun
-autocmd! BufReadPost * call RestorePos()
-
 " Don't move backwards with ESC
 autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 
