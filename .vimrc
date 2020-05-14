@@ -106,7 +106,6 @@ nnoremap <silent> <C-n> :Lexplore<CR>
 
 call plug#begin()
 
-Plug 'airblade/vim-gitgutter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
 Plug 'christoomey/vim-system-copy'
