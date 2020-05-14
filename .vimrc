@@ -52,17 +52,11 @@ let g:mapleader = ","
 nnoremap Q <c-^>
 vnoremap Q <nop>
 
-" Exit insert and command mode with jk
-" This is not set up for visual mode as otherwise it'll delay moving
-" down when selecting text which is really annoying
+" Exit insert jk
 inoremap jk <Esc>
-cnoremap jk <C-c>
 
 " ; instead of : to enter command mode
 noremap ; :
-
-" Yank to end of line
-nnoremap Y y$
 
 " Move to line above/below even if line is wrapping
 nnoremap j gj
