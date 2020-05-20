@@ -166,9 +166,6 @@ set statusline+=\
 " }}}
 " Autocommands {{{
 
-" Don't move backwards with ESC
-autocmd! InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
-
 " Auto resize splits when terminal is resized
 autocmd! VimResized * wincmd =
 
