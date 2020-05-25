@@ -124,6 +124,7 @@ eval "$(jump shell zsh)"
 source /usr/bin/aws_zsh_completer.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 function gdoc() {
   if [ ! -f go.mod ]
