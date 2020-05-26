@@ -81,10 +81,6 @@ nnoremap <silent> * :let start_pos = winsaveview()<CR>*:call winrestview(start_p
 " Hide search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
-" Delete current buffer
-nnoremap <leader>q :bdelete<CR>
-nnoremap <leader>Q :bdelete!<CR>
-
 " Replace visual selection
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
@@ -105,6 +101,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'govim/govim', { 'for': 'go' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pix/git-rebase-helper'
 Plug 'tpope/vim-commentary'
