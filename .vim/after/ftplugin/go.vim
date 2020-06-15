@@ -1,5 +1,6 @@
 nnoremap <silent> <buffer> <Leader>r :GOVIMRename<CR>
-nnoremap <silent> <buffer> K :<C-u>call GOVIMHover()<CR>
+nnoremap <silent> <buffer> K         :<C-u>call GOVIMHover()<CR>
+nnoremap <silent> <buffer> <leader>K :GOVIMSuggestedFixes<CR>
 
 setlocal foldenable
 setlocal foldmethod=syntax
