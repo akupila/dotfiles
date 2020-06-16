@@ -39,10 +39,12 @@ output DP-2 pos 0 0
 output eDP-1 pos 720 1440
 
 ### Idle configuration
-bindsym       $mod+Control+l exec ~/scripts/mylock lock-now
-bindsym Shift+$mod+Control+l exec ~/scripts/mylock lock-off
-
-exec ~/scripts/mylock enable-lock
+exec swayidle -w \
+      timeout 600 'swaylock -f -c 000000' \
+      timeout 300 'swaymsg "output * dpms off"' \
+           resume 'swaymsg "output * dpms on"' \
+      before-sleep 'swaylock -f -c 000000'
+bindsym --release $mod+Control+l exec swaylock -f -c 000000
 
 ###
 
@@ -53,14 +55,14 @@ for_window [app_id="zenity"] floating enable
 
 # Keyboard
 input * {
-	repeat_delay 250
-	repeat_rate 80
+    repeat_delay 250
+    repeat_rate 80
 }
 
 # Trackpad
 input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
-	natural_scroll enabled
-	click_method clickfinger
+    natural_scroll enabled
+    click_method clickfinger
 }
 
 ### Key bindings
