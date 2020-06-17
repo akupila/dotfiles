@@ -5,6 +5,7 @@
         refs/heads
 [core]
 	excludesfile=~/.gitignore
+    pager = less -FRX
 [interactive]
 	# Enable single key interactions in patch add etc
 	singleKey = true
