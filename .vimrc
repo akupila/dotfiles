@@ -19,7 +19,6 @@ set noshowmode
 set noswapfile
 set number
 set numberwidth=4
-set path+=**
 set relativenumber
 set shortmess=aIc
 set signcolumn=yes
