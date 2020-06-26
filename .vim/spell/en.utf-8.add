@@ -16,3 +16,4 @@ HCL
 config
 func
 goroutine
+RPC
