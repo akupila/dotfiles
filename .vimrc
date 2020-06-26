@@ -3,7 +3,7 @@
 set background=dark
 set balloondelay=250
 set belloff=all
-set completeopt=menuone,preview,popup
+set completeopt=menuone,preview,popup,noselect
 set completepopup=align:menu,border:off,highlight:Pmenu
 set expandtab
 set formatoptions=tcqj
@@ -111,6 +111,16 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wellle/targets.vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 
 call plug#end()
 

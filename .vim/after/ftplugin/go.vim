@@ -15,4 +15,8 @@ setlocal spell spellcapcheck=
 iabbrev 1= !=
 iabbrev ;= :=
 
+call deoplete#custom#option('omni_patterns', {
+\ 'go': '[^. *\t]\.\w*',
+\})
+
 autocmd! CursorHoldI <buffer> :GOVIMExperimentalSignatureHelp
