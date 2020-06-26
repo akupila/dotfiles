@@ -15,4 +15,4 @@ setlocal spell spellcapcheck=
 iabbrev 1= !=
 iabbrev ;= :=
 
-autocmd! CursorHoldI * :GOVIMExperimentalSignatureHelp
+autocmd! CursorHoldI <buffer> :GOVIMExperimentalSignatureHelp
