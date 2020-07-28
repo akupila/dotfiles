@@ -100,6 +100,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'govim/govim', { 'for': 'go' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-dirvish'
 Plug 'moll/vim-bbye'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'ntpeters/vim-better-whitespace'
