@@ -84,10 +84,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " }}}
-" Netrw {{{
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-" }}}
 " Plugins {{{
 
 call plug#begin()
