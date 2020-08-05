@@ -101,6 +101,7 @@ Plug 'moll/vim-bbye'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pix/git-rebase-helper'
+Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
