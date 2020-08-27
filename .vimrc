@@ -1,8 +1,12 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 " General {{{
 
 set background=dark
 set balloondelay=250
 set belloff=all
+set clipboard=unnamed
 set completeopt=menuone,preview,popup,noselect
 set completepopup=align:menu,border:off,highlight:Pmenu
 set expandtab
@@ -31,6 +35,10 @@ set updatetime=250
 set viminfo+=!
 set wildmenu
 set wildmode=longest:full,full
+
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
 
 " }}}
 " Indent {{{
