@@ -31,10 +31,6 @@ export PATH=$PATH:~/.local/bin
 export GOPROXY=https://proxy.golang.org
 export GOPRIVATE=github.com/akupila
 
-# NPM / Yarn
-export PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
-
 ## Keybindings section
 bindkey -e
 bindkey '^[[7~' beginning-of-line                               # Home key
@@ -72,7 +68,6 @@ alias gla='git --no-pager log --max-count 30 --all --graph'
 alias gp='git log --stat --max-count=1 --format=medium'         # Show previous commit
 alias gd='git diff --ignore-all-space'
 alias gds='git diff --staged --ignore-all-space'
-alias rm='trash'
 alias vi='vim'
 alias goupdates='go list -u -m -json all | go-mod-outdated -update -direct'
 ## Aliases ignored from history
@@ -81,7 +76,7 @@ alias ...=' cd ...'
 alias l=' ls -alh'
 alias exit=" exit"
 
-# Theming section  
+# Theming section
 autoload -U compinit colors zcalc
 compinit -d
 colors
@@ -103,11 +98,17 @@ export LESS=-r
 
 
 ## Plugins section: Enable fish style features
-# Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-# bind UP and DOWN arrow keys to history substring search
+case `uname` in
+  Darwin)
+    source /usr/local/share/zsh-syntax-highlighting/highlighters
+    source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  ;;
+  Linux)
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+  ;;
+esac
+
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -119,10 +120,10 @@ bindkey '^[[B' history-substring-search-down
 eval "$(direnv hook zsh)"
 eval "$(jump shell zsh)"
 
-# Misg
+# Misc
 
 # AWS cli autocomplete
-source /usr/bin/aws_zsh_completer.sh
+[ -f /usr/bin/aws_zsh_completer.sh ] && source /usr/bin/aws_zsh_completer.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f'
@@ -149,3 +150,4 @@ function gocover() {
   rm $FILE
 }
 
+[ ~/.zshrc-local ] && source ~/.zshrc-local
