@@ -19,3 +19,9 @@ goroutine
 RPC
 url
 api
+firestore
+CircleCI
+dockertest
+ServeHTTP
+pubsub
+timestamp
