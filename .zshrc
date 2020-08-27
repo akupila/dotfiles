@@ -22,8 +22,9 @@ SAVEHIST=1000000
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 # Exports
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export LANG=en_US.UTF-8
+export EDITOR=vim
+export VISUAL=vim
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.local/bin
