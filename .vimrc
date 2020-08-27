@@ -105,10 +105,13 @@ Plug 'govim/govim', { 'for': 'go' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
+Plug 'leafgarland/typescript-vim'
 Plug 'moll/vim-bbye'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'pix/git-rebase-helper'
+Plug 'prettier/vim-prettier', { 'branch': 'release/0.x', 'do': 'npm install' }
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
