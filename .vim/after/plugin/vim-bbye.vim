@@ -1,1 +1,1 @@
-nnoremap <leader>gq :Bwipeout<CR>
+nnoremap <silent> <leader>gq :Bwipeout<CR>
