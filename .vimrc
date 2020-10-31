@@ -96,12 +96,13 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 call plug#begin()
 
+Plug 'tpope/vim-repeat'
 Plug 'ayu-theme/ayu-vim'
 Plug 'b4b4r07/vim-hcl'
 Plug 'christoomey/vim-system-copy'
 Plug 'djoshea/vim-autoread'
 Plug 'dyng/ctrlsf.vim'
-Plug 'govim/govim', { 'for': 'go' }
+Plug 'govim/govim', { 'for': 'go', 'branch': 'main' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
@@ -116,7 +117,6 @@ Plug 'prettier/vim-prettier', { 'branch': 'release/0.x', 'do': 'npm install' }
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
