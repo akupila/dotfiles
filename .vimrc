@@ -111,6 +111,7 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'pix/git-rebase-helper'
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prettier/vim-prettier', { 'branch': 'release/0.x', 'do': 'npm install' }
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-commentary'
@@ -120,18 +121,19 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'wellle/targets.vim'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
+Plug 'yami-beta/asyncomplete-omni.vim'
 
 call plug#end()
+
+function! Omni()
+    call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+                    \ 'name': 'omni',
+                    \ 'whitelist': ['go'],
+                    \ 'completor': function('asyncomplete#sources#omni#completor')
+                    \  }))
+endfunction
+
+au VimEnter * :call Omni()
 
 " }}}
 " Colors {{{
