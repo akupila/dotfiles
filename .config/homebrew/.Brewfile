@@ -20,3 +20,4 @@ brew "zsh-syntax-highlighting"
 
 cask "alacritty"
 cask "firefox"
+cask "gpg-suite"
