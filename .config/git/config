@@ -1,6 +1,26 @@
+[alias]
+  recent = for-each-ref \
+    --sort=-committerdate \
+    --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) (%(color:green)%(committerdate:relative)%(color:reset))' \
+    refs/heads
+  prev = log --stat --max-count=1 --format=medium
+  checkotu = checkout
 [commit]
   gpgsign = true
 [core]
   excludesfile=~/.config/git/ignore
 [init]
   defaultBranch = main
+[fetch]
+  prune = true
+[rebase]
+  autosquash = true
+  autostash = true
+[color]
+  ui = auto
+[format]
+  pretty=minimal
+[pretty]
+  # https://git-scm.com/docs/pretty-formats
+  minimal = %C(auto)%h %d %C(bold)%s%C(reset) %C(dim)(%cr)%C(reset)
+  reflog = %C(auto)%h %<|(17)%gd %C(green)%<|(49)%cd%Creset %C(bold)%gs%Creset
