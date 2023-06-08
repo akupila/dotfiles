@@ -1,4 +1,6 @@
-[init]
-  defaultBranch = main
 [commit]
   gpgsign = true
+[core]
+  excludesfile=~/.config/git/ignore
+[init]
+  defaultBranch = main
