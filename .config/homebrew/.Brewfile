@@ -1,9 +1,11 @@
-cask_args appdir: "/Applications", require_sha: true
-
 # Install:
 #   brew bundle --global
 # Sync (cleanup):
 #   brew bundle --global --force cleanup
+
+cask_args appdir: "/Applications", require_sha: true
+
+tap "homebrew/cask-fonts"
 
 brew "awscli"
 brew "gh"
@@ -22,3 +24,4 @@ cask "alacritty"
 cask "firefox"
 cask "gpg-suite"
 cask "rectangle"
+cask "font-sauce-code-pro-nerd-font"
