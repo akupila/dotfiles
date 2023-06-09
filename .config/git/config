@@ -3,10 +3,11 @@
     --sort=-committerdate \
     --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) (%(color:green)%(committerdate:relative)%(color:reset))' \
     refs/heads
-  prev = log --stat --max-count=1 --format=medium
   checkotu = checkout
 [commit]
   gpgsign = true
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
 [core]
   excludesfile=~/.config/git/ignore
 [init]
