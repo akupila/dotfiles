@@ -8,6 +8,7 @@ cask_args appdir: "/Applications", require_sha: true
 tap "homebrew/cask-fonts"
 
 brew "awscli"
+brew "fzf"
 brew "gh"
 brew "git"
 brew "go"
