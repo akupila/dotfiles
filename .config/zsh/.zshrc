@@ -36,6 +36,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 # Case-insensitive path-completion.
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+# Completion menu has colors.
+zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
 
 # Vi keys
 bindkey -e
