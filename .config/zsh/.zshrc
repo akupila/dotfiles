@@ -59,3 +59,6 @@ alias gp='git log --stat --max-count=1 --format=medium'
 alias grep='grep --color=auto'
 alias gs='git status'
 alias l='ls -alh'
+
+# Use FZF for search
+[ -f ${ZDOTDIR:-~}/.fzf.zsh ] && source ${ZDOTDIR:-~}/.fzf.zsh
