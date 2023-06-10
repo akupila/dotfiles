@@ -35,22 +35,20 @@ autoload -U compinit; compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 # Case-insensitive path-completion.
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # Vi keys
-bindkey -v
+bindkey -e
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey "^?" backward-delete-char                 # Fix backspace after normal mode
-# bindkey "^P" up-line-or-search
-# bindkey "^N" down-line-or-search
 
 # Edit line in $EDITOR
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey "^X^X" edit-command-line
 
 # Aliases
 alias ..='cd ..'
