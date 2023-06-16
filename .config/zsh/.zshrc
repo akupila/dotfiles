@@ -88,3 +88,7 @@ alias l='ls -alh'
 
 # Use FZF for search
 [ -f ${ZDOTDIR:-~}/.fzf.zsh ] && source ${ZDOTDIR:-~}/.fzf.zsh
+
+# Hooks
+eval "$(direnv hook zsh)"
+eval "$(jump shell zsh)"
