@@ -1,0 +1,55 @@
+window:
+  decorations: none
+  startup_mode: Maximized
+
+font:
+  size: 12.0
+  normal:
+    family: SauceCodePro Nerd Font
+    style: Regular
+
+# Colors (Ayu Dark)
+colors:
+  # Default colors
+  primary:
+    background: '0x0f1419'
+    foreground: '0xe6e1cf'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xf34a4a'
+    green:   '0xbae67e'
+    yellow:  '0xffee99'
+    blue:    '0x73d0ff'
+    magenta: '0xd4bfff'
+    cyan:    '0x83CEC6'
+    white:   '0xf2f2f2'
+
+  # Bright colors
+  bright:
+    black:   '0x737d87'
+    red:     '0xff3333'
+    green:   '0xc2d94c'
+    yellow:  '0xe7c547'
+    blue:    '0x59c2ff'
+    magenta: '0xb77ee0'
+    cyan:    '0x5ccfe6'
+    white:   '0xffffff'
+
+key_bindings:
+  # Pass through alt- keys to tmux
+  - { key: H, mods: Alt, Chars: "\x1bh" }
+  - { key: J, mods: Alt, Chars: "\x1bj" }
+  - { key: K, mods: Alt, Chars: "\x1bk" }
+  - { key: L, mods: Alt, Chars: "\x1bl" }
+  - { key: Key0, mods: Alt, chars: "\x1b0" }
+  - { key: Key1, mods: Alt, chars: "\x1b1" }
+  - { key: Key2, mods: Alt, chars: "\x1b2" }
+  - { key: Key3, mods: Alt, chars: "\x1b3" }
+  - { key: Key4, mods: Alt, chars: "\x1b4" }
+  - { key: Key5, mods: Alt, chars: "\x1b5" }
+  - { key: Key6, mods: Alt, chars: "\x1b6" }
+  - { key: Key7, mods: Alt, chars: "\x1b7" }
+  - { key: Key8, mods: Alt, chars: "\x1b8" }
+  - { key: Key9, mods: Alt, chars: "\x1b9" }
