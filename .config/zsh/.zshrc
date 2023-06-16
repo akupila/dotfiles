@@ -1,5 +1,29 @@
-# git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
+export LANG=en_US.UTF-8
+export EDITOR='nvim'
+export VISUAL='nvim'
+export DIFFPROG='nvim -d'
+export MANPAGER='nvim +Man!'
+export CLICOLOR=1
+
+eval $(brew shellenv)
+
+export GOPATH=$HOME/go
+export GOPRIVATE=github.com/akupila
+export AWS_VAULT_PROMPT=ykman
+export PATH=$PATH:$GOPATH/bin
+
+# 10ms timeout on ESC
+export KEYTIMEOUT=1
+
+# List colors
+# https://geoff.greer.fm/lscolors/
+export LSCOLORS=ExhxhxDxbxhxhxhxhxcxcx
+
+if [ ! -d ${ZDOTDIR:-~}/.antidote ]; then
+  git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
+fi
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
 antidote load
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
