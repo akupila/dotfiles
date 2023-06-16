@@ -5,7 +5,7 @@ export DIFFPROG='nvim -d'
 export MANPAGER='nvim +Man!'
 export CLICOLOR=1
 
-eval $(brew shellenv)
+eval $(/opt/homebrew/bin/brew shellenv)
 
 export GOPATH=$HOME/go
 export GOPRIVATE=github.com/akupila
